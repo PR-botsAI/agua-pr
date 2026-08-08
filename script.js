@@ -18,6 +18,7 @@ const fallbackLive = {
 };
 
 let resources = null;
+let currentData = null;
 let liveData = fallbackLive;
 let currentMunicipality = DEFAULT_MUNICIPALITY;
 let lastForecastLabel = 'Arecibo';
@@ -51,12 +52,52 @@ function zoneForMunicipality(name){
 }
 
 function localContacts(name){
-  return resources?.municipalContacts?.[name] || [];
+  const base = resources?.municipalContacts?.[name] || [];
+  const fresh = currentData?.municipalContacts?.[name] || [];
+  const combined = [...fresh,...base];
+  const seen = new Set();
+  return combined.filter(contact=>{
+    const key=`${contact.label}|${contact.phone}`;
+    if(seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function allWaterPoints(){
+  const combined=[...(currentData?.waterPoints||[]),...(resources?.waterPoints||[])];
+  const seen=new Set();
+  return combined.filter(point=>{
+    if(seen.has(point.id)) return false;
+    seen.add(point.id);
+    return true;
+  });
 }
 
 function preferredHelpContact(name){
   const contacts = localContacts(name);
   return contacts.find(c=>c.kind==='water') || contacts.find(c=>c.kind==='emergency') || contacts[0] || zoneForMunicipality(name);
+}
+
+function renderCurrentSituation(){
+  const crisis=currentData?.currentEmergency;
+  let panel=$('current-crisis');
+  if(!panel){
+    panel=document.createElement('div');
+    panel.id='current-crisis';
+    panel.className='crisis-card';
+    document.querySelector('.location-box')?.insertAdjacentElement('afterend',panel);
+  }
+  if(!crisis){ panel.classList.add('hidden'); return; }
+  panel.classList.remove('hidden');
+  const affected=crisis.affectedMunicipalities?.includes(currentMunicipality);
+  if(affected){
+    panel.className='crisis-card crisis-affected';
+    panel.innerHTML=`<div><span class="crisis-label">ALERTA PARA ${escapeHtml(currentMunicipality).toUpperCase()}</span><strong>${escapeHtml(crisis.title)}</strong><p>${escapeHtml(crisis.summary)}</p></div><div class="crisis-actions"><a class="btn btn-crisis" href="#agua">Buscar agua</a><a class="source-link crisis-source" href="${escapeHtml(crisis.source)}" target="_blank" rel="noopener">${escapeHtml(crisis.sourceLabel)}</a></div>`;
+  } else {
+    panel.className='crisis-card';
+    panel.innerHTML=`<div><span class="crisis-label">SITUACIÓN ACTUAL</span><strong>${escapeHtml(crisis.title)}</strong><p>${escapeHtml(crisis.affectedMunicipalities.join(', '))}. Si tu sistema cambia, H2O PR mostrará la actualización aquí.</p></div><a class="source-link" href="${escapeHtml(crisis.source)}" target="_blank" rel="noopener">${escapeHtml(crisis.sourceLabel)}</a>`;
+  }
 }
 
 function setMunicipality(name,{announce=false,scroll=false}={}){
@@ -65,6 +106,7 @@ function setMunicipality(name,{announce=false,scroll=false}={}){
   const select = $('municipality-select');
   if(select) select.value = name;
   $$('[data-municipality]').forEach(el=>el.textContent=name);
+  renderCurrentSituation();
   renderWaterPoints();
   renderContacts();
   const coords = MUNICIPAL_COORDS[name];
@@ -93,7 +135,7 @@ function pointBadge(point){
 
 function renderWaterPoints(){
   if(!resources) return;
-  const points = resources.waterPoints.filter(point=>point.municipality===currentMunicipality);
+  const points = allWaterPoints().filter(point=>point.municipality===currentMunicipality);
   const list = $('water-points');
   const empty = $('no-water-points');
   const warning = $('water-warning');
@@ -258,7 +300,7 @@ async function loadNws(lat,lon,label='Tu ubicación'){
 
 function waterSummary(name=currentMunicipality){
   if(!resources) return 'Los recursos todavía están cargando.';
-  const points=resources.waterPoints.filter(point=>point.municipality===name);
+  const points=allWaterPoints().filter(point=>point.municipality===name);
   if(!points.length){
     const help=preferredHelpContact(name);
     return `No tengo un oasis confirmado para ${name}. Para no enviarte a un lugar equivocado, llama ${help?.phone||resources.nmead.centralPhone} y pregunta dónde están entregando agua hoy.`;
@@ -444,15 +486,17 @@ function setupControls(){
 }
 
 async function loadData(){
-  const [resourcesResult,liveResult]=await Promise.allSettled([
+  const [resourcesResult,currentResult,liveResult]=await Promise.allSettled([
     fetch(`./data/resources.json?v=${Date.now()}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}),
+    fetch(`./data/current.json?v=${Date.now()}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}),
     fetch(`./data/live.json?v=${Date.now()}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()})
   ]);
   if(resourcesResult.status==='fulfilled') resources=resourcesResult.value;
   else throw new Error('No se pudo cargar el registro de recursos de emergencia.');
+  if(currentResult.status==='fulfilled') currentData=currentResult.value;
   if(liveResult.status==='fulfilled') liveData={...fallbackLive,...liveResult.value};
 
-  $('resources-updated').textContent=formatDateTime(resources.updatedAt);
+  $('resources-updated').textContent=formatDateTime(currentData?.checkedAt||resources.updatedAt);
   $('app-updated').textContent=formatDateTime(liveData.updatedAt);
   populateMunicipalities();
   renderSuppliers();
