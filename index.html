@@ -1,509 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es-PR">
 <head>
-<!-- BASE:START (managed by Coding Agent — do not edit) -->
-<base href="/agua-pr/">
-<!-- BASE:END -->
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0066CC">
-  <meta name="color-scheme" content="light">
-  
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-
-<!-- SEO Meta Tags -->
-<title>Agua PR — Estado del agua, distribución y ayuda en Arecibo</title>
-<meta name="description" content="Aplicación accesible de bajo consumo de datos con información en vivo sobre servicio de agua, racionamiento, distribución, lluvia, embalses y contactos oficiales para Arecibo, Puerto Rico." />
-<meta property="og:title" content="Agua PR — Estado del agua, distribución y ayuda en Arecibo" />
-<meta property="og:description" content="Aplicación accesible de bajo consumo de datos con información en vivo sobre servicio de agua, racionamiento, distribución, lluvia, embalses y contactos oficiales para Arecibo, Puerto Rico." />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Agua PR — Estado del agua, distribución y ayuda en Arecibo" />
-<meta name="twitter:description" content="Aplicación accesible de bajo consumo de datos con información en vivo sobre servicio de agua, racionamiento, distribución, lluvia, embalses y contactos oficiales para Arecibo, Puerto Rico." />
-<!-- End SEO Meta Tags -->
-<meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/6034/sheet-data">
-<script data-lp-token-hydrate>
-(function(){try{
-  var slug="lp-msjwcuff-23nfp";
-  var SITEK="";
-  var SK='lp_access_'+slug;
-  var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
-  function siteTok(){try{return SITEK?localStorage.getItem(SITEK):null;}catch(e){return null;}}
-  var u=new URL(location.href);var found=null;var changed=false;
-  var PINP=true;
-  if(!PINP){try{localStorage.removeItem('lp_pin_'+slug);if(SITEK)localStorage.removeItem(SITEK);}catch(e){}}
-  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{if(PINP||p!=='pin_access_token'){localStorage.setItem(map[p]+slug,v);if(SITEK&&p==='pin_access_token')localStorage.setItem(SITEK,v);}}catch(e){}u.searchParams.delete(p);changed=true;}});
-  if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
-  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
-  if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
-  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();}catch(e){return null;}}
-  function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
-  if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
-  if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
-}catch(e){}})();
-</script>
-
-<script data-field-replace>
-(function(){
-  var params=new URLSearchParams(window.location.search);
-  var fields={};
-  var paramMap={
-    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
-    'email':'email','phone':'phone','company':'company',
-    'city':'city','state':'state','country':'country'
-  };
-  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
-  var hasUrlFields=false;
-  for(var p in paramMap){
-    var v=params.get(p);
-    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
-  }
-  var contactId=params.get('contact_id');
-  function esc(s){
-    if(!s)return s;
-    var d=document.createElement('div');
-    d.appendChild(document.createTextNode(s));
-    return d.innerHTML;
-  }
-  function doReplace(data){
-    var r={};
-    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
-    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
-    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
-    r['{{email}}']=esc(data.email||'');
-    r['{{phone}}']=esc(data.phone||'');
-    r['{{company}}']=esc(data.company||'');
-    r['{{city}}']=esc(data.city||'');
-    r['{{state}}']=esc(data.state||'');
-    r['{{country}}']=esc(data.country||'');
-    r['{{date}}']=new Date().toLocaleDateString();
-    r['{{time}}']=new Date().toLocaleTimeString();
-    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
-    r['{{tracking_id}}']=esc(data.trackingId||'');
-    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
-    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
-    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
-    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
-    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
-    r['{{ip_address}}']=esc(data.ipAddress||'');
-    r['{{ip}}']=esc(data.ipAddress||'');
-    if(data.customFields){
-      for(var k in data.customFields){
-        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
-      }
-    }
-    params.forEach(function(v,k){
-      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
-        r['{{'+k+'}}']=esc(v);
-      }
-    });
-    var hasValues=false;
-    for(var key in r){if(r[key]){hasValues=true;break;}}
-    if(!hasValues)return;
-    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
-      acceptNode:function(n){
-        var p=n.parentNode;
-        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
-    var node;
-    while(node=walker.nextNode()){
-      var txt=node.nodeValue;
-      if(txt&&txt.indexOf('{{')>-1){
-        var changed=txt;
-        for(var ph in r){
-          if(r[ph]&&changed.indexOf(ph)>-1){
-            changed=changed.split(ph).join(r[ph]);
-          }
-        }
-        if(changed!==txt)node.nodeValue=changed;
-      }
-    }
-    var attrs=['value','placeholder','content','alt','title'];
-    attrs.forEach(function(attr){
-      var els=document.querySelectorAll('['+attr+'*="{{"]');
-      for(var i=0;i<els.length;i++){
-        var tag=els[i].tagName;
-        if(skipTags[tag])continue;
-        var val=els[i].getAttribute(attr);
-        if(val){
-          var nv=val;
-          for(var ph in r){
-            if(r[ph]&&nv.indexOf(ph)>-1){
-              nv=nv.split(ph).join(r[ph]);
-            }
-          }
-          if(nv!==val)els[i].setAttribute(attr,nv);
-        }
-      }
-    });
-  }
-  function run(){
-    if(contactId){
-      var xhr=new XMLHttpRequest();
-      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=6034');
-      xhr.onload=function(){
-        if(xhr.status===200){
-          try{
-            var resp=JSON.parse(xhr.responseText);
-            if(resp.success&&resp.contact){
-              var merged=resp.contact;
-              for(var k in fields){merged[k]=fields[k];}
-              doReplace(merged);
-              return;
-            }
-          }catch(e){}
-        }
-        if(hasUrlFields)doReplace(fields);
-      };
-      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
-      xhr.send();
-    }else if(hasUrlFields){
-      doReplace(fields);
-    }
-  }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
-  else{run();}
-})();
-</script>
-<script data-payment>
-(function(){
-  var slug='yikQrWrwS';
-  var apiBase='https://paymegpt.com';
-  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
-  function findEmail(){
-    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
-    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
-    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
-    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
-    return '';
-  }
-  function findName(){
-    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
-    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
-    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
-    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
-    return '';
-  }
-  function findPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
-  var __realProcessPayment=function(a,b,c,d,e){
-    var amountCents,email,productName,productDescription,customerName,quantity;
-    if(a&&typeof a==='object'){
-      amountCents=a.amountCents;email=a.email;productName=a.productName;
-      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
-    }else{
-      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
-      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
-    }
-    if(!email)email=findEmail();
-    if(!customerName)customerName=findName();
-    var phone=findPhone();
-    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
-    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
-    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
-    var successBase=window.location.href.split('?')[0];
-    var __pLoc=(document.documentElement.lang||navigator.language||'en');
-    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:customerName,phone:phone||'',amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
-    }).then(function(r){return r.json();}).then(function(d){
-      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
-      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
-    });
-  };
-  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
-  document.addEventListener('DOMContentLoaded',function(){
-    var urlParams=new URLSearchParams(window.location.search);
-    if(urlParams.get('payment')==='success'){
-      var sidP=urlParams.get('session_id');
-      if(sidP){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidP})}).catch(function(){});}catch(e){}}
-      var pName=urlParams.get('product')||'your item';
-      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
-      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
-      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
-      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
-      document.body.appendChild(overlay);
-      var pBtn=document.getElementById('lp-pay-success-btn');
-      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
-    }
-  });
-})();
-</script>
-<script data-cart>
-(function(){
-  var slug='yikQrWrwS';
-  var apiBase='https://paymegpt.com';
-  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
-  function findCartEmail(){
-    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
-    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
-    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
-    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
-    return '';
-  }
-  function findCartName(){
-    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
-    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
-    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
-    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
-    return '';
-  }
-  function findCartPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
-  var __realCart=function(arg){
-    var items, email='', customerName='', successUrl, cancelUrl, currency;
-    if(Array.isArray(arg)){items=arg;}
-    else if(arg&&typeof arg==='object'){
-      items=arg.items;email=arg.email||'';customerName=arg.name||arg.customerName||'';
-      successUrl=arg.successUrl;cancelUrl=arg.cancelUrl;currency=arg.currency;
-    }
-    if(!Array.isArray(items)||items.length===0){alert('No items in cart.');return Promise.reject('no_items');}
-    var cleanItems=[];var totalCents=0;
-    for(var i=0;i<items.length;i++){
-      var it=items[i];if(!it||typeof it!=='object'){alert('Invalid item at position '+i);return Promise.reject('bad_item');}
-      var nm=typeof it.name==='string'?it.name.trim():'';
-      if(!nm){alert('Item '+(i+1)+' is missing a name.');return Promise.reject('no_name');}
-      var amt=typeof it.amountCents==='number'?it.amountCents:(typeof it.amount==='number'?Math.round(it.amount*100):NaN);
-      if(!isFinite(amt)||amt<1){alert('Item "'+nm+'" needs a valid amount in cents.');return Promise.reject('bad_amount');}
-      var qty=(typeof it.quantity==='number'&&it.quantity>0)?Math.floor(it.quantity):1;
-      cleanItems.push({name:nm,description:it.description||'',amountCents:amt,quantity:qty});
-      totalCents+=amt*qty;
-    }
-    if(totalCents<50){alert('Cart total must be at least $0.50');return Promise.reject('total_too_low');}
-    if(!email)email=findCartEmail();
-    if(!customerName)customerName=findCartName();
-    var cartPhone=findCartPhone();
-    if(!email){var p=window.prompt('Enter your email for the receipt:','');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert('An email address is required to complete checkout.');return Promise.reject('no_email');}}
-    var successBase=window.location.href.split('?')[0];
-    var body={email:email,name:customerName,items:cleanItems,locale:(document.documentElement.lang||navigator.language||'en')};
-    if(currency)body.currency=currency;
-    if(cartPhone)body.phone=cartPhone;
-    body.successUrl=successUrl||(successBase+'?cart=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}');
-    body.cancelUrl=cancelUrl||(successBase+'?cart=cancelled');
-    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/cart/checkout',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(body)
-    }).then(function(r){return r.json();}).then(function(d){
-      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
-      else{alert(d.error||'Failed to process checkout');throw new Error(d.error);}
-    });
-  };
-  try{Object.defineProperty(window,'__processCart',{value:__realCart,writable:false,configurable:false});}catch(e){window.__processCart=__realCart;}
-  document.addEventListener('DOMContentLoaded',function(){
-    var urlParams=new URLSearchParams(window.location.search);
-    if(urlParams.get('cart')==='success'){
-      var sidC=urlParams.get('session_id');
-      if(sidC){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidC})}).catch(function(){});}catch(e){}}
-      if(document.getElementById('payment-success-overlay')||document.getElementById('donation-success-overlay')||document.getElementById('cart-success-overlay'))return;
-      var overlay=document.createElement('div');overlay.id='cart-success-overlay';
-      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
-      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-      var subTxt=successSubtext||'Thank you for your order.';
-      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Order Confirmed!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-cart-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
-      document.body.appendChild(overlay);
-      var cBtn=document.getElementById('lp-cart-success-btn');
-      if(cBtn){cBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
-    }
-  });
-})();
-</script>  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#064e6b">
+  <title>H2O PR — Agua, clima y ayuda en Puerto Rico</title>
+  <meta name="description" content="H2O PR reúne información oficial y comunitaria sobre agua en Puerto Rico: embalses AAA, clima NWS, reportes y contactos de ayuda.">
+  <meta property="og:title" content="H2O PR — Información de agua en Puerto Rico">
+  <meta property="og:description" content="Datos oficiales y comunitarios sobre agua, embalses, clima y ayuda en Puerto Rico.">
+  <link rel="stylesheet" href="./styles.css">
 </head>
-<body class="antialiased">
-  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
-
-  <!-- ========================================================================== -->
-  <!-- ENCABEZADO: Identidad, idioma y estado de conexión                         -->
-  <!-- ========================================================================== -->
-  <header data-section="header" class="bg-[#003B5C] text-white">
-    <div class="content-wrap px-4 py-4 md:px-8">
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <p class="text-2xl font-black tracking-wide">AGUA PR</p>
-          <p class="text-base font-semibold text-blue-100">Información de agua en PR</p>
-        </div>
-        <button type="button" class="rounded-lg border-2 border-white px-3 py-2 text-sm font-bold" aria-label="Selector de idioma; inglés estará disponible en el futuro">
-          <span aria-current="true">Español</span> <span aria-hidden="true">|</span> <span class="text-blue-200">English</span>
-        </button>
-      </div>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="./" aria-label="H2O PR inicio">
+        <span class="drop" aria-hidden="true">💧</span>
+        <span><strong>H2O PR</strong><small>h20pr.com · información de agua en Puerto Rico</small></span>
+      </a>
+      <span class="live-pill"><i></i> DATOS EN VIVO</span>
     </div>
   </header>
 
-  <!-- ========================================================================== -->
-  <!-- CONEXIÓN: Aviso persistente cuando se muestran datos guardados              -->
-  <!-- ========================================================================== -->
-  <aside data-section="connection-status" id="offline-notice" class="hidden border-b-4 border-[#A15C00] bg-[#FFF4E5]" role="status" aria-live="polite">
-    <div class="content-wrap px-4 py-4 md:px-8">
-      <p class="font-black text-[#704000]">Sin conexión</p>
-      <p class="mt-1 text-base font-semibold text-[#5B3500]">Esta información fue guardada en este dispositivo. Puede haber cambiado. Llame antes de trasladarse.</p>
-    </div>
-  </aside>
-
-  <!-- ========================================================================== -->
-  <!-- UBICACIÓN: Municipio piloto y permiso opcional de geolocalización           -->
-  <!-- ========================================================================== -->
-  <section data-section="location-selector" class="border-b border-slate-300 bg-white">
-    <div class="content-wrap px-4 py-5 md:px-8">
-      <div class="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
-        <label class="block font-black text-[#003B5C]">
-          ¿Dónde estás?
-          <select id="municipality" class="mt-2 w-full rounded-lg border-2 border-slate-500 bg-white px-4 text-lg font-bold text-[#17202A]">
-            <option selected>Arecibo</option>
-          </select>
-        </label>
-        <button id="location-btn" type="button" class="w-full rounded-lg border-2 border-[#0066CC] bg-white px-5 font-black text-[#0057AD] md:w-auto" aria-describedby="location-help">
-          Usar mi ubicación
-        </button>
+  <main class="wrap">
+    <section class="location-panel" aria-labelledby="location-title">
+      <div>
+        <p class="eyebrow">TU ÁREA</p>
+        <h1 id="location-title">Arecibo</h1>
+        <p id="location-copy">Mostrando fuentes disponibles para Arecibo y datos oficiales de Puerto Rico.</p>
       </div>
-      <p id="location-help" class="mt-2 text-base text-slate-700">Solo se solicitará permiso al presionar el botón. Este piloto muestra información de Arecibo.</p>
-      <p id="location-result" class="mt-2 hidden font-bold" role="status"></p>
-    </div>
-  </section>
+      <button id="locate-btn" class="button secondary" type="button">Usar mi ubicación</button>
+    </section>
 
-  <main id="main-content" class="safe-bottom content-wrap px-4 py-6 md:px-8">
-    <div class="dashboard-grid">
-      <div class="space-y-5">
-        <!-- ==================================================================== -->
-        <!-- ESTADO PRINCIPAL: Estado actual leído desde la hoja enlazada          -->
-        <!-- ==================================================================== -->
-        <section data-section="current-status" id="inicio" aria-labelledby="status-heading">
-          <div id="status-card" class="panel status-pending p-5 shadow-sm">
-            <div class="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <p class="text-sm font-black uppercase tracking-wide text-[#704000]">Su comunidad · Arecibo</p>
-                <h1 id="status-heading" class="mt-1 text-3xl font-black leading-tight text-[#003B5C]">Información pendiente de confirmar</h1>
-              </div>
-              <span id="status-code" class="chip bg-[#FFF0D5] text-[#704000]">PENDIENTE</span>
-            </div>
-            <div id="sheet-data" class="mt-4" aria-live="polite" aria-busy="true"></div>
-            <div id="menu-error" class="hidden mt-4 rounded-lg border-2 border-[#A15C00] bg-[#FFF4E5] p-4 text-[#5B3500]" role="alert">
-              <p class="font-black">No pudimos cargar la información en vivo.</p>
-              <p class="mt-1 text-base">Se mostrará la última copia guardada si está disponible. Verifique información crítica con fuentes oficiales.</p>
-            </div>
+    <div id="stale-banner" class="banner warning hidden" role="status"></div>
+
+    <section class="hero-grid">
+      <article class="card status-card">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">ESTADO DEL SERVICIO</p>
+            <h2 id="service-title">Buscando información oficial…</h2>
           </div>
-        </section>
+          <span id="service-chip" class="chip neutral">VERIFICANDO</span>
+        </div>
+        <p id="service-copy" class="lead">No asumimos que hay agua cuando no existe un feed oficial confirmado.</p>
+        <div id="service-updates" class="source-list"></div>
+        <p class="fineprint">Importante: que no aparezca un comunicado reciente de AAA no confirma que su residencia tenga servicio.</p>
+      </article>
 
-        <!-- ==================================================================== -->
-        <!-- ACCIONES: Accesos grandes a las tareas principales                    -->
-        <!-- ==================================================================== -->
-        <section data-section="primary-actions" aria-labelledby="actions-heading">
-          <h2 id="actions-heading" class="text-xl font-black text-[#003B5C]">¿Qué necesita saber?</h2>
-          <div class="mt-3 grid gap-3 sm:grid-cols-2">
-            <a href="#racionamiento" class="flex items-center justify-between rounded-xl bg-[#0066CC] px-5 py-3 font-black text-white"><span>¿CUÁNDO TENDRÉ AGUA?</span><span aria-hidden="true">›</span></a>
-            <a href="#puntos-agua" class="flex items-center justify-between rounded-xl bg-[#16803C] px-5 py-3 font-black text-white"><span>ENCUENTRA AGUA</span><span aria-hidden="true">›</span></a>
-            <a href="#pronostico" class="flex items-center justify-between rounded-xl bg-[#003B5C] px-5 py-3 font-black text-white"><span>¿VA A LLOVER?</span><span aria-hidden="true">›</span></a>
-            <a href="#embalses" class="flex items-center justify-between rounded-xl bg-[#003B5C] px-5 py-3 font-black text-white"><span>NIVEL DE EMBALSES</span><span aria-hidden="true">›</span></a>
-            <a href="#ayuda" class="flex items-center justify-between rounded-xl bg-[#B42318] px-5 py-3 font-black text-white sm:col-span-2"><span>NECESITO AYUDA</span><span aria-hidden="true">›</span></a>
-          </div>
-        </section>
+      <aside class="stack">
+        <article class="card compact">
+          <p class="eyebrow">AYUDA OFICIAL</p>
+          <h2>AAA</h2>
+          <a class="call-button" href="tel:+17876202482">Llamar 787-620-2482</a>
+          <p>Centro de Servicio al Cliente · 6:00 a. m.–11:00 p. m. · todos los días.</p>
+          <a class="text-link" href="https://www.acueductos.pr.gov/servicios/centro-telefonico" target="_blank" rel="noopener">Ver fuente oficial ↗</a>
+        </article>
 
-        <!-- ==================================================================== -->
-        <!-- RACIONAMIENTO: Horarios verificados disponibles en la hoja            -->
-        <!-- ==================================================================== -->
-        <section data-section="rationing" id="racionamiento" class="panel p-5" aria-labelledby="rationing-heading">
-          <h2 id="rationing-heading" class="text-2xl font-black text-[#003B5C]">¿Cuándo tendré agua?</h2>
-          <p class="mt-1 text-slate-700">Horarios de racionamiento para Arecibo.</p>
-          <div id="rationing-data" class="data-list mt-4"></div>
-        </section>
+        <article class="card compact">
+          <p class="eyebrow">REPORTES COMUNITARIOS</p>
+          <h2>Repórtalo San Juan</h2>
+          <p>Mapa municipal de comunidades que reportan interrupciones. <strong>Cubre San Juan, no Arecibo.</strong></p>
+          <a class="button full" href="https://www.reportalosj.com/mapa" target="_blank" rel="noopener">Abrir mapa de San Juan ↗</a>
+        </article>
+      </aside>
+    </section>
 
-        <!-- ==================================================================== -->
-        <!-- PUNTOS DE AGUA: Lista primero; mapa opcional sin biblioteca externa   -->
-        <!-- ==================================================================== -->
-        <section data-section="water-points" id="puntos-agua" class="panel p-5" aria-labelledby="points-heading">
-          <div class="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <h2 id="points-heading" class="text-2xl font-black text-[#003B5C]">Busque agua aquí</h2>
-              <p class="mt-1 text-slate-700">Puntos de distribución verificados.</p>
-            </div>
-            <div class="flex rounded-lg border-2 border-[#0066CC]" role="group" aria-label="Vista de puntos de agua">
-              <button id="list-view-btn" type="button" class="bg-[#0066CC] px-4 font-black text-white" aria-pressed="true">Lista</button>
-              <button id="map-view-btn" type="button" class="bg-white px-4 font-black text-[#0057AD]" aria-pressed="false">Mapa</button>
-            </div>
-          </div>
-          <div id="water-points-data" class="data-list mt-4"></div>
-          <div id="map-placeholder" class="mt-4 hidden rounded-xl border-2 border-dashed border-slate-500 bg-slate-100 p-6 text-center" role="region" aria-label="Vista de mapa ligera">
-            <p class="font-black text-[#003B5C]">Vista de mapa no cargada</p>
-            <p class="mt-2 text-base">Para ahorrar datos, Agua PR no descarga un mapa automáticamente. Use la lista de direcciones verificadas.</p>
-          </div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- PRONÓSTICO: Datos meteorológicos enlazados                            -->
-        <!-- ==================================================================== -->
-        <section data-section="forecast" id="pronostico" class="panel p-5" aria-labelledby="forecast-heading">
-          <h2 id="forecast-heading" class="text-2xl font-black text-[#003B5C]">¿Va a llover?</h2>
-          <div id="forecast-data" class="data-list mt-4"></div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- EMBALSES: Niveles reales disponibles en la hoja                       -->
-        <!-- ==================================================================== -->
-        <section data-section="reservoirs" id="embalses" class="panel p-5" aria-labelledby="reservoir-heading">
-          <h2 id="reservoir-heading" class="text-2xl font-black text-[#003B5C]">Nivel de embalses</h2>
-          <div id="reservoir-data" class="data-list mt-4"></div>
-        </section>
+    <section class="section-block" id="embalses">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">AAA · MONITOREO DIARIO</p>
+          <h2>Niveles de embalses</h2>
+        </div>
+        <span id="reservoir-time" class="timestamp">Cargando…</span>
       </div>
+      <article class="card reservoir-card">
+        <div id="reservoir-loading" class="loading">Buscando la gráfica oficial más reciente de AAA…</div>
+        <img id="reservoir-chart" class="reservoir-chart hidden" alt="Gráfica oficial de niveles de embalses de la Autoridad de Acueductos y Alcantarillados" loading="lazy">
+        <div class="source-row">
+          <p>La gráfica es publicada por AAA. Los valores están en metros sobre el nivel del mar y la diferencia se calcula contra la lectura de las 5:00 a. m. del día anterior.</p>
+          <a class="button secondary" href="https://www.acueductos.pr.gov/infraestructura/niveles-de-los-embalses" target="_blank" rel="noopener">Fuente AAA ↗</a>
+        </div>
+      </article>
+    </section>
 
-      <div class="mt-5 space-y-5 md:mt-0">
-        <!-- ==================================================================== -->
-        <!-- ALERTAS: Distingue información confirmada y no confirmada             -->
-        <!-- ==================================================================== -->
-        <section data-section="alerts" class="panel p-5" aria-labelledby="alerts-heading">
-          <h2 id="alerts-heading" class="text-2xl font-black text-[#003B5C]">Alertas</h2>
-          <div id="alerts-data" class="data-list mt-4"></div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- AYUDA: Contactos oficiales sin números inventados                     -->
-        <!-- ==================================================================== -->
-        <section data-section="help" id="ayuda" class="panel p-5" aria-labelledby="help-heading">
-          <h2 id="help-heading" class="text-2xl font-black text-[#003B5C]">Necesito ayuda</h2>
-          <p class="mt-1 text-slate-700">Contactos verificados para reportar averías o solicitar orientación.</p>
-          <div id="contacts-data" class="data-list mt-4"></div>
-        </section>
-
-        <!-- ==================================================================== -->
-        <!-- CONFIANZA: Explica cómo interpretar la información                    -->
-        <!-- ==================================================================== -->
-        <section data-section="trust-guide" class="rounded-xl border-2 border-[#0066CC] bg-[#EAF4FF] p-5" aria-labelledby="trust-heading">
-          <h2 id="trust-heading" class="text-xl font-black text-[#003B5C]">Antes de trasladarse</h2>
-          <ul class="mt-3 list-disc space-y-2 pl-6 text-base text-[#17202A]">
-            <li>Revise la fuente y la hora de actualización.</li>
-            <li>Una publicación comunitaria no equivale a confirmación oficial.</li>
-            <li>Llame antes de viajar a un punto de distribución.</li>
-          </ul>
-        </section>
+    <section class="section-block" id="clima">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">NATIONAL WEATHER SERVICE · SAN JUAN</p>
+          <h2>¿Va a llover?</h2>
+        </div>
+        <span id="weather-time" class="timestamp">Cargando…</span>
       </div>
-    </div>
+      <div id="weather-grid" class="weather-grid">
+        <article class="card loading">Cargando pronóstico oficial para Arecibo…</article>
+      </div>
+      <div id="weather-alerts" class="alerts-list"></div>
+      <p class="fineprint">Pronóstico obtenido de api.weather.gov. La probabilidad de lluvia no indica cuánto tiempo lloverá ni cuánta agua caerá.</p>
+    </section>
+
+    <section class="section-block">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">FUENTES Y TRANSPARENCIA</p>
+          <h2>Qué sabemos y qué no</h2>
+        </div>
+      </div>
+      <div class="truth-grid">
+        <article class="card truth good"><strong>Datos reales</strong><p>Embalses AAA, teléfono AAA y pronóstico/alertas NWS.</p></article>
+        <article class="card truth"><strong>Dato externo</strong><p>Repórtalo SJ sirve para reportes comunitarios dentro de San Juan.</p></article>
+        <article class="card truth caution"><strong>Aún falta</strong><p>AAA no expone aquí un feed público simple que confirme “tiene/no tiene agua” por dirección. No inventamos ese estado.</p></article>
+      </div>
+    </section>
+
+    <section class="sources-card">
+      <strong>Última actualización de H2O PR:</strong> <span id="app-updated">—</span>
+      <span> · </span>
+      <a href="https://github.com/PR-botsAI/agua-pr" target="_blank" rel="noopener">Código y fuentes en GitHub ↗</a>
+    </section>
   </main>
 
-  <!-- ========================================================================== -->
-  <!-- PIE: Alcance del piloto y advertencia de verificación                       -->
-  <!-- ========================================================================== -->
-  <footer data-section="footer" class="mb-20 border-t border-slate-300 bg-white md:mb-16">
-    <div class="content-wrap px-4 py-6 text-center text-base font-semibold text-slate-700 md:px-8">
-      Agua PR — piloto Arecibo. Verifique información crítica con fuentes oficiales.
+  <footer>
+    <div class="wrap footer-inner">
+      <strong>H2O PR</strong>
+      <span>Información crítica debe confirmarse con la fuente oficial.</span>
     </div>
   </footer>
 
-  <!-- ========================================================================== -->
-  <!-- NAVEGACIÓN INFERIOR: Solo cuatro destinos dentro de esta aplicación         -->
-  <!-- ========================================================================== -->
-  <nav data-section="bottom-navigation" class="bottom-safe fixed inset-x-0 bottom-0 z-40 border-t-2 border-slate-300 bg-white" aria-label="Navegación principal">
-    <div class="mx-auto grid max-w-2xl grid-cols-4">
-      <a href="#inicio" class="flex min-h-[64px] flex-col items-center justify-center px-1 text-sm font-black text-[#0057AD]"><span aria-hidden="true">⌂</span><span>Inicio</span></a>
-      <a href="#puntos-agua" class="flex min-h-[64px] flex-col items-center justify-center px-1 text-sm font-black text-[#003B5C]"><span aria-hidden="true">●</span><span>Agua</span></a>
-      <a href="#pronostico" class="flex min-h-[64px] flex-col items-center justify-center px-1 text-sm font-black text-[#003B5C]"><span aria-hidden="true">☁</span><span>Clima</span></a>
-      <a href="#ayuda" class="flex min-h-[64px] flex-col items-center justify-center px-1 text-sm font-black text-[#003B5C]"><span aria-hidden="true">+</span><span>Ayuda</span></a>
-    </div>
-  </nav>
-
-  
-
-  
-  <script src="script.js"></script>
+  <script src="./script.js" defer></script>
 </body>
 </html>
