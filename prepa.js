@@ -14,12 +14,12 @@
   function renderKpis(data){
     const g=data.generation||{},h=data.history||{};
     const totalMetric=g.metrics?.find(m=>String(m.index)==='0')||g.metrics?.[0];
-    const hydro=g.byFuel?.find(f=>/hidro/i.test(f.fuel));
+    const hydroMw=(g.sites||[]).filter(s=>/hidro/i.test(s.type||'')).reduce((sum,s)=>sum+Number(s.siteTotalMw||0),0);
     const activeSites=(g.sites||[]).filter(s=>Number(s.siteTotalMw)>0).length;
     const lastPoint=h.points?.at?.(-1)||h.points?.[h.points.length-1];
     $('prepa-kpis').innerHTML=[
       {label:'Generación reportada',value:totalMetric?`${number(totalMetric.value)} MW`:'—',note:totalMetric?.description||'PREPA dataSource.js'},
-      {label:'Generación hidroeléctrica',value:hydro?`${number(hydro.value)} MW`:'—',note:hydro?.fuel||'Reportado por PREPA'},
+      {label:'Generación hidroeléctrica',value:g.sites?`${number(hydroMw)} MW`:'—',note:'Suma de sitios tipo Hidroeléctricas reportados por PREPA'},
       {label:'Plantas / sitios produciendo',value:g.sites?String(activeSites):'—',note:g.sites?`${g.sites.length} sitios reportados en total`:'Sin datos'},
       {label:'Frecuencia más reciente',value:Number.isFinite(lastPoint?.frequencyHz)?`${number(lastPoint.frequencyHz)} Hz`:'—',note:lastPoint?.hour?`Lectura ${lastPoint.hour}`:'PREPA dataGraph.js'}
     ].map(k=>`<article class="live-kpi"><span>${esc(k.label)}</span><strong>${esc(k.value)}</strong><small>${esc(k.note)}</small></article>`).join('');
@@ -40,13 +40,17 @@
   }
 
   function renderFuel(data){
-    const rows=(data.generation?.byFuel||[]).filter(x=>Number(x.value)>=0);
+    const rows=(data.generation?.byFuel||[]).filter(x=>Number.isFinite(Number(x.value))&&Number(x.value)>=0);
     if(!rows.length){$('prepa-fuels').innerHTML='<div class="live-empty">No hay desglose por fuente disponible.</div>';return;}
-    const total=rows.reduce((s,x)=>s+Number(x.value||0),0)||1;
+    const sum=rows.reduce((s,x)=>s+Number(x.value),0);
+    const percentMode=sum>=90&&sum<=110&&rows.every(x=>Number(x.value)<=100);
+    const max=Math.max(1,...rows.map(x=>Number(x.value)));
     $('prepa-fuels').innerHTML=rows.sort((a,b)=>Number(b.value)-Number(a.value)).map(r=>{
-      const pct=Math.max(0,Math.min(100,Number(r.value||0)/total*100));
-      return `<div class="fuel-row"><div><strong>${esc(r.fuel)}</strong><span>${number(r.value)} MW</span></div><div class="fuel-track"><i style="width:${pct.toFixed(1)}%"></i></div></div>`;
-    }).join('');
+      const value=Number(r.value||0);
+      const width=percentMode?Math.max(0,Math.min(100,value)):Math.max(0,Math.min(100,value/max*100));
+      const display=percentMode?`${number(value)}%`:number(value);
+      return `<div class="fuel-row"><div><strong>${esc(r.fuel)}</strong><span>${esc(display)}</span></div><div class="fuel-track"><i style="width:${width.toFixed(1)}%"></i></div></div>`;
+    }).join('')+`<p class="panel-note">${percentMode?'PREPA reporta este desglose como participación porcentual.':'Valores mostrados en la unidad entregada por PREPA; H2O PR no les asigna una unidad que la fuente no declare.'}</p>`;
   }
 
   function renderTrend(data){
