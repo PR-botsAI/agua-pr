@@ -7,6 +7,7 @@ on:
     branches: ["main"]
     paths:
       - "scripts/update-prepa-data.mjs"
+      - "scripts/update-usgs-reservoirs.mjs"
       - "scripts/update-official-data.mjs"
       - ".github/workflows/update-official-data.yml"
   workflow_dispatch:
@@ -28,6 +29,8 @@ jobs:
           node-version: '22'
       - name: Fetch official AAA sources
         run: node scripts/update-official-data.mjs
+      - name: Fetch USGS reservoir sensors operated with AAA
+        run: node scripts/update-usgs-reservoirs.mjs
       - name: Fetch PREPA machine-readable feeds
         run: node scripts/update-prepa-data.mjs
       - name: Commit changed data
