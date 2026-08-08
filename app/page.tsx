@@ -37,7 +37,7 @@ export default function HomePage() {
         <Link className="action-link" href="/ayuda/"><span>NECESITO AYUDA</span><span>›</span></Link>
       </section>
 
-      <p className="footer-note">Español | English (próximamente)<br />Agua PR — piloto Arecibo. Verifique información crítica con fuentes oficiales.</p>
+      <p className="footer-note">Español | English (próximamente)<br />H2O PR · h20pr.com. Confirme información crítica con la fuente oficial.</p>
     </>
   );
 }
