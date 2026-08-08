@@ -1,0 +1,42 @@
+name: Publish H2O PR V2 API container
+
+on:
+  push:
+    branches: ["h2opr-v2-backend"]
+    paths:
+      - "v2/**"
+      - "data/resources.json"
+      - "data/emergency-status.json"
+      - ".github/workflows/publish-v2-container.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: h2opr-v2-container
+  cancel-in-progress: true
+
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -f v2/Dockerfile -t ghcr.io/pr-botsai/agua-pr-api:v2-edge .
+      - name: Smoke-test image
+        run: |
+          docker run -d --name h2opr-api -p 18080:8080 ghcr.io/pr-botsai/agua-pr-api:v2-edge
+          for i in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:18080/api/v1/health > /tmp/health.json; then break; fi
+            sleep 1
+          done
+          cat /tmp/health.json
+          curl --fail --silent 'http://127.0.0.1:18080/api/v1/resources/water?municipality=Carolina' > /tmp/water.json
+          node -e "const h=require('/tmp/health.json'); if(!['healthy','degraded'].includes(h.status)) process.exit(2)"
+          docker rm -f h2opr-api
+      - name: Sign in to GitHub Container Registry
+        run: echo '${{ secrets.GITHUB_TOKEN }}' | docker login ghcr.io -u '${{ github.actor }}' --password-stdin
+      - name: Publish image
+        run: docker push ghcr.io/pr-botsai/agua-pr-api:v2-edge
