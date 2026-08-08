@@ -1,6 +1,5 @@
 name: Deploy H2O PR to GitHub Pages
 
-# Re-deploy after switching the repository Pages source to GitHub Actions.
 on:
   push:
     branches: ["main"]
@@ -24,7 +23,7 @@ jobs:
         run: |
           mkdir -p _site/data
           cp index.html styles.css script.js robots.txt sitemap.xml CNAME _site/
-          cp data/live.json _site/data/live.json
+          cp data/*.json _site/data/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
