@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PrepaConnector } from './prepa.mjs';
+import { UsgsReservoirConnector } from './usgs-reservoirs.mjs';
 import { ResourceRegistry } from './resources.mjs';
 
 const PORT=Number(process.env.PORT||8080);
@@ -10,6 +11,7 @@ const HOST=process.env.HOST||'0.0.0.0';
 const __dirname=path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC=path.resolve(__dirname,'../public');
 const prepa=new PrepaConnector({cacheMs:Number(process.env.PREPA_CACHE_MS||15000)});
+const usgsReservoirs=new UsgsReservoirConnector({cacheMs:Number(process.env.USGS_RESERVOIR_CACHE_MS||60000)});
 const resources=new ResourceRegistry({cacheMs:Number(process.env.RESOURCE_CACHE_MS||30000)});
 const startedAt=new Date().toISOString();
 
@@ -27,13 +29,14 @@ function cors(req,res){
 function badRequest(res,message){json(res,400,{error:'bad_request',message});}
 function notFound(res,message='Resource not found'){json(res,404,{error:'not_found',message});}
 function municipalityParam(url){return (url.searchParams.get('municipality')||'').trim();}
-function publicHealth(snapshot,registry){
-  const feeds=['generation','levels','history'].map(name=>({name,status:snapshot?.[name]?.status||'unavailable',lastSuccessAt:snapshot?.[name]?.lastSuccessAt||null,lastAttemptAt:snapshot?.[name]?.lastAttemptAt||null}));
+function publicHealth(prepaSnapshot,registry,usgsSnapshot){
+  const feeds=['generation','levels','history'].map(name=>({name:`prepa_${name}`,status:prepaSnapshot?.[name]?.status||'unavailable',lastSuccessAt:prepaSnapshot?.[name]?.lastSuccessAt||null,lastAttemptAt:prepaSnapshot?.[name]?.lastAttemptAt||null}));
+  feeds.push({name:'usgs_aaa_reservoirs',status:usgsSnapshot?.status||'unavailable',lastSuccessAt:usgsSnapshot?.lastSuccessAt||null,lastAttemptAt:usgsSnapshot?.lastAttemptAt||null});
   const live=feeds.filter(f=>f.status==='live').length,stale=feeds.filter(f=>f.status==='stale').length;
-  const sourceStatus=live===3?'healthy':live+stale>0?'degraded':'unavailable';
+  const sourceStatus=live===feeds.length?'healthy':live+stale>0?'degraded':'unavailable';
   const registryOk=Boolean(registry);
   return {
-    service:'h2opr-api',version:'2.0.0-alpha.2',startedAt,now:new Date().toISOString(),
+    service:'h2opr-api',version:'2.0.0-alpha.3',startedAt,now:new Date().toISOString(),
     status:sourceStatus==='healthy'&&registryOk?'healthy':(live+stale>0||registryOk)?'degraded':'unavailable',
     feeds,
     resourceRegistry:{status:registryOk?'loaded':'unavailable',updatedAt:registry?.updatedAt||null}
@@ -44,9 +47,9 @@ async function api(req,res,url){
   if(req.method!=='GET')return false;
 
   if(url.pathname==='/api/v1/health'){
-    let snap=null,registry=null;
-    try{[snap,registry]=await Promise.all([prepa.getSnapshot(),resources.load()]);}catch{}
-    json(res,200,publicHealth(snap,registry));return true;
+    let snap=null,registry=null,usgs=null;
+    try{[snap,registry,usgs]=await Promise.all([prepa.getSnapshot(),resources.load(),usgsReservoirs.getSnapshot()]);}catch{}
+    json(res,200,publicHealth(snap,registry,usgs));return true;
   }
 
   if(url.pathname==='/api/v1/prepa'||url.pathname.startsWith('/api/v1/prepa/')){
@@ -57,6 +60,10 @@ async function api(req,res,url){
     else if(url.pathname==='/api/v1/prepa/history')json(res,200,snapshot.history);
     else return false;
     return true;
+  }
+
+  if(url.pathname==='/api/v1/reservoirs/aaa'){
+    json(res,200,await usgsReservoirs.getSnapshot({force:url.searchParams.get('refresh')==='1'}));return true;
   }
 
   if(url.pathname==='/api/v1/municipalities'){
