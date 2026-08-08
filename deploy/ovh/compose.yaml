@@ -1,6 +1,6 @@
 services:
   api:
-    image: ghcr.io/pr-botsai/agua-pr-api:v2-edge
+    image: ${H2OPR_IMAGE:-ghcr.io/pr-botsai/agua-pr-api:${H2OPR_IMAGE_TAG:-v2-edge}}
     container_name: h2opr-api
     restart: unless-stopped
     environment:
