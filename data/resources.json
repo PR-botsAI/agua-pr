@@ -1,331 +1,96 @@
 {
-  "updatedAt": "2026-08-08T10:31:00Z",
-  "disclaimer": "H2O PR organiza fuentes verificables; la disponibilidad de agua y los oasis puede cambiar por hora. Confirme antes de viajar.",
-  "emergency": {
-    "label": "Emergencia médica o peligro inmediato",
-    "phone": "911"
-  },
-  "aaa": {
-    "label": "Autoridad de Acueductos y Alcantarillados",
-    "phone": "787-620-2482",
-    "hours": "6:00 a. m.–11:00 p. m. todos los días",
-    "source": "https://www.acueductos.pr.gov/servicios/centro-telefonico"
-  },
+  "updatedAt": "2026-08-08T17:30:00-04:00",
+  "emergency": {"label":"Emergencia médica o peligro inmediato","phone":"911"},
+  "aaa": {"label":"AAA Servicio al Cliente","phone":"787-620-2482","hours":"6:00 a. m.–11:00 p. m. todos los días","source":"https://www.acueductos.pr.gov/servicios/centro-telefonico"},
   "nmead": {
-    "centralPhone": "787-724-0124",
-    "source": "https://manejodeemergencias.pr.gov/contactenos/",
-    "zones": [
-      {
-        "id": "san-juan",
-        "name": "San Juan",
-        "phone": "787-294-0277",
-        "municipalities": ["San Juan", "Guaynabo", "Bayamón", "Cataño", "Toa Baja", "Dorado", "Toa Alta"]
-      },
-      {
-        "id": "vega-baja",
-        "name": "Vega Baja",
-        "phone": "787-965-7770",
-        "municipalities": ["Vega Baja", "Vega Alta", "Corozal", "Orocovis", "Ciales", "Morovis", "Manatí", "Florida"]
-      },
-      {
-        "id": "arecibo",
-        "name": "Arecibo",
-        "phone": "787-878-9454",
-        "municipalities": ["Arecibo", "Barceloneta", "Hatillo", "Camuy", "Quebradillas", "Utuado", "Lares"]
-      },
-      {
-        "id": "aguadilla",
-        "name": "Aguadilla",
-        "phone": "787-882-6871",
-        "municipalities": ["Aguadilla", "Isabela", "Moca", "Aguada", "San Sebastián", "Añasco", "Rincón"]
-      },
-      {
-        "id": "mayaguez",
-        "name": "Mayagüez",
-        "phone": "787-833-7272",
-        "municipalities": ["Mayagüez", "Hormigueros", "Las Marías", "Maricao", "San Germán", "Sabana Grande", "Cabo Rojo", "Lajas"]
-      },
-      {
-        "id": "ponce",
-        "name": "Ponce",
-        "phone": "787-844-1763",
-        "municipalities": ["Ponce", "Villalba", "Juana Díaz", "Peñuelas", "Guayanilla", "Yauco", "Guánica", "Jayuya", "Adjuntas"]
-      },
-      {
-        "id": "guayama",
-        "name": "Guayama",
-        "phone": "787-864-1600",
-        "municipalities": ["Guayama", "Cayey", "Patillas", "Maunabo", "Arroyo", "Salinas", "Coamo", "Santa Isabel"]
-      },
-      {
-        "id": "caguas",
-        "name": "Caguas",
-        "phone": "787-656-9643",
-        "municipalities": ["Caguas", "Aguas Buenas", "Cidra", "Comerío", "Barranquitas", "Naranjito", "Aibonito"]
-      },
-      {
-        "id": "humacao",
-        "name": "Humacao",
-        "phone": "787-852-4044",
-        "municipalities": ["Humacao", "Naguabo", "Las Piedras", "Juncos", "Yabucoa", "San Lorenzo", "Gurabo"]
-      },
-      {
-        "id": "ceiba",
-        "name": "Ceiba",
-        "phone": "787-863-3330",
-        "municipalities": ["Ceiba", "Fajardo", "Luquillo", "Río Grande", "Loíza", "Canóvanas", "Carolina", "Trujillo Alto", "Culebra", "Vieques"]
-      }
+    "centralPhone":"787-724-0124",
+    "source":"https://manejodeemergencias.pr.gov/contactenos/",
+    "zones":[
+      {"name":"San Juan","phone":"787-294-0277","municipalities":["San Juan","Guaynabo","Bayamón","Cataño","Toa Baja","Dorado","Toa Alta"]},
+      {"name":"Vega Baja","phone":"787-965-7770","municipalities":["Vega Baja","Vega Alta","Corozal","Orocovis","Ciales","Morovis","Manatí","Florida"]},
+      {"name":"Arecibo","phone":"787-878-9454","municipalities":["Arecibo","Barceloneta","Hatillo","Camuy","Quebradillas","Utuado","Lares"]},
+      {"name":"Aguadilla","phone":"787-882-6871","municipalities":["Aguadilla","Isabela","Moca","Aguada","San Sebastián","Añasco","Rincón"]},
+      {"name":"Mayagüez","phone":"787-833-7272","municipalities":["Mayagüez","Hormigueros","Las Marías","Maricao","San Germán","Sabana Grande","Cabo Rojo","Lajas"]},
+      {"name":"Ponce","phone":"787-844-1763","municipalities":["Ponce","Villalba","Juana Díaz","Peñuelas","Guayanilla","Yauco","Guánica","Jayuya","Adjuntas"]},
+      {"name":"Guayama","phone":"787-864-1600","municipalities":["Guayama","Cayey","Patillas","Maunabo","Arroyo","Salinas","Coamo","Santa Isabel"]},
+      {"name":"Caguas","phone":"787-656-9643","municipalities":["Caguas","Aguas Buenas","Cidra","Comerío","Barranquitas","Naranjito","Aibonito"]},
+      {"name":"Humacao","phone":"787-852-4044","municipalities":["Humacao","Naguabo","Las Piedras","Juncos","Yabucoa","San Lorenzo","Gurabo"]},
+      {"name":"Ceiba","phone":"787-863-3330","municipalities":["Ceiba","Fajardo","Luquillo","Río Grande","Loíza","Canóvanas","Carolina","Trujillo Alto","Culebra","Vieques"]}
     ]
+  },
+  "currentEmergency": {
+    "title":"Racionamiento de Carraízo activo",
+    "startedAt":"2026-08-07T06:00:00-04:00",
+    "cycleHours":48,
+    "affectedMunicipalities":["San Juan","Carolina","Juncos","Gurabo","Trujillo Alto","Canóvanas","Loíza"],
+    "summary":"Sectores servidos por Carraízo y Sergio Cuevas alternan 48 horas con servicio y 48 horas sin servicio. El calendario no garantiza presión o servicio real en una residencia.",
+    "source":"https://www.plateapr.com/que-saber/plan-racionamiento-agua-carraizo-zonas-interrupciones-servicio",
+    "sourceLabel":"Plan y sectores · actualizado 4 ago 2026"
+  },
+  "rationingZones": {
+    "San Juan": {
+      "zone1":["Hill Mansions","Park Gardens","Villa Capri","Venus Gardens","El Dorado","San Gerardo","El Cinco","Villa Húcar","Winston Churchill","Paraná","PR-844","PR-199","El Cerezal","Cupey Alto","Los Paseos","Villas del Sol","El Capá","Borinquen Gardens","La Marina","Los Choferes","Cupey Gardens","Montebello","Reparto Universitario","Villa Andalucía","San Agustín","Town Park","Vista Alegre","Viejo San Juan","Miramar","Condado","Ocean Park"],
+      "zone2":["PR-876","Montebello","PR-877","65 de Infantería","PR-3","Venezuela","Buen Consejo","Experimental","Cambridge Park","Reparto Contemporáneo","Chalets de Cupey","Antigua Vía","Villas de Lomas Verdes","Antón Santi","Villa Nevárez","Centro Médico","Jardines Metropolitano","Río Piedras","Barbosa","Cantera","Bitumul","Israel","Floral Park","San José","Pérez Morris","Valencia","Quintana","Manuel A. Pérez","Country Club 29","Hill Brothers","Parcelas Falú","Las Virtudes","Reparto Sevilla","Monte Hatillo","PR-849","Terrazas de San Juan","Colinas de San Juan","San Martín","Monteflores","San Mateo","Julián Pesante","Del Valle","Lutz","Villa Kennedy","Las Casas","Villa Palmeras","Monte Carlo","Santo Domingo","Portal La Reina","Berwind","Monte Park"]
+    },
+    "Carolina": {
+      "zone1":["Isla Verde","La Loma","Carruzos I","PR-857","PR-856","Golden Valley","PR-853","Cuesta Los Flacos","Cedro","Monoloro","Yagrumo","La Rosa","PR-859","La Aldea","Las Chispas","Villa Retorno","Los Carmonas","Tanques Gemelos","Santa Cruz","El Trompito","Los Cubas","Quebrada Limones","Los Nieves","Los Sosas","Los Lajas","Los Canales","Carruzos IV","Las Filipinas","Negro Pagán","Calo I","Calo II","Cacao Centro","UGT","Los Rivera","Las Gaviotas","Los Febres","Taíno","PR-858","Luis Muñoz Marín","Vista Mar","Catalana Gardens","Jardines de Country Club","Country Club","Villa Fontana","Alturas de Villa Fontana","Rosa María","Vista Mar Marina","José Quiñones","Los Ángeles","Villa Carolina","Sabana Bajo","Villas Asturias","Sabana Gardens","Valle Arriba Heights","Villa Cooperativa","Villa Venecia","Jardines de Borinquen","Villa Justicia","Villa Flores"],
+      "zone2":["Camino Zequeira","La Cantera","Arrallanes","Hoyo Frío","El Tamarindo","Los Benítez","Barrazas","Los Tapias","Los Brillones","Los López","Los Márquez","Templo El Arca","Los Álamos","Los Fernández","Aguas Claras","Los Flores","Cedros","Metrópolis","Metro Monte","Estancias Metrópolis","Carolina Alta","Chalets de Metrópolis","Paseo de Monte Flores","Lomas Alta","Roberto Clemente","Los Mirtos","Carolina Housing","Los Árboles","Villa San Antón","Cuesta Quiles","La Lomita","Villa Madrigal","La Alhambra","Club Yaucano","Mameyal","Rolling Hills","Los Parceleros","PR-860","Estancia del Camino","Jardines de Carolina","Parque Escorial","Escorial Plaza","PR-848","Saint Just","Parque Ecuestre","Torrecillas","Loíza Valley"]
+    },
+    "Canóvanas": {
+      "zone1":["Los Castillos","Lomas Cole","Quebrada Prieta","PR-785","La Vega","Martín González I","Loma de Cubuy","Lomastino","El Arca","Las 400","PR-185","Las Yayas","Los Sosa","Los Pérez","Los González","Los Café","PR-186","Las Cuadras"],
+      "zone2":["PR-962","Cambalache","Estancias de Campo Rico","Finca Maravilla","Lomas del Viento","Parcelas Viejas","Parcelas Nuevas de Campo Rico","El Río","Los Chorritos","Finca Pozo","Canovanillas","Finca Calzada","Las Haciendas de Canóvanas","Los Navarros","Mansiones del Tesoro","PR-941","Quintas de Canóvanas","Hipódromo Camarero","Ciudad Jardín"]
+    },
+    "Trujillo Alto": {
+      "zone1":["Round Hill","PR-181","PR-8860","Lago Alto","Terra Linda","San Rafael","Patio Sevillano","Villas del Lago","PR-846","Interamericana","Ciudad Universitaria","Los González","PR-175","Villa Margarita","Lomas de Trujillo","Sunville","El Conquistador","La Lomita","Vista Serena","Riveras del Río","PR-845","Rincón Español","Jardines Morales","Fair View","El Hoyo","Parcelas Carraízo","Haciendas de Carraízo","Villas de Carraízo","Terrazas de Carraízo","PR-850","Las Cuevas","Colinas de Fair View","Villas de Caney","Andreas Court","Los Paseos","Borinquen Gardens"],
+      "zone2":["Encantada","PR-851","La Gloria","Dos Bocas","Talanco","Quebrada Negrito","Coco Panel","Pueblo de Trujillo Alto","Masa Sabana","Wonderville","Santa Rita"]
+    },
+    "Loíza":{"zone1":["Torrecillas","Piñones","La Torre"],"zone2":[]},
+    "Gurabo":{"zone1":["Masas Aisladas"],"zone2":["Santa Rita"]},
+    "Juncos":{"zone1":["Las Piñas"],"zone2":[]}
   },
   "municipalContacts": {
-    "Arecibo": [
-      {
-        "label": "Municipio de Arecibo",
-        "phone": "787-882-2770",
-        "kind": "municipal",
-        "note": "Cuadro principal municipal. Pida Manejo de Emergencias o asistencia de agua.",
-        "source": "https://arecibo.pr.gov/contactos/",
-        "verifiedOn": "2026-08-08"
-      }
+    "San Juan":[
+      {"label":"San Juan · asistencia de agua","phone":"787-480-2025","kind":"water","note":"Línea municipal para información y asistencia de agua durante la emergencia.","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+      {"label":"San Juan · llenado de cisternas","phone":"787-480-5011","kind":"water","note":"OMME tenía 8 camiones cisterna de AAA asignados al 5 de agosto.","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"}
     ],
-    "San Juan": [
-      {
-        "label": "OMME San Juan — asistencia de agua",
-        "phone": "787-480-2025",
-        "kind": "water",
-        "note": "Número publicado por el Municipio para asistencia relacionada con suministro de agua.",
-        "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-        "sourceDate": "2026-06-14",
-        "verifiedOn": "2026-08-08"
-      },
-      {
-        "label": "OMME San Juan — emergencia",
-        "phone": "787-480-2222",
-        "kind": "emergency",
-        "note": "Teléfono de emergencia municipal publicado por San Juan.",
-        "source": "https://tuplanfamiliar.sanjuan.pr/",
-        "verifiedOn": "2026-08-08"
-      }
-    ],
-    "Carolina": [
-      {
-        "label": "Carolina Segura y en Paz",
-        "phone": "787-769-4000",
-        "kind": "water",
-        "note": "El Municipio indica este número para reportar falta de agua y pedir ayuda a personas con movilidad limitada.",
-        "source": "https://www.municipiocarolina.com/municipio-de-carolina-pone-en-marcha-plan-de-emergencia-tras-averia-de-la-aaa-que-deja-sin-servicio-a-la-zona-de-isla-verde/",
-        "verifiedOn": "2026-08-08"
-      },
-      {
-        "label": "Manejo de Emergencias Municipal",
-        "phone": "787-769-9858",
-        "kind": "emergency",
-        "note": "Directorio municipal de emergencias.",
-        "source": "https://www.carolina787.com/dir/em",
-        "verifiedOn": "2026-08-08",
-        "sourceType": "community-directory"
-      }
-    ]
+    "Carolina":[{"label":"Carolina · OMME / asistencia de agua","phone":"787-769-4000","kind":"water","note":"Municipio y OMME; la publicación del 5 de agosto reportó 3 camiones cisterna de AAA asignados.","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"}],
+    "Canóvanas":[{"label":"Canóvanas · OMME","phone":"787-876-2465","kind":"water","note":"Para emergencias, denuncias y solicitud de llenado de cisterna; el municipio moviliza camiones por comunidades afectadas.","source":"https://www.plateapr.com/que-saber/oasis-canovanas-rio-grande","verifiedOn":"2026-08-03"}],
+    "Trujillo Alto":[{"label":"Trujillo Alto · OMME","phone":"787-760-4440","kind":"water","note":"Para solicitar asistencia y llenado de cisterna; prioridad a hogares de envejecientes y personas con problemas de movilidad.","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"}],
+    "Loíza":[{"label":"Loíza · OMME / camiones cisterna","phone":"787-876-3561","kind":"water","note":"OMME tenía 8 camiones cisterna de AAA asignados al 5 de agosto.","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},{"label":"Municipio de Loíza","phone":"787-876-1040","kind":"municipal","note":"Pida comunicarse con Manejo de Emergencias para solicitar llenado de cisterna.","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"}],
+    "Gurabo":[{"label":"Gurabo · Manejo de Emergencias 24/7","phone":"787-737-3459","kind":"water","note":"Contacto municipal de Manejo de Emergencias publicado para asistencia durante el racionamiento.","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"}],
+    "Juncos":[]
   },
   "waterPoints": [
-    {
-      "id": "carolina-barrazas",
-      "municipality": "Carolina",
-      "name": "Oasis permanente — Centro de Servicios Municipales de Barrazas",
-      "address": "Centro de Servicios Municipales de Barrazas, Carolina, Puerto Rico",
-      "status": "permanent",
-      "hours": "24 horas, según la publicación municipal",
-      "accessibility": "32 llaves; incluye acceso para personas en silla de ruedas.",
-      "note": "El Municipio describe esta toma como un oasis permanente. Aun así, confirme por teléfono antes de viajar durante una emergencia activa.",
-      "confirmPhone": "787-769-4000",
-      "source": "https://www.municipiocarolina.com/municipio-de-carolina-pone-en-marcha-plan-de-emergencia-tras-averia-de-la-aaa-que-deja-sin-servicio-a-la-zona-de-isla-verde/",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "carolina-isla-verde",
-      "municipality": "Carolina",
-      "name": "Centro de Servicios Municipales de Isla Verde",
-      "address": "Centro de Servicios Municipales de Isla Verde, Carolina, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "Horario no confirmado hoy",
-      "accessibility": "",
-      "note": "Fue establecido como oasis durante una emergencia operacional anterior. Llame antes de salir para saber si está activo hoy.",
-      "confirmPhone": "787-769-4000",
-      "source": "https://www.municipiocarolina.com/municipio-de-carolina-pone-en-marcha-plan-de-emergencia-tras-averia-de-la-aaa-que-deja-sin-servicio-a-la-zona-de-isla-verde/",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "sanjuan-llorens-ed30",
-      "municipality": "San Juan",
-      "name": "Lloréns Torres — Calle Marina frente al Edificio 30",
-      "address": "Calle Marina frente al Edificio 30, Luis Lloréns Torres, San Juan, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "No confirmado hoy",
-      "accessibility": "",
-      "note": "El Municipio publicó este oasis el 14 de junio de 2026. No asumimos que siga activo: llame a OMME antes de salir.",
-      "confirmPhone": "787-480-2025",
-      "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-      "sourceDate": "2026-06-14",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "sanjuan-llorens-teatro",
-      "municipality": "San Juan",
-      "name": "Lloréns Torres — frente al Teatro Osvaldo Lasalle",
-      "address": "Calle Marisabel frente al Teatro Osvaldo Lasalle, Luis Lloréns Torres, San Juan, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "No confirmado hoy",
-      "accessibility": "",
-      "note": "El Municipio publicó este oasis el 14 de junio de 2026. No asumimos que siga activo: llame a OMME antes de salir.",
-      "confirmPhone": "787-480-2025",
-      "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-      "sourceDate": "2026-06-14",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "sanjuan-llorens-panin",
-      "municipality": "San Juan",
-      "name": "Lloréns Torres — Placita Panín",
-      "address": "Calle Marisabel con Calle Collores, Edificio 79, Placita Panín, San Juan, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "No confirmado hoy",
-      "accessibility": "",
-      "note": "El Municipio publicó este oasis el 14 de junio de 2026. No asumimos que siga activo: llame a OMME antes de salir.",
-      "confirmPhone": "787-480-2025",
-      "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-      "sourceDate": "2026-06-14",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "sanjuan-llorens-providencia",
-      "municipality": "San Juan",
-      "name": "Lloréns Torres — sector Providencia",
-      "address": "Calle Marina frente al Edificio 7, sector Providencia, San Juan, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "No confirmado hoy",
-      "accessibility": "",
-      "note": "El Municipio publicó este oasis el 14 de junio de 2026. No asumimos que siga activo: llame a OMME antes de salir.",
-      "confirmPhone": "787-480-2025",
-      "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-      "sourceDate": "2026-06-14",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "sanjuan-margaritas",
-      "municipality": "San Juan",
-      "name": "Las Margaritas — Boys & Girls Club",
-      "address": "Boys & Girls Club, Las Margaritas, San Juan, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "No confirmado hoy",
-      "accessibility": "",
-      "note": "El Municipio publicó este oasis el 14 de junio de 2026. No asumimos que siga activo: llame a OMME antes de salir.",
-      "confirmPhone": "787-480-2025",
-      "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-      "sourceDate": "2026-06-14",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "sanjuan-las-casas",
-      "municipality": "San Juan",
-      "name": "Residencial Las Casas — frente a la cancha",
-      "address": "Residencial Las Casas frente a la cancha, San Juan, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "No confirmado hoy",
-      "accessibility": "",
-      "note": "El Municipio publicó este oasis el 14 de junio de 2026. No asumimos que siga activo: llame a OMME antes de salir.",
-      "confirmPhone": "787-480-2025",
-      "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-      "sourceDate": "2026-06-14",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "sanjuan-villa-kennedy",
-      "municipality": "San Juan",
-      "name": "Villa Kennedy — iglesia / Escuela María Auxiliadora",
-      "address": "Villa Kennedy al lado de la iglesia y Escuela María Auxiliadora, San Juan, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "No confirmado hoy",
-      "accessibility": "",
-      "note": "El Municipio publicó este oasis el 14 de junio de 2026. No asumimos que siga activo: llame a OMME antes de salir.",
-      "confirmPhone": "787-480-2025",
-      "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-      "sourceDate": "2026-06-14",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "sanjuan-pr842",
-      "municipality": "San Juan",
-      "name": "PR-842 — entrada Los Romero",
-      "address": "PR-842 entrada de Los Romero detrás del garaje Texaco, San Juan, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "No confirmado hoy",
-      "accessibility": "",
-      "note": "El Municipio publicó este oasis el 14 de junio de 2026. No asumimos que siga activo: llame a OMME antes de salir.",
-      "confirmPhone": "787-480-2025",
-      "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-      "sourceDate": "2026-06-14",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    },
-    {
-      "id": "sanjuan-quinones",
-      "municipality": "San Juan",
-      "name": "Antigua Escuela Rafael Quiñones Vidal",
-      "address": "Antigua Escuela Rafael Quiñones Vidal, San Juan, Puerto Rico",
-      "status": "reconfirm",
-      "hours": "No confirmado hoy",
-      "accessibility": "",
-      "note": "El Municipio publicó este oasis el 14 de junio de 2026. No asumimos que siga activo: llame a OMME antes de salir.",
-      "confirmPhone": "787-480-2025",
-      "source": "https://sanjuan.pr/noticias/municipio-de-san-juan-amplia-respuesta-ante-la-crisis-de-agua-mientras-continuan-las-averias-y-retos-operacionales/",
-      "sourceDate": "2026-06-14",
-      "verifiedOn": "2026-08-08",
-      "sourceType": "municipal"
-    }
+    {"id":"sj-llorens-30","municipality":"San Juan","name":"Lloréns Torres · Calle Marina frente al Edif. 30","address":"Calle Marina frente al Edificio 30, Luis Lloréns Torres, San Juan, PR","status":"emergency_active","hours":"Activo mientras dure la emergencia, según publicación del 5 ago","confirmPhone":"787-480-2025","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"sj-villa-kennedy","municipality":"San Juan","name":"Villa Kennedy · cancha de baloncesto","address":"Cancha de baloncesto, Villa Kennedy, San Juan, PR","status":"emergency_active","hours":"Activo mientras dure la emergencia, según publicación del 5 ago","confirmPhone":"787-480-2025","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"sj-margaritas","municipality":"San Juan","name":"Las Margaritas · Boys & Girls Club","address":"Boys & Girls Club, Las Margaritas, San Juan, PR","status":"emergency_active","hours":"Activo mientras dure la emergencia, según publicación del 5 ago","confirmPhone":"787-480-2025","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"sj-parque-victoria","municipality":"San Juan","name":"Parque Victoria","address":"Parque Victoria, San Juan, PR","status":"emergency_active","hours":"Activo mientras dure la emergencia, según publicación del 5 ago","confirmPhone":"787-480-2025","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"sj-las-casas","municipality":"San Juan","name":"Residencial Las Casas · frente a Escuela Juan A. Corretjer","address":"Residencial Las Casas, San Juan, PR","status":"emergency_active","hours":"Activo mientras dure la emergencia, según publicación del 5 ago","confirmPhone":"787-480-2025","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"sj-caimito","municipality":"San Juan","name":"Caimito · Centro Cultural","address":"Centro Cultural, Caimito, San Juan, PR","status":"emergency_active","hours":"Activo mientras dure la emergencia, según publicación del 5 ago","confirmPhone":"787-480-2025","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"can-famcoop","municipality":"Canóvanas","name":"FamCoop · San Isidro","address":"FamCoop, San Isidro, Canóvanas, PR","status":"emergency_active","hours":"Horario no publicado; confirma antes de salir","confirmPhone":"787-876-2465","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"can-william","municipality":"Canóvanas","name":"Frente a Escuela William Rivera Betancourt","address":"Escuela William Rivera Betancourt, Canóvanas, PR","status":"emergency_active","hours":"Horario no publicado; confirma antes de salir","confirmPhone":"787-876-2465","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"can-pr962","municipality":"Canóvanas","name":"Oasis AAA · PR-962","address":"Carretera PR-962, Canóvanas, PR","status":"emergency_active","hours":"9:00 a. m.–7:00 p. m., según publicación AAA del 5 ago","confirmPhone":"787-876-2465","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"can-campo-rico","municipality":"Canóvanas","name":"Campo Rico · frente al parque de pelota","address":"Parque de pelota, Campo Rico, Canóvanas, PR","status":"emergency_active","hours":"9:00 a. m.–7:00 p. m. para oasis AAA reportados el 5 ago","confirmPhone":"787-876-2465","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"car-pr887","municipality":"Carolina","name":"Oasis AAA · PR-887, Bo. Martín González","address":"Carretera PR-887, Barrio Martín González, Carolina, PR","status":"emergency_active","hours":"9:00 a. m.–7:00 p. m., según publicación AAA del 5 ago","confirmPhone":"787-769-4000","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"car-65","municipality":"Carolina","name":"Oasis AAA · Carr. 65 de Infantería","address":"Carretera 65 de Infantería, Carolina, PR","status":"emergency_active","hours":"9:00 a. m.–7:00 p. m., según publicación AAA del 5 ago","confirmPhone":"787-769-4000","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"jun-lirios","municipality":"Juncos","name":"Lirios Cuatro Calles","address":"Lirios Cuatro Calles, Juncos, PR","status":"municipal_reported","hours":"Municipio reportó oasis al 5 ago; confirma antes de salir","confirmPhone":"787-852-4044","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"jun-narciso","municipality":"Juncos","name":"Residencial Narciso Varona","address":"Residencial Narciso Varona, Juncos, PR","status":"municipal_reported","hours":"Municipio reportó oasis al 5 ago; confirma antes de salir","confirmPhone":"787-852-4044","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"jun-antulio","municipality":"Juncos","name":"Residencial Antulio López","address":"Residencial Antulio López, Juncos, PR","status":"municipal_reported","hours":"Municipio reportó oasis al 5 ago; confirma antes de salir","confirmPhone":"787-852-4044","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"ta-843","municipality":"Trujillo Alto","name":"PR-843 · frente a Haciendas de Carraízo","address":"PR-843 frente a Haciendas de Carraízo, Trujillo Alto, PR","status":"municipal_24_7","hours":"24/7; se interrumpe brevemente al rellenar la cisterna","confirmPhone":"787-760-4440","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"ta-844","municipality":"Trujillo Alto","name":"PR-844 · antigua Escuela Alejandro Tapia y Rivera","address":"PR-844 frente a antigua Escuela Alejandro Tapia y Rivera, Trujillo Alto, PR","status":"municipal_24_7","hours":"24/7; se interrumpe brevemente al rellenar la cisterna","confirmPhone":"787-760-4440","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"ta-846","municipality":"Trujillo Alto","name":"PR-846 km 1.5 · frente a OMME","address":"PR-846 km 1.5, Trujillo Alto, PR","status":"municipal_24_7","hours":"24/7; se interrumpe brevemente al rellenar la cisterna","confirmPhone":"787-760-4440","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"ta-villa-margarita","municipality":"Trujillo Alto","name":"Villa Margarita · PR-175","address":"PR-175 interior sector Villa Margarita, Trujillo Alto, PR","status":"municipal_24_7","hours":"24/7; se interrumpe brevemente al rellenar la cisterna","confirmPhone":"787-760-4440","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"ta-848","municipality":"Trujillo Alto","name":"PR-848 · frente a Popeyes, Saint Just","address":"PR-848 frente a Popeyes, Saint Just, Trujillo Alto, PR","status":"municipal_24_7","hours":"24/7; se interrumpe brevemente al rellenar la cisterna","confirmPhone":"787-760-4440","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"ta-8860","municipality":"Trujillo Alto","name":"PR-8860 · entrada Villas de Trujillo","address":"PR-8860 entrada Urbanización Villas de Trujillo, Trujillo Alto, PR","status":"municipal_24_7","hours":"24/7; se interrumpe brevemente al rellenar la cisterna","confirmPhone":"787-760-4440","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"},
+    {"id":"ta-conquistador","municipality":"Trujillo Alto","name":"PR-175 · entrada Urb. El Conquistador","address":"PR-175 entrada Urbanización El Conquistador, Trujillo Alto, PR","status":"municipal_24_7","hours":"24/7; se interrumpe brevemente al rellenar la cisterna","confirmPhone":"787-760-4440","source":"https://www.plateapr.com/que-saber/racionamiento-carraizo-oasis-san-juan-canovanas-carolina-gurabo-juncos-loiza-trujillo-alto","verifiedOn":"2026-08-05"}
   ],
-  "suppliers": [
-    {
-      "name": "Snow Trucking Services (STS)",
-      "kind": "Entrega de agua potable a granel",
-      "phone": "787-301-2482",
-      "area": "Todo Puerto Rico; base en San Sebastián",
-      "note": "La empresa indica que entrega agua potable a residencias, égidas, hospitales y otros clientes; sus camiones y choferes se describen como certificados por Salud. Confirme disponibilidad, precio y tiempo de entrega.",
-      "source": "https://www.snowtruckingpr.com/",
-      "verifiedOn": "2026-08-08"
-    },
-    {
-      "name": "Trinidad Contractor Services",
-      "kind": "Camión de agua potable / cisterna",
-      "phone": "787-273-6309",
-      "altPhone": "787-562-0001",
-      "area": "Puerto Rico; base en San Juan",
-      "note": "Ofrece transporte de grandes cantidades de agua y servicios de emergencia. Confirme que el agua y el uso solicitado son apropiados para consumo humano antes de contratar.",
-      "source": "https://www.trinidadcontractor.com/camion-de-agua-potable",
-      "verifiedOn": "2026-08-08"
-    },
-    {
-      "name": "Puerto Rico Water Management",
-      "kind": "Cisternas, bombas, filtros e instalación",
-      "phone": "787-728-1000",
-      "area": "Puerto Rico; San Juan",
-      "note": "No es entrega de agua. Es proveedor de sistemas de almacenamiento, bombas, filtros, instalación y mantenimiento de cisternas.",
-      "source": "https://puertoricowatermanagement.com/",
-      "verifiedOn": "2026-08-08"
-    }
-  ],
+  "mobileWater": {
+    "Loíza":{"message":"El municipio reportó distribución móvil casa por casa, no oasis fijos. Para agua o llenado de cisterna llama a OMME.","phone":"787-876-3561","verifiedOn":"2026-08-05"},
+    "Gurabo":{"message":"Al 5 de agosto AAA no había informado oasis o camiones asignados a Gurabo. Llama a Manejo de Emergencias 24/7 para asistencia actual.","phone":"787-737-3459","verifiedOn":"2026-08-05"},
+    "Juncos":{"message":"El municipio reportó reparto casa por casa con tres camiones y oasis municipales en Lirios y residenciales. Confirma disponibilidad antes de salir.","phone":"787-852-4044","verifiedOn":"2026-08-05"}
+  },
   "health": {
-    "title": "Cuando regrese el servicio",
-    "guidance": "El Departamento de Salud recomienda hervir por al menos 3 minutos el agua que se use para beber, preparar alimentos, cepillarse los dientes o lavar utensilios cuando se restablece el servicio después de una interrupción.",
-    "source": "https://www.salud.pr.gov/CMS/246",
-    "verifiedOn": "2026-08-08"
+    "guidance":"Cuando regrese el servicio, deja correr el agua por 5 minutos y hierve durante al menos 3 minutos toda el agua destinada a beber, cocinar, cepillarte los dientes o lavar utensilios. Como alternativa, Salud indica 8 gotas de cloro casero sin fragancia por galón y dejar reposar al menos 30 minutos.",
+    "source":"https://www.salud.pr.gov/CMS/246"
   }
 }
