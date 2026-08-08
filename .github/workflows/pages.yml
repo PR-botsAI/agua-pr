@@ -22,8 +22,9 @@ jobs:
       - name: Assemble static site
         run: |
           mkdir -p _site/data
-          cp index.html styles.css script.js robots.txt sitemap.xml CNAME _site/
-          cat crisis.css >> _site/styles.css
+          cp index.html robots.txt sitemap.xml CNAME _site/
+          cp *.js _site/
+          cp *.css _site/
           cp data/*.json _site/data/
       - uses: actions/upload-pages-artifact@v3
         with:
