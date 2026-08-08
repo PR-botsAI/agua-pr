@@ -1,0 +1,46 @@
+services:
+  api:
+    image: ${H2OPR_IMAGE:-ghcr.io/pr-botsai/agua-pr-api:${H2OPR_IMAGE_TAG:-v2-edge}}
+    container_name: h2opr-api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 8080
+      PREPA_CACHE_MS: 15000
+      RESOURCE_CACHE_MS: 30000
+    expose:
+      - "8080"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/api/v1/health').then(r=>{if(!r.ok)process.exit(1);return r.json()}).then(d=>{if(d.status==='unavailable')process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    networks:
+      - h2opr
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: h2opr-caddy
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - h2opr
+
+networks:
+  h2opr:
+
+volumes:
+  caddy_data:
+  caddy_config:
