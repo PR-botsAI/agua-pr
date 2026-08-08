@@ -1,0 +1,96 @@
+name: Deploy H2O PR API to OVH VPS
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Container tag to deploy"
+        required: false
+        default: "v2-edge"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: h2opr-ovh-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout deployment files
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        env:
+          OVH_HOST: ${{ secrets.OVH_HOST }}
+          OVH_SSH_KEY: ${{ secrets.OVH_SSH_KEY }}
+          OVH_PORT: ${{ secrets.OVH_PORT }}
+        run: |
+          set -euo pipefail
+          test -n "$OVH_HOST"
+          test -n "$OVH_SSH_KEY"
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$OVH_SSH_KEY" > ~/.ssh/h2opr_ovh
+          chmod 600 ~/.ssh/h2opr_ovh
+          PORT="${OVH_PORT:-22}"
+          ssh-keyscan -p "$PORT" -H "$OVH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Verify remote prerequisites
+        env:
+          OVH_HOST: ${{ secrets.OVH_HOST }}
+          OVH_USER: ${{ secrets.OVH_USER }}
+          OVH_PORT: ${{ secrets.OVH_PORT }}
+        run: |
+          set -euo pipefail
+          PORT="${OVH_PORT:-22}"
+          ssh -i ~/.ssh/h2opr_ovh -p "$PORT" "$OVH_USER@$OVH_HOST" \
+            'docker --version && docker compose version && mkdir -p ~/h2opr'
+
+      - name: Copy production configuration
+        env:
+          OVH_HOST: ${{ secrets.OVH_HOST }}
+          OVH_USER: ${{ secrets.OVH_USER }}
+          OVH_PORT: ${{ secrets.OVH_PORT }}
+        run: |
+          set -euo pipefail
+          PORT="${OVH_PORT:-22}"
+          scp -i ~/.ssh/h2opr_ovh -P "$PORT" \
+            deploy/ovh/compose.yaml deploy/ovh/Caddyfile \
+            "$OVH_USER@$OVH_HOST:~/h2opr/"
+
+      - name: Deploy container
+        env:
+          OVH_HOST: ${{ secrets.OVH_HOST }}
+          OVH_USER: ${{ secrets.OVH_USER }}
+          OVH_PORT: ${{ secrets.OVH_PORT }}
+          IMAGE_TAG: ${{ inputs.image_tag }}
+          GHCR_USER: ${{ secrets.GHCR_USER }}
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+        run: |
+          set -euo pipefail
+          PORT="${OVH_PORT:-22}"
+          if [ -n "${GHCR_TOKEN:-}" ]; then
+            printf '%s' "$GHCR_TOKEN" | ssh -i ~/.ssh/h2opr_ovh -p "$PORT" "$OVH_USER@$OVH_HOST" \
+              "docker login ghcr.io -u '${GHCR_USER:-PR-botsAI}' --password-stdin"
+          fi
+          ssh -i ~/.ssh/h2opr_ovh -p "$PORT" "$OVH_USER@$OVH_HOST" \
+            "cd ~/h2opr && H2OPR_IMAGE_TAG='${IMAGE_TAG:-v2-edge}' docker compose pull && H2OPR_IMAGE_TAG='${IMAGE_TAG:-v2-edge}' docker compose up -d --remove-orphans && docker compose ps"
+
+      - name: Verify API from runner
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 18); do
+            if curl --fail --silent --show-error --max-time 10 \
+              https://api.h20pr.com/api/v1/health | tee /tmp/h2opr-health.json; then
+              echo
+              echo "H2O PR API is healthy"
+              exit 0
+            fi
+            echo "Waiting for API/TLS... attempt $attempt/18"
+            sleep 10
+          done
+          echo "API did not become healthy in time"
+          exit 1
