@@ -3,126 +3,198 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#064e6b">
-  <title>H2O PR — Agua, clima y ayuda en Puerto Rico</title>
-  <meta name="description" content="H2O PR reúne información oficial y comunitaria sobre agua en Puerto Rico: embalses AAA, clima NWS, reportes y contactos de ayuda.">
-  <meta property="og:title" content="H2O PR — Información de agua en Puerto Rico">
-  <meta property="og:description" content="Datos oficiales y comunitarios sobre agua, embalses, clima y ayuda en Puerto Rico.">
+  <meta name="theme-color" content="#083b4c">
+  <meta name="color-scheme" content="light">
+  <title>H2O PR — Encuentra agua y ayuda en Puerto Rico</title>
+  <meta name="description" content="H2O PR ayuda a encontrar puntos de agua, teléfonos de emergencia, suplidores y fuentes oficiales durante interrupciones y sequías en Puerto Rico.">
+  <meta property="og:title" content="H2O PR — Agua y ayuda ahora">
+  <meta property="og:description" content="Puntos de agua, contactos de emergencia y orientación verificada por municipio en Puerto Rico.">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="./" aria-label="H2O PR inicio">
-        <span class="drop" aria-hidden="true">💧</span>
-        <span><strong>H2O PR</strong><small>h20pr.com · información de agua en Puerto Rico</small></span>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="shell header-row">
+      <a class="wordmark" href="./" aria-label="H2O PR inicio">
+        <span class="mark" aria-hidden="true">H₂O</span>
+        <span><strong>H2O PR</strong><small>Agua y ayuda en Puerto Rico</small></span>
       </a>
-      <span class="live-pill"><i></i> DATOS EN VIVO</span>
+      <div class="header-tools">
+        <button id="large-text-btn" class="utility-btn" type="button" aria-pressed="false">A+ Texto grande</button>
+        <span class="verified-pill"><span></span> Fuentes verificadas</span>
+      </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="location-panel" aria-labelledby="location-title">
+  <div class="emergency-strip">
+    <div class="shell emergency-row">
+      <strong>¿Hay una emergencia médica o peligro inmediato?</strong>
+      <a href="tel:911">Llamar 911</a>
+    </div>
+  </div>
+
+  <main id="contenido" class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker">RESPUESTA DE AGUA · PUERTO RICO</p>
+        <h1 id="hero-title">¿Necesitas agua ahora?</h1>
+        <p class="hero-lead">Dinos tu pueblo. H2O PR te muestra primero dónde buscar agua, a quién llamar y qué información debes confirmar antes de salir.</p>
+      </div>
+
+      <div class="location-box" aria-label="Seleccionar municipio">
+        <label for="municipality-select">Tu pueblo</label>
+        <div class="location-controls">
+          <select id="municipality-select" aria-describedby="location-help">
+            <option value="Arecibo">Arecibo</option>
+          </select>
+          <button id="locate-btn" class="btn btn-outline" type="button">Usar mi ubicación</button>
+        </div>
+        <p id="location-help" class="micro">No guardamos tu ubicación. Se usa solamente para intentar identificar tu municipio en este dispositivo.</p>
+      </div>
+
+      <div class="action-grid" aria-label="Acciones principales">
+        <button class="action action-water" type="button" data-go="agua">
+          <span class="action-number">01</span><span><strong>Encontrar agua</strong><small>Oasis y puntos publicados</small></span>
+        </button>
+        <button class="action" type="button" data-go="ayuda">
+          <span class="action-number">02</span><span><strong>Llamar ayuda local</strong><small>Manejo de Emergencias y AAA</small></span>
+        </button>
+        <button id="voice-start" class="action action-voice" type="button">
+          <span class="action-number">03</span><span><strong>Hablar con H2O PR</strong><small>Dime “necesito agua” o el nombre de tu pueblo</small></span>
+        </button>
+        <button class="action" type="button" data-go="entrega">
+          <span class="action-number">04</span><span><strong>Conseguir entrega</strong><small>Camiones de agua y cisternas</small></span>
+        </button>
+      </div>
+    </section>
+
+    <section id="voice-panel" class="voice-panel" aria-labelledby="voice-title">
       <div>
-        <p class="eyebrow">TU ÁREA</p>
-        <h1 id="location-title">Arecibo</h1>
-        <p id="location-copy">Mostrando fuentes disponibles para Arecibo y datos oficiales de Puerto Rico.</p>
+        <p class="kicker light">ASISTENTE POR VOZ</p>
+        <h2 id="voice-title">Puedes hablar. No tienes que navegar menús.</h2>
+        <p id="voice-status">Presiona “Hablar con H2O PR” y di, por ejemplo: “Necesito agua en Carolina”, “llamar manejo de emergencias” o “¿qué hago cuando regrese el agua?”</p>
       </div>
-      <button id="locate-btn" class="button secondary" type="button">Usar mi ubicación</button>
+      <div class="voice-actions">
+        <button id="voice-mic" class="btn btn-light" type="button">Iniciar voz</button>
+        <button id="voice-read" class="btn btn-ghost-light" type="button">Escuchar resumen</button>
+      </div>
+      <p class="voice-note">La función de voz usa las capacidades del navegador cuando están disponibles. No envía una grabación a H2O PR.</p>
     </section>
 
-    <div id="stale-banner" class="banner warning hidden" role="status"></div>
+    <section id="agua" class="section" aria-labelledby="water-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">PRIMERO: AGUA</p>
+          <h2 id="water-title">Dónde buscar agua en <span data-municipality>Arecibo</span></h2>
+        </div>
+        <span id="water-count" class="count-badge">Verificando</span>
+      </div>
 
-    <section class="hero-grid">
-      <article class="card status-card">
-        <div class="card-head">
-          <div>
-            <p class="eyebrow">ESTADO DEL SERVICIO</p>
-            <h2 id="service-title">Buscando información oficial…</h2>
+      <div id="water-warning" class="notice notice-important hidden" role="status"></div>
+      <div id="water-points" class="resource-list"></div>
+      <div id="no-water-points" class="empty-state hidden">
+        <h3>No tenemos un oasis publicado y confirmado para este pueblo.</h3>
+        <p>Eso no significa que no exista uno. Para no mandarte a un lugar equivocado, H2O PR te conecta con Manejo de Emergencias para preguntar <strong>dónde están entregando agua hoy</strong>.</p>
+        <a id="empty-call" class="btn btn-primary" href="#">Llamar ahora</a>
+      </div>
+    </section>
+
+    <section id="ayuda" class="section section-tint" aria-labelledby="help-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">CONTACTOS PARA TU PUEBLO</p>
+          <h2 id="help-title">¿A quién llamo en <span data-municipality>Arecibo</span>?</h2>
+        </div>
+      </div>
+      <div id="contact-grid" class="contact-grid"></div>
+      <p class="section-footnote">H2O PR muestra un contacto municipal cuando lo hemos verificado. Para los 78 municipios siempre mostramos además la zona oficial de NMEAD correspondiente.</p>
+    </section>
+
+    <section id="entrega" class="section" aria-labelledby="delivery-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">SI NECESITAS ENTREGA O EQUIPO</p>
+          <h2 id="delivery-title">Agua a granel, camiones y cisternas</h2>
+        </div>
+        <span class="private-label">Proveedores privados</span>
+      </div>
+      <p class="section-intro">Estos negocios no son agencias de gobierno ni están afiliados con H2O PR. Llama para confirmar disponibilidad, precio, cobertura y que el servicio sea apropiado para tu necesidad.</p>
+      <div id="supplier-grid" class="supplier-grid"></div>
+    </section>
+
+    <section id="salud" class="section health-section" aria-labelledby="health-title">
+      <div class="health-icon" aria-hidden="true">3</div>
+      <div>
+        <p class="kicker">SEGURIDAD DEL AGUA</p>
+        <h2 id="health-title">Cuando regrese el servicio: hierve el agua</h2>
+        <p id="health-guidance">Cargando orientación del Departamento de Salud…</p>
+        <div class="inline-actions">
+          <button id="health-read" class="text-button" type="button">Escuchar esta recomendación</button>
+          <a id="health-source" class="text-link" href="https://www.salud.pr.gov/" target="_blank" rel="noopener">Fuente oficial</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="situacion" class="section" aria-labelledby="situation-title">
+      <div class="section-head">
+        <div>
+          <p class="kicker">CONTEXTO · NO ES LO PRIMERO</p>
+          <h2 id="situation-title">Situación general</h2>
+        </div>
+      </div>
+
+      <div class="situation-grid">
+        <details class="detail-card" open>
+          <summary>Pronóstico y alertas para <span data-municipality>Arecibo</span></summary>
+          <div id="weather-alerts" class="alerts-list"></div>
+          <div id="weather-grid" class="weather-compact"><p>Cargando pronóstico oficial…</p></div>
+          <p id="weather-time" class="micro">NWS San Juan</p>
+        </details>
+
+        <details class="detail-card">
+          <summary>Niveles de embalses AAA</summary>
+          <p class="micro">Los niveles ayudan a entender la situación regional, pero no dicen si una casa tiene agua ahora.</p>
+          <div id="reservoir-loading" class="loading">Cargando gráfica oficial…</div>
+          <img id="reservoir-chart" class="reservoir-chart hidden" alt="Gráfica oficial de niveles de embalses de AAA" loading="lazy">
+          <div class="detail-actions">
+            <span id="reservoir-time" class="micro"></span>
+            <a class="text-link" href="https://www.acueductos.pr.gov/infraestructura/niveles-de-los-embalses" target="_blank" rel="noopener">Abrir AAA</a>
           </div>
-          <span id="service-chip" class="chip neutral">VERIFICANDO</span>
-        </div>
-        <p id="service-copy" class="lead">No asumimos que hay agua cuando no existe un feed oficial confirmado.</p>
-        <div id="service-updates" class="source-list"></div>
-        <p class="fineprint">Importante: que no aparezca un comunicado reciente de AAA no confirma que su residencia tenga servicio.</p>
-      </article>
-
-      <aside class="stack">
-        <article class="card compact">
-          <p class="eyebrow">AYUDA OFICIAL</p>
-          <h2>AAA</h2>
-          <a class="call-button" href="tel:+17876202482">Llamar 787-620-2482</a>
-          <p>Centro de Servicio al Cliente · 6:00 a. m.–11:00 p. m. · todos los días.</p>
-          <a class="text-link" href="https://www.acueductos.pr.gov/servicios/centro-telefonico" target="_blank" rel="noopener">Ver fuente oficial ↗</a>
-        </article>
-
-        <article class="card compact">
-          <p class="eyebrow">REPORTES COMUNITARIOS</p>
-          <h2>Repórtalo San Juan</h2>
-          <p>Mapa municipal de comunidades que reportan interrupciones. <strong>Cubre San Juan, no Arecibo.</strong></p>
-          <a class="button full" href="https://www.reportalosj.com/mapa" target="_blank" rel="noopener">Abrir mapa de San Juan ↗</a>
-        </article>
-      </aside>
-    </section>
-
-    <section class="section-block" id="embalses">
-      <div class="section-title">
-        <div>
-          <p class="eyebrow">AAA · MONITOREO DIARIO</p>
-          <h2>Niveles de embalses</h2>
-        </div>
-        <span id="reservoir-time" class="timestamp">Cargando…</span>
-      </div>
-      <article class="card reservoir-card">
-        <div id="reservoir-loading" class="loading">Buscando la gráfica oficial más reciente de AAA…</div>
-        <img id="reservoir-chart" class="reservoir-chart hidden" alt="Gráfica oficial de niveles de embalses de la Autoridad de Acueductos y Alcantarillados" loading="lazy">
-        <div class="source-row">
-          <p>La gráfica es publicada por AAA. Los valores están en metros sobre el nivel del mar y la diferencia se calcula contra la lectura de las 5:00 a. m. del día anterior.</p>
-          <a class="button secondary" href="https://www.acueductos.pr.gov/infraestructura/niveles-de-los-embalses" target="_blank" rel="noopener">Fuente AAA ↗</a>
-        </div>
-      </article>
-    </section>
-
-    <section class="section-block" id="clima">
-      <div class="section-title">
-        <div>
-          <p class="eyebrow">NATIONAL WEATHER SERVICE · SAN JUAN</p>
-          <h2>¿Va a llover?</h2>
-        </div>
-        <span id="weather-time" class="timestamp">Cargando…</span>
-      </div>
-      <div id="weather-grid" class="weather-grid">
-        <article class="card loading">Cargando pronóstico oficial para Arecibo…</article>
-      </div>
-      <div id="weather-alerts" class="alerts-list"></div>
-      <p class="fineprint">Pronóstico obtenido de api.weather.gov. La probabilidad de lluvia no indica cuánto tiempo lloverá ni cuánta agua caerá.</p>
-    </section>
-
-    <section class="section-block">
-      <div class="section-title">
-        <div>
-          <p class="eyebrow">FUENTES Y TRANSPARENCIA</p>
-          <h2>Qué sabemos y qué no</h2>
-        </div>
-      </div>
-      <div class="truth-grid">
-        <article class="card truth good"><strong>Datos reales</strong><p>Embalses AAA, teléfono AAA y pronóstico/alertas NWS.</p></article>
-        <article class="card truth"><strong>Dato externo</strong><p>Repórtalo SJ sirve para reportes comunitarios dentro de San Juan.</p></article>
-        <article class="card truth caution"><strong>Aún falta</strong><p>AAA no expone aquí un feed público simple que confirme “tiene/no tiene agua” por dirección. No inventamos ese estado.</p></article>
+        </details>
       </div>
     </section>
 
-    <section class="sources-card">
-      <strong>Última actualización de H2O PR:</strong> <span id="app-updated">—</span>
-      <span> · </span>
-      <a href="https://github.com/PR-botsAI/agua-pr" target="_blank" rel="noopener">Código y fuentes en GitHub ↗</a>
+    <section class="trust-section" aria-labelledby="trust-title">
+      <div>
+        <p class="kicker">CÓMO TRATAMOS LA INFORMACIÓN</p>
+        <h2 id="trust-title">Si no está confirmado, te lo decimos.</h2>
+      </div>
+      <div class="trust-grid">
+        <div><strong>Confirmado</strong><p>Fuente oficial o proveedor directo revisado y con fecha.</p></div>
+        <div><strong>Reconfirmar</strong><p>Un lugar fue publicado anteriormente, pero debes llamar antes de salir.</p></div>
+        <div><strong>No disponible</strong><p>No inventamos un oasis, horario ni estado de servicio para llenar una pantalla.</p></div>
+      </div>
+      <p class="data-line">Registro de recursos actualizado: <strong id="resources-updated">—</strong> · Datos automáticos: <strong id="app-updated">—</strong></p>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-inner">
-      <strong>H2O PR</strong>
-      <span>Información crítica debe confirmarse con la fuente oficial.</span>
+  <nav class="mobile-nav" aria-label="Accesos rápidos">
+    <button type="button" data-go="agua">Agua</button>
+    <button type="button" data-go="ayuda">Ayuda</button>
+    <button type="button" data-go="entrega">Entrega</button>
+    <button id="mobile-voice" type="button">Voz</button>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <div><strong>H2O PR</strong><span>Información práctica para emergencias de agua.</span></div>
+      <div class="footer-links">
+        <a href="https://manejodeemergencias.pr.gov/" target="_blank" rel="noopener">NMEAD</a>
+        <a href="https://www.acueductos.pr.gov/" target="_blank" rel="noopener">AAA</a>
+        <a href="https://www.salud.pr.gov/" target="_blank" rel="noopener">Salud</a>
+        <a href="https://github.com/PR-botsAI/agua-pr" target="_blank" rel="noopener">Fuentes / código</a>
+      </div>
     </div>
   </footer>
 
