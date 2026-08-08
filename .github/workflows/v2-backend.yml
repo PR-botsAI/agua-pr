@@ -6,6 +6,7 @@ on:
     paths:
       - "v2/**"
       - "data/resources.json"
+      - "data/emergency-status.json"
       - ".github/workflows/v2-backend.yml"
   workflow_dispatch:
 
@@ -33,6 +34,7 @@ jobs:
         run: |
           curl --fail --silent http://127.0.0.1:8080/api/v1/health | tee /tmp/health.json
           curl --fail --silent http://127.0.0.1:8080/api/v1/prepa/levels | tee /tmp/levels.json
+          curl --fail --silent http://127.0.0.1:8080/api/v1/reservoirs/aaa | tee /tmp/aaa-reservoirs.json
           curl --fail --silent http://127.0.0.1:8080/api/v1/municipalities | tee /tmp/towns.json
           curl --fail --silent 'http://127.0.0.1:8080/api/v1/resources/water?municipality=Carolina' | tee /tmp/water.json
           curl --fail --silent 'http://127.0.0.1:8080/api/v1/resources/help?municipality=Arecibo' | tee /tmp/help.json
@@ -42,17 +44,19 @@ jobs:
           const read=f=>JSON.parse(fs.readFileSync(f,'utf8'));
           const health=read('/tmp/health.json');
           const levels=read('/tmp/levels.json');
+          const aaa=read('/tmp/aaa-reservoirs.json');
           const towns=read('/tmp/towns.json');
           const water=read('/tmp/water.json');
           const help=read('/tmp/help.json');
           const rationing=read('/tmp/rationing.json');
           if(!['healthy','degraded'].includes(health.status)) process.exit(2);
           if(levels.status==='live' && !levels.reservoirs?.length) process.exit(3);
+          if(aaa.status==='live' && !aaa.reservoirs?.some(r=>Number.isFinite(r.reading?.value))) process.exit(8);
           if(!Array.isArray(towns.municipalities) || towns.municipalities.length < 70) process.exit(4);
           if(water.municipality!=='Carolina' || !Array.isArray(water.waterPoints)) process.exit(5);
           if(help.municipality!=='Arecibo' || !help.aaa?.phone) process.exit(6);
           if(rationing.municipality!=='San Juan' || rationing.affected!==true) process.exit(7);
-          console.log({health:health.status,reservoirs:levels.reservoirs?.length||0,municipalities:towns.municipalities.length,carolinaWaterPoints:water.waterPoints.length,rationingMatch:rationing.matched??null});
+          console.log({health:health.status,prepaReservoirs:levels.reservoirs?.length||0,aaaUsgsReadings:aaa.reservoirs?.filter(r=>Number.isFinite(r.reading?.value)).length||0,municipalities:towns.municipalities.length,carolinaWaterPoints:water.waterPoints.length,rationingMatch:rationing.matched??null});
           NODE
       - name: Show server log on failure
         if: failure()
