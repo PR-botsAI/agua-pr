@@ -14,12 +14,43 @@ function ageMinutes(iso){
   return Number.isFinite(t)?Math.max(0,Math.round((Date.now()-t)/60000)):null;
 }
 
+function ageHours(iso){
+  const minutes=ageMinutes(iso);
+  return minutes==null?null:Math.round((minutes/60)*10)/10;
+}
+
+function itemTimestamp(item){
+  return item?.lastVerifiedAt||item?.verifiedAt||item?.verifiedOn||item?.sourceDate||null;
+}
+
+function waterFreshness(point){
+  const stamp=itemTimestamp(point);
+  const hours=ageHours(stamp);
+  const hasExactTime=Boolean(point?.lastVerifiedAt||point?.verifiedAt);
+  const recentExact=hasExactTime&&hours!=null&&hours<=2;
+  if(recentExact)return {state:'recently_verified',label:'VERIFICADO RECIENTEMENTE',lastVerifiedAt:stamp,ageHours:hours,callBeforeTravel:false};
+  if(point?.status==='permanent')return {state:'published_permanent',label:'PUNTO PUBLICADO COMO PERMANENTE',lastVerifiedAt:stamp,ageHours:hours,callBeforeTravel:true,note:'“Permanente” describe el punto publicado, no garantiza que tenga agua disponible en este momento.'};
+  return {state:'needs_confirmation',label:'CONFIRMA ANTES DE SALIR',lastVerifiedAt:stamp,ageHours:hours,callBeforeTravel:true,note:'H2O PR no tiene una verificación operacional de este punto dentro de las últimas 2 horas.'};
+}
+
+function decorateWaterPoint(point){
+  return {...point,sourceStatus:point.status||null,verification:waterFreshness(point),operationalStatus:waterFreshness(point).state};
+}
+
+function contactFreshness(contact){
+  const stamp=itemTimestamp(contact),hours=ageHours(stamp);
+  const days=hours==null?null:Math.round((hours/24)*10)/10;
+  return {lastVerifiedAt:stamp,ageDays:days,state:days!=null&&days>90?'needs_reverification':'reference_current',label:days!=null&&days>90?'REVERIFICAR NÚMERO':'CONTACTO DE REFERENCIA'};
+}
+
+function decorateContact(contact){return {...contact,verification:contactFreshness(contact)};}
+
 function zoneForMunicipality(data,name){
   return data?.nmead?.zones?.find(zone=>zone.municipalities?.includes(name))||null;
 }
 
 function localContacts(data,name){
-  return Array.isArray(data?.municipalContacts?.[name])?data.municipalContacts[name]:[];
+  return (Array.isArray(data?.municipalContacts?.[name])?data.municipalContacts[name]:[]).map(decorateContact);
 }
 
 function helpContact(data,name){
@@ -28,7 +59,7 @@ function helpContact(data,name){
 }
 
 function waterPoints(data,name){
-  return (data?.waterPoints||[]).filter(p=>p.municipality===name);
+  return (data?.waterPoints||[]).filter(p=>p.municipality===name).map(decorateWaterPoint);
 }
 
 function currentCycle(data,now=Date.now()){
@@ -62,16 +93,23 @@ function matchSector(data,municipality,query){
   return best;
 }
 
+function emergencyMetadata(emergency){
+  if(!emergency)return null;
+  const sourceAge=ageHours(emergency.sourceDate||emergency.corroboratedAt||null);
+  return {...emergency,sourceAgeHours:sourceAge,scheduleFreshness:sourceAge!=null&&sourceAge<=72?'recent_reference':'needs_source_recheck'};
+}
+
 function rationingStatus(data,municipality,sector){
-  const emergency=data?.currentEmergency;
+  const emergency=emergencyMetadata(data?.currentEmergency);
   const affected=Boolean(emergency?.affectedMunicipalities?.includes(municipality));
   if(!affected)return {affected:false,municipality,message:'No hay un calendario de esta emergencia cargado para este municipio. Esto no confirma que el servicio esté normal.'};
   const cycle=currentCycle(data);
-  if(!sector)return {affected:true,municipality,cycleHours:emergency.cycleHours||null,nextChangeAt:cycle?.nextChangeAt||null,source:emergency.source||null,message:'El municipio está dentro del plan cargado. Provee barrio, urbanización o sector para buscar la zona publicada.'};
+  const common={affected:true,municipality,cycleHours:emergency.cycleHours||null,nextChangeAt:cycle?.nextChangeAt||null,source:emergency.source||null,sourceLabel:emergency.sourceLabel||null,scheduleFreshness:emergency.scheduleFreshness||null};
+  if(!sector)return {...common,message:'El municipio está dentro del plan cargado. Provee barrio, urbanización o sector para buscar la zona publicada.'};
   const match=matchSector(data,municipality,sector);
-  if(!match)return {affected:true,municipality,sector,matched:false,nextChangeAt:cycle?.nextChangeAt||null,source:emergency.source||null,message:'No encontramos ese sector en la lista publicada. H2O PR no adivina la zona.'};
+  if(!match)return {...common,sector,matched:false,message:'No encontramos ese sector en la lista publicada. H2O PR no adivina la zona.'};
   const scheduledOn=cycle?(match.zone==='zone1'?cycle.zone1On:cycle.zone2On):null;
-  return {affected:true,municipality,sector,matched:true,matchedSector:match.item,zone:match.zone,zoneLabel:match.zone==='zone1'?'Zona 1':'Zona 2',scheduledService:scheduledOn,nextChangeAt:cycle?.nextChangeAt||null,source:emergency.source||null,warning:'Este resultado refleja el calendario cargado; no garantiza presión o servicio real en una residencia.'};
+  return {...common,sector,matched:true,matchedSector:match.item,zone:match.zone,zoneLabel:match.zone==='zone1'?'Zona 1':'Zona 2',scheduledService:scheduledOn,warning:'Este resultado refleja el calendario publicado; no garantiza presión o servicio real en una residencia.'};
 }
 
 export class ResourceRegistry{
@@ -101,9 +139,9 @@ export class ResourceRegistry{
       municipality,
       registryUpdatedAt:data.updatedAt||null,
       registryAgeMinutes:ageMinutes(data.updatedAt),
-      emergency:data.currentEmergency?{...data.currentEmergency,affected:Boolean(data.currentEmergency.affectedMunicipalities?.includes(municipality))}:null,
+      emergency:data.currentEmergency?{...emergencyMetadata(data.currentEmergency),affected:Boolean(data.currentEmergency.affectedMunicipalities?.includes(municipality))}:null,
       waterPoints:points,
-      mobileWater:mobile,
+      mobileWater:mobile?{...mobile,verification:waterFreshness(mobile)}:null,
       localContacts:local,
       nmeadZone:zone,
       aaa:data.aaa||null,
@@ -127,4 +165,4 @@ export class ResourceRegistry{
   }
 }
 
-export { rationingStatus, matchSector, currentCycle };
+export { rationingStatus, matchSector, currentCycle, waterFreshness, contactFreshness };
