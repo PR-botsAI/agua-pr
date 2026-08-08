@@ -1,4 +1,4 @@
-name: Deploy Agua PR to GitHub Pages
+name: Deploy H2O PR to GitHub Pages
 
 on:
   push:
@@ -19,17 +19,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm install --no-audit --no-fund
-      - run: npm run build
-        env:
-          NEXT_PUBLIC_AGUA_PR_DATA_URL: https://paymegpt.com/api/public/landing-pages/6034/sheet-data
+      - name: Assemble static site
+        run: |
+          mkdir -p _site/data
+          cp index.html styles.css script.js robots.txt sitemap.xml CNAME _site/
+          cp data/live.json _site/data/live.json
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./_site
 
   deploy:
     environment:
