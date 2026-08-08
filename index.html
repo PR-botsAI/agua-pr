@@ -7,6 +7,7 @@
   <title>H2O PR — Encuentra agua y ayuda ahora</title>
   <meta name="description" content="Encuentra oasis, asistencia de cisternas, teléfonos de Manejo de Emergencias, racionamiento y datos operacionales en Puerto Rico.">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./aaa-reservoirs.css">
   <link rel="stylesheet" href="./prepa.css">
 </head>
 <body>
@@ -75,11 +76,24 @@
       <div id="help-list" class="help-grid"></div>
     </section>
 
+    <section id="aaa-reservoir-dashboard" class="section aaa-dashboard" aria-labelledby="aaa-reservoir-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">EMBALSES DE AGUA POTABLE · USGS + AAA</p>
+          <div class="aaa-heading-row"><h2 id="aaa-reservoir-title">Lecturas reales, en nuestro propio dashboard</h2><span id="aaa-reservoir-state" class="aaa-source-state">CARGANDO</span></div>
+          <p class="aaa-intro">H2O PR toma lecturas de estaciones USGS operadas en cooperación con AAA y dibuja nuestras propias tarjetas y tendencias. La lectura es elevación del embalse en metros; no inventamos un “% lleno” cuando la fuente no lo reporta.</p>
+        </div>
+      </div>
+      <div id="aaa-reservoir-grid" class="aaa-reservoir-grid"><div class="live-empty">Cargando Carraízo, La Plata, Cidra, Toa Vaca, Fajardo y Río Blanco…</div></div>
+      <div class="aaa-explain"><strong>Cómo leerlo:</strong> la flecha de 24 horas se calcula únicamente con mediciones reales de USGS. Una bajada o subida del nivel no confirma por sí sola si tu casa tiene agua; para eso usamos el plan de racionamiento, avisos y recursos locales arriba.</div>
+      <p id="aaa-reservoir-updated" class="aaa-updated"></p>
+    </section>
+
     <section id="prepa-dashboard" class="section live-data" aria-labelledby="prepa-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">DATOS OPERACIONALES · DIRECTO DE PREPA</p>
-          <h2 id="prepa-title">Lo mostramos en nuestros propios términos</h2>
+          <p class="eyebrow">CONTEXTO OPERACIONAL · DIRECTO DE PREPA</p>
+          <h2 id="prepa-title">Sistema eléctrico e hidroeléctrico</h2>
           <p class="live-intro">H2O PR convierte los archivos públicos de PREPA en números, tarjetas y tendencias fáciles de leer. No incrustamos su gráfica y no inventamos porcentajes cuando la fuente no los reporta.</p>
         </div>
       </div>
@@ -92,7 +106,7 @@
 
       <div class="live-grid">
         <article class="live-panel">
-          <h3>Lecturas de embalses PREPA</h3>
+          <h3>Lecturas de embalses hidroeléctricos PREPA</h3>
           <p class="panel-note">Mostramos la lectura y el cambio exactamente como llegan del archivo público. No convertimos la elevación en “% lleno” usando capacidades estimadas.</p>
           <div id="prepa-levels" class="level-grid"></div>
         </article>
@@ -138,6 +152,7 @@
   </nav>
 
   <script src="./script.js" defer></script>
+  <script src="./aaa-reservoirs.js" defer></script>
   <script src="./prepa.js" defer></script>
 </body>
 </html>
