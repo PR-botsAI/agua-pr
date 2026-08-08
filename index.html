@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#083b4c">
   <title>H2O PR — Encuentra agua y ayuda ahora</title>
-  <meta name="description" content="Encuentra oasis, asistencia de cisternas, teléfonos de Manejo de Emergencias y el calendario de racionamiento por sector en Puerto Rico.">
+  <meta name="description" content="Encuentra oasis, asistencia de cisternas, teléfonos de Manejo de Emergencias, racionamiento y datos operacionales en Puerto Rico.">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./prepa.css">
 </head>
 <body>
   <a class="skip" href="#main">Saltar al contenido</a>
@@ -74,6 +75,44 @@
       <div id="help-list" class="help-grid"></div>
     </section>
 
+    <section id="prepa-dashboard" class="section live-data" aria-labelledby="prepa-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">DATOS OPERACIONALES · DIRECTO DE PREPA</p>
+          <h2 id="prepa-title">Lo mostramos en nuestros propios términos</h2>
+          <p class="live-intro">H2O PR convierte los archivos públicos de PREPA en números, tarjetas y tendencias fáciles de leer. No incrustamos su gráfica y no inventamos porcentajes cuando la fuente no los reporta.</p>
+        </div>
+      </div>
+
+      <div id="prepa-feed-state" class="feed-state-row" aria-live="polite">
+        <div class="feed-state"><span></span><strong>PREPA</strong><b>CARGANDO</b></div>
+      </div>
+      <div id="prepa-notice" class="live-warning hidden" role="status"></div>
+      <div id="prepa-kpis" class="live-kpis"><div class="live-empty">Cargando datos públicos de PREPA…</div></div>
+
+      <div class="live-grid">
+        <article class="live-panel">
+          <h3>Lecturas de embalses PREPA</h3>
+          <p class="panel-note">Mostramos la lectura y el cambio exactamente como llegan del archivo público. No convertimos la elevación en “% lleno” usando capacidades estimadas.</p>
+          <div id="prepa-levels" class="level-grid"></div>
+        </article>
+        <article class="live-panel">
+          <h3>Generación por fuente</h3>
+          <p class="panel-note">Participación relativa de la generación que PREPA reporta en este momento.</p>
+          <div id="prepa-fuels"></div>
+        </article>
+      </div>
+
+      <article class="live-panel trend-panel">
+        <h3>Tendencia de generación reportada</h3>
+        <p class="panel-note">La línea se dibuja con los puntos reales de <code>dataGraph.js</code>; H2O PR no rellena huecos con ondas o valores simulados.</p>
+        <div id="prepa-trend"></div>
+      </article>
+
+      <p class="prepa-source-note"><strong>Importante:</strong> los embalses hidroeléctricos de PREPA son contexto operacional y no equivalen por sí solos al sistema de agua potable de AAA. Fuentes: <a href="https://operationdata.prepa.pr.gov/dataSource.js" target="_blank" rel="noopener">generación</a>, <a href="https://operationdata.prepa.pr.gov/dataLevels.js" target="_blank" rel="noopener">niveles</a> y <a href="https://operationdata.prepa.pr.gov/dataGraph.js" target="_blank" rel="noopener">histórico</a>.</p>
+      <p id="prepa-updated" class="live-updated"></p>
+    </section>
+
     <section class="section health" aria-labelledby="health-title">
       <div><p class="eyebrow">CUANDO REGRESE EL AGUA</p><h2 id="health-title">Haz esto antes de beberla</h2><p id="health-text">Cargando recomendación oficial…</p></div>
       <button id="read-health" class="btn outline" type="button">Escuchar</button>
@@ -84,15 +123,10 @@
         <summary>Clima y alertas oficiales</summary>
         <div id="weather">Selecciona tu pueblo o usa tu ubicación para ver el pronóstico.</div>
       </details>
-      <details>
-        <summary>Niveles de embalses AAA</summary>
-        <p class="muted">Esto ayuda a entender la situación regional, pero no dice si tu casa tiene agua ahora.</p>
-        <img id="reservoir" class="reservoir hidden" alt="Gráfica oficial de niveles de embalses AAA">
-      </details>
     </section>
 
     <section class="trust">
-      <strong>Regla de H2O PR:</strong> si no sabemos que un oasis sigue activo, mostramos la fecha y te pedimos que llames antes de salir. Nunca mostramos datos inventados.
+      <strong>Regla de H2O PR:</strong> si no sabemos que un oasis sigue activo, mostramos la fecha y te pedimos que llames antes de salir. Si una fuente de datos falla, mostramos el último dato con aviso de antigüedad o dejamos el dato vacío. Nunca mostramos números inventados.
       <span id="data-time"></span>
     </section>
   </main>
@@ -104,5 +138,6 @@
   </nav>
 
   <script src="./script.js" defer></script>
+  <script src="./prepa.js" defer></script>
 </body>
 </html>

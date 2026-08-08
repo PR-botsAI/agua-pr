@@ -2,11 +2,21 @@ name: Refresh official H2O PR data
 
 on:
   schedule:
-    - cron: '17 * * * *'
+    - cron: '*/10 * * * *'
+  push:
+    branches: ["main"]
+    paths:
+      - "scripts/update-prepa-data.mjs"
+      - "scripts/update-official-data.mjs"
+      - ".github/workflows/update-official-data.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: h2opr-data-refresh
+  cancel-in-progress: true
 
 jobs:
   refresh:
@@ -16,16 +26,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Fetch official sources
+      - name: Fetch official AAA sources
         run: node scripts/update-official-data.mjs
+      - name: Fetch PREPA machine-readable feeds
+        run: node scripts/update-prepa-data.mjs
       - name: Commit changed data
         run: |
-          if git diff --quiet -- data/live.json; then
+          if git diff --quiet -- data/; then
             echo "No data changes"
             exit 0
           fi
           git config user.name "h20pr-data-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/live.json
-          git commit -m "data: refresh official sources"
+          git add data/
+          git commit -m "data: refresh official H2O PR sources"
           git push
