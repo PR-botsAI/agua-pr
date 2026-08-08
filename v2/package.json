@@ -1,0 +1,12 @@
+{
+  "name": "h2opr-v2",
+  "version": "2.0.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server/index.mjs",
+    "dev": "node --watch server/index.mjs",
+    "probe": "node scripts/probe.mjs"
+  }
+}
