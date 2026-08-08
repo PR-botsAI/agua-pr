@@ -1,162 +1,102 @@
-// ===== CONTROLES DE UBICACIÓN Y VISTA =====
-    // Propósito: Solicitar geolocalización únicamente por acción del usuario y alternar la vista de mapa.
-    (function() {
-      var locationButton = document.getElementById('location-btn');
-      var locationResult = document.getElementById('location-result');
-      locationButton.addEventListener('click', function() {
-        locationResult.classList.remove('hidden');
-        if (!navigator.geolocation) {
-          locationResult.textContent = 'Su navegador no permite usar ubicación. Continúa seleccionado Arecibo.';
-          return;
-        }
-        locationButton.disabled = true;
-        locationButton.textContent = 'Solicitando permiso…';
-        navigator.geolocation.getCurrentPosition(function() {
-          locationResult.textContent = 'Ubicación recibida. Este piloto continúa mostrando Arecibo.';
-          locationButton.textContent = 'Ubicación recibida';
-        }, function() {
-          locationResult.textContent = 'No se obtuvo permiso de ubicación. Continúa seleccionado Arecibo.';
-          locationButton.disabled = false;
-          locationButton.textContent = 'Usar mi ubicación';
-        }, { enableHighAccuracy:false, timeout:8000, maximumAge:300000 });
-      });
+const ARECIBO={lat:18.4724,lon:-66.7157,label:'Arecibo'};
+const fallback={updatedAt:'2026-08-08T01:03:00-04:00',reservoir:{chartUrl:'https://appweb.acueductospr.com/AAA_Embalses/ImageFiles/current_chart_20260807045503590.png',observedLabel:'Gráfica oficial AAA publicada el 7 ago 2026 · lectura diaria ~5:00 a. m.',source:'https://www.acueductos.pr.gov/infraestructura/niveles-de-los-embalses'},serviceUpdates:[]};
 
-      var listButton = document.getElementById('list-view-btn');
-      var mapButton = document.getElementById('map-view-btn');
-      var list = document.getElementById('water-points-data');
-      var map = document.getElementById('map-placeholder');
-      mapButton.addEventListener('click', function() {
-        list.classList.add('hidden'); map.classList.remove('hidden');
-        mapButton.setAttribute('aria-pressed', 'true'); listButton.setAttribute('aria-pressed', 'false');
-        mapButton.className = 'bg-[#0066CC] px-4 font-black text-white';
-        listButton.className = 'bg-white px-4 font-black text-[#0057AD]';
-      });
-      listButton.addEventListener('click', function() {
-        map.classList.add('hidden'); list.classList.remove('hidden');
-        listButton.setAttribute('aria-pressed', 'true'); mapButton.setAttribute('aria-pressed', 'false');
-        listButton.className = 'bg-[#0066CC] px-4 font-black text-white';
-        mapButton.className = 'bg-white px-4 font-black text-[#0057AD]';
-      });
-    })();
+const $=(id)=>document.getElementById(id);
+const fmt=(iso)=>{try{return new Intl.DateTimeFormat('es-PR',{dateStyle:'medium',timeStyle:'short',timeZone:'America/Puerto_Rico'}).format(new Date(iso));}catch{return iso||'—'}};
+const escapeHtml=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-(function() {
-  var endpoint = document.querySelector('meta[name="sheet-data-url"]')?.content;
-  if (!endpoint) return;
-  var container = document.getElementById('sheet-data');
-  var errorDiv = document.getElementById('menu-error');
-
-  // ===== INTERPRETACIÓN Y PRESENTACIÓN DE FILAS =====
-  // Propósito: Separar las filas por tipo, conservar la fuente y mostrar estados vacíos explícitos.
-  function renderPayload(result, fromCache) {
-    var rows = result.data || [];
-    var norm = function(v) { return String(v || '').trim(); };
-    var lower = function(v) { return norm(v).toLowerCase(); };
-    var esc = function(v) {
-      return norm(v).replace(/[&<>"']/g, function(c) {
-        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-      });
-    };
-    var field = function(row, keys) {
-      for (var i=0; i<keys.length; i++) if (row[keys[i]] !== undefined && norm(row[keys[i]])) return row[keys[i]];
-      return '';
-    };
-    var kind = function(row) {
-      return lower(field(row, ['Tipo','tipo','Sección','Seccion','seccion','Section','section','Hoja','hoja','Categoria','Categoría','category']));
-    };
-    var select = function(words) {
-      return rows.filter(function(row) {
-        var value = kind(row);
-        return words.some(function(word) { return value.indexOf(word) !== -1; });
-      });
-    };
-    var chip = function(row) {
-      var source = lower(field(row, ['Fuente','fuente','Source','source']));
-      var confidence = lower(field(row, ['Confianza','confianza','Confirmado','confirmado','EstadoConfirmacion','Verificación','Verificacion']));
-      var text = 'Información pendiente de confirmar';
-      var classes = 'bg-[#FFF0D5] text-[#704000]';
-      if (source.indexOf('aaa') !== -1 && confidence.indexOf('no') === -1) { text='Confirmado por AAA'; classes='bg-[#DDF5E5] text-[#0D662E]'; }
-      else if ((source.indexOf('municip') !== -1 || confidence.indexOf('municip') !== -1) && confidence.indexOf('no') === -1) { text='Confirmado por municipio'; classes='bg-[#DDF5E5] text-[#0D662E]'; }
-      else if (confidence.indexOf('autom') !== -1) { text='Actualizado automáticamente'; classes='bg-[#DDEEFF] text-[#004F9E]'; }
-      else if (source.indexOf('comunit') !== -1 || confidence.indexOf('comunit') !== -1) { text='Reporte comunitario'; classes='bg-[#FFF0D5] text-[#704000]'; }
-      return '<span class="chip '+classes+'">'+text+'</span>';
-    };
-    var card = function(row) {
-      var imageKeys = ['Image URL','image_url','imageUrl','Image','image','Photo','photo','Picture','picture','Thumbnail','thumbnail','Logo','logo','Img','img','Avatar','avatar'];
-      var imgUrl = '';
-      for (var i = 0; i < imageKeys.length; i++) { if (row[imageKeys[i]]) { imgUrl = row[imageKeys[i]]; break; } }
-      var name = field(row, ['Título','Titulo','title','Name','name','Lugar','lugar','Embalse','embalse','Día','Dia','dia']) || 'Información';
-      var desc = field(row, ['Descripción','Descripcion','description','Description','Detalle','detalle','Mensaje','mensaje','Pronóstico','Pronostico','pronostico']);
-      var address = field(row, ['Dirección','Direccion','direccion','Address','address']);
-      var hours = field(row, ['Horario','horario','Hora','hora']);
-      var updated = field(row, ['Actualizado','actualizado','Última actualización','Ultima actualizacion','last_updated','Fecha','fecha']);
-      var imgHtml = imgUrl ? '<img src="' + esc(imgUrl) + '" alt="' + esc(name) + '" loading="lazy" style="width:100%;height:160px;object-fit:cover;display:block;border-radius:.55rem;margin-bottom:.75rem;" onerror="this.style.display=\'none\'">' : '';
-      return '<article class="data-card">'+imgHtml+'<div class="flex flex-wrap justify-between gap-2"><h4>'+esc(name)+'</h4>'+chip(row)+'</div>'+
-        (desc?'<p>'+esc(desc)+'</p>':'')+(address?'<p><strong>Dirección:</strong> '+esc(address)+'</p>':'')+
-        (hours?'<p><strong>Horario:</strong> '+esc(hours)+'</p>':'')+(updated?'<p class="text-base text-slate-700"><strong>Actualizado:</strong> '+esc(updated)+'</p>':'')+'</article>';
-    };
-    var setList = function(id, list, emptyMessage) {
-      document.getElementById(id).innerHTML = list.length ? list.map(card).join('') : '<div class="rounded-lg border-2 border-slate-300 bg-slate-50 p-4"><p class="font-bold">'+emptyMessage+'</p></div>';
-    };
-
-    var statusRows = select(['estado']);
-    var status = statusRows[0] || {};
-    var code = field(status, ['Código','Codigo','codigo','Code','code','Estado','estado']) || 'PENDIENTE';
-    var title = field(status, ['Título','Titulo','titulo','Title','title']) || 'Información pendiente de confirmar';
-    var description = field(status, ['Descripción','Descripcion','descripcion','Description','description']) || 'Todavía no hay un estado oficial verificado para Arecibo.';
-    var source = field(status, ['Fuente','fuente','Source','source']) || 'Fuente oficial pendiente';
-    var updated = field(status, ['Actualizado','actualizado','Última actualización','Ultima actualizacion','last_updated']) || 'Hora pendiente';
-    var pending = lower(code).indexOf('pend') !== -1 || lower(field(status,['Confirmado','confirmado','Confianza','confianza'])).indexOf('pend') !== -1;
-    var statusCard = document.getElementById('status-card');
-    statusCard.classList.remove('status-pending','status-available','status-outage');
-    statusCard.classList.add(pending ? 'status-pending' : (lower(code).indexOf('no') !== -1 || lower(code).indexOf('interrup') !== -1 ? 'status-outage' : 'status-available'));
-    document.getElementById('status-heading').textContent = pending ? 'Información pendiente de confirmar' : title;
-    document.getElementById('status-code').textContent = code;
-    container.innerHTML = '<p class="leading-relaxed">'+esc(description)+'</p><div class="mt-4 flex flex-wrap gap-2">'+chip(status)+'</div>'+
-      '<dl class="mt-4 grid gap-2 text-base sm:grid-cols-2"><div><dt class="font-black">Fuente</dt><dd>'+esc(source)+'</dd></div><div><dt class="font-black">Última actualización</dt><dd>'+esc(updated)+'</dd></div></dl>';
-    container.setAttribute('aria-busy','false');
-
-    setList('rationing-data', select(['racionamiento','racion']), 'No hay un horario de racionamiento verificado cargado.');
-    setList('water-points-data', select(['puntosagua','punto agua','distribuci']), 'No hay puntos de distribución verificados cargados todavía. Consulte fuentes oficiales y llame antes de trasladarse.');
-    setList('forecast-data', select(['pronostico','pronóstico','clima','lluvia']), 'No hay un pronóstico enlazado disponible en este momento. Consulte una fuente meteorológica oficial.');
-    setList('reservoir-data', select(['embalse']), 'No hay niveles de embalses verificados cargados en este momento.');
-    setList('alerts-data', select(['alerta']), 'No hay alertas verificadas cargadas en este momento.');
-
-    var contacts = select(['contacto','ayuda']);
-    var contactsEl = document.getElementById('contacts-data');
-    if (!contacts.length) {
-      contactsEl.innerHTML = '<div class="rounded-lg border-2 border-[#A15C00] bg-[#FFF4E5] p-4"><p class="font-black">Llame a AAA</p><p class="mt-1">Teléfono pendiente de verificación oficial</p></div>';
-    } else {
-      contactsEl.innerHTML = contacts.map(function(row) {
-        var name = field(row,['Nombre','nombre','Name','name','Título','Titulo']) || 'Contacto oficial';
-        var phone = field(row,['Teléfono','Telefono','telefono','Phone','phone']);
-        return '<article class="data-card"><h4>'+esc(name)+'</h4><p class="font-bold">'+(phone ? '<a class="inline-flex mt-2 items-center rounded-lg bg-[#0066CC] px-5 text-white" href="tel:'+esc(phone.replace(/[^0-9+]/g,''))+'">Llamar: '+esc(phone)+'</a>' : 'Teléfono pendiente de verificación oficial')+'</p>'+chip(row)+'</article>';
-      }).join('');
-    }
-
-    if (fromCache) document.getElementById('offline-notice').classList.remove('hidden');
+function renderOfficial(data){
+  const payload={...fallback,...data,reservoir:{...fallback.reservoir,...(data?.reservoir||{})}};
+  $('app-updated').textContent=fmt(payload.updatedAt);
+  if(payload.reservoir.chartUrl){
+    $('reservoir-chart').src=payload.reservoir.chartUrl;
+    $('reservoir-chart').classList.remove('hidden');
+    $('reservoir-loading').classList.add('hidden');
+    $('reservoir-time').textContent=payload.reservoir.observedLabel||'Fuente oficial AAA';
   }
+  const updates=Array.isArray(payload.serviceUpdates)?payload.serviceUpdates:[];
+  $('service-title').textContent='No hay un feed oficial por dirección';
+  $('service-chip').textContent='SIN FEED DE SERVICIO';
+  $('service-chip').className='chip warn';
+  $('service-copy').textContent='AAA publica datos y comunicados, pero H2O PR todavía no recibe un estado estructurado que permita afirmar si una residencia específica tiene agua ahora mismo.';
+  if(updates.length){
+    $('service-title').textContent='Comunicados oficiales relacionados';
+    $('service-chip').textContent='AAA';
+    $('service-chip').className='chip good';
+    $('service-updates').innerHTML=updates.slice(0,3).map(u=>`<a class="source-item" href="${escapeHtml(u.url)}" target="_blank" rel="noopener"><strong>${escapeHtml(u.title)}</strong><small>${escapeHtml(u.dateLabel||'Fuente AAA')}</small></a>`).join('');
+  } else {
+    $('service-updates').innerHTML='<div class="source-item"><strong>Consulta directa disponible</strong><small>Para confirmar un sector sin agua, llame a AAA al 787-620-2482 o revise sus canales oficiales.</small></div>';
+  }
+  const age=Date.now()-new Date(payload.updatedAt).getTime();
+  if(Number.isFinite(age)&&age>3*60*60*1000){
+    $('stale-banner').textContent='La última actualización automática de H2O PR tiene más de 3 horas. Use los enlaces oficiales antes de tomar una decisión.';
+    $('stale-banner').classList.remove('hidden');
+  }
+}
 
-  fetch(endpoint)
-    .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-    .then(function(result) {
-      if (!container || !result.data || result.data.length === 0) {
-        if (errorDiv) errorDiv.classList.remove('hidden');
-        renderPayload({data:[]}, false);
-        return;
-      }
-      try { localStorage.setItem('agua-pr-sheet-cache', JSON.stringify({savedAt:Date.now(), payload:result})); } catch(e) {}
-      renderPayload(result, false);
-    })
-    .catch(function(err) {
-      console.error('Sheet data error:', err);
-      if (errorDiv) errorDiv.classList.remove('hidden');
-      var cached = null;
-      try { cached = JSON.parse(localStorage.getItem('agua-pr-sheet-cache')); } catch(e) {}
-      if (cached && cached.payload && cached.payload.data) renderPayload(cached.payload, true);
-      else renderPayload({data:[]}, true);
-    });
+async function loadOfficial(){
+  try{
+    const r=await fetch(`./data/live.json?v=${Date.now()}`,{cache:'no-store'});
+    if(!r.ok)throw new Error(`HTTP ${r.status}`);
+    renderOfficial(await r.json());
+  }catch(e){
+    console.warn('official data fallback',e);
+    renderOfficial(fallback);
+  }
+}
 
-  // Muestra el aviso inmediatamente si el navegador informa que no hay conexión.
-  if (!navigator.onLine) document.getElementById('offline-notice').classList.remove('hidden');
-  window.addEventListener('offline', function() { document.getElementById('offline-notice').classList.remove('hidden'); });
-})();
+function rainChance(period){
+  const p=period?.probabilityOfPrecipitation?.value;
+  return Number.isFinite(p)?`${Math.round(p)}% lluvia`:'Lluvia: —';
+}
+
+function renderForecast(periods,label,updated){
+  $('weather-time').textContent=`${label} · ${updated?fmt(updated):'NWS'}`;
+  $('weather-grid').innerHTML=periods.slice(0,8).map(p=>`<article class="card weather-card"><h3>${escapeHtml(p.name)}</h3><div class="temp">${escapeHtml(p.temperature)}°${escapeHtml(p.temperatureUnit)}</div><p class="rain">${rainChance(p)}</p><p>${escapeHtml(p.shortForecast)}</p><p class="fineprint">Viento ${escapeHtml(p.windSpeed)} ${escapeHtml(p.windDirection)}</p></article>`).join('');
+}
+
+function renderAlerts(features){
+  if(!features?.length){$('weather-alerts').innerHTML='';return;}
+  $('weather-alerts').innerHTML=features.slice(0,4).map(a=>{const p=a.properties||{};return `<article class="alert-card"><strong>${escapeHtml(p.event||'Alerta meteorológica')}</strong><span>${escapeHtml(p.headline||p.description||'')}</span></article>`}).join('');
+}
+
+async function loadNws(lat=ARECIBO.lat,lon=ARECIBO.lon,label=ARECIBO.label){
+  $('weather-grid').innerHTML='<article class="card loading">Cargando pronóstico oficial…</article>';
+  try{
+    const pointResp=await fetch(`https://api.weather.gov/points/${lat.toFixed(4)},${lon.toFixed(4)}`,{headers:{Accept:'application/geo+json'}});
+    if(!pointResp.ok)throw new Error(`NWS point ${pointResp.status}`);
+    const point=await pointResp.json();
+    const city=point?.properties?.relativeLocation?.properties?.city;
+    const region=point?.properties?.relativeLocation?.properties?.state;
+    const resolved=city?`${city}${region?`, ${region}`:''}`:label;
+    const [forecastResp,alertsResp]=await Promise.all([
+      fetch(point.properties.forecast,{headers:{Accept:'application/geo+json'}}),
+      fetch(`https://api.weather.gov/alerts/active?point=${lat.toFixed(4)},${lon.toFixed(4)}`,{headers:{Accept:'application/geo+json'}})
+    ]);
+    if(!forecastResp.ok)throw new Error(`NWS forecast ${forecastResp.status}`);
+    const forecast=await forecastResp.json();
+    const alerts=alertsResp.ok?await alertsResp.json():{features:[]};
+    renderForecast(forecast?.properties?.periods||[],resolved,forecast?.properties?.updated);
+    renderAlerts(alerts.features||[]);
+    return resolved;
+  }catch(e){
+    console.error(e);
+    $('weather-grid').innerHTML='<article class="card"><strong>No se pudo cargar api.weather.gov.</strong><p>Abra el pronóstico oficial del Servicio Nacional de Meteorología en San Juan.</p><a class="button secondary" href="https://www.weather.gov/sju/" target="_blank" rel="noopener">Abrir NWS San Juan ↗</a></article>';
+    $('weather-time').textContent='Error al conectar';
+    return label;
+  }
+}
+
+$('locate-btn')?.addEventListener('click',()=>{
+  if(!navigator.geolocation){alert('Este navegador no ofrece ubicación.');return;}
+  const btn=$('locate-btn');btn.disabled=true;btn.textContent='Buscando…';
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    const label=await loadNws(pos.coords.latitude,pos.coords.longitude,'Tu ubicación');
+    $('location-title').textContent=label;
+    $('location-copy').textContent='El pronóstico usa su ubicación aproximada. Los datos de AAA siguen siendo fuentes generales/oficiales de Puerto Rico.';
+    btn.textContent='Ubicación actualizada';
+  },()=>{btn.disabled=false;btn.textContent='Usar mi ubicación';alert('No se pudo obtener permiso de ubicación.');},{enableHighAccuracy:false,timeout:8000,maximumAge:300000});
+});
+
+loadOfficial();
+loadNws();
