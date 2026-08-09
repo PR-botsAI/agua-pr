@@ -20,27 +20,6 @@ services:
     networks:
       - h2opr
 
-  caddy:
-    image: caddy:2-alpine
-    container_name: h2opr-caddy
-    restart: unless-stopped
-    depends_on:
-      api:
-        condition: service_healthy
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    networks:
-      - h2opr
-
 networks:
   h2opr:
-
-volumes:
-  caddy_data:
-  caddy_config:
+    name: h2opr
