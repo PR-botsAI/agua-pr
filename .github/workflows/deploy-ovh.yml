@@ -58,10 +58,10 @@ jobs:
           set -euo pipefail
           PORT="${OVH_PORT:-22}"
           scp -i ~/.ssh/h2opr_ovh -P "$PORT" \
-            deploy/ovh/compose.yaml deploy/ovh/azuracast-h2opr.conf \
+            deploy/ovh/compose.yaml \
             "$OVH_USER@$OVH_HOST:~/h2opr/"
 
-      - name: Deploy H2O API container
+      - name: Deploy isolated H2O API container
         env:
           OVH_HOST: ${{ secrets.OVH_HOST }}
           OVH_USER: ${{ secrets.OVH_USER }}
@@ -79,7 +79,7 @@ jobs:
           ssh -i ~/.ssh/h2opr_ovh -p "$PORT" "$OVH_USER@$OVH_HOST" \
             "cd ~/h2opr && H2OPR_IMAGE_TAG='${IMAGE_TAG:-v2-edge}' docker compose pull && H2OPR_IMAGE_TAG='${IMAGE_TAG:-v2-edge}' docker compose up -d --remove-orphans && docker compose ps"
 
-      - name: Attach H2O to AzuraCast and reload NGINX
+      - name: Verify API on VPS localhost
         env:
           OVH_HOST: ${{ secrets.OVH_HOST }}
           OVH_USER: ${{ secrets.OVH_USER }}
@@ -87,67 +87,5 @@ jobs:
         run: |
           set -euo pipefail
           PORT="${OVH_PORT:-22}"
-          ssh -i ~/.ssh/h2opr_ovh -p "$PORT" "$OVH_USER@$OVH_HOST" 'bash -s' <<'REMOTE'
-          set -euo pipefail
-
-          AZ_CONTAINER=""
-          for id in $(docker ps -q); do
-            image=$(docker inspect -f '{{.Config.Image}}' "$id" 2>/dev/null || true)
-            ports=$(docker port "$id" 2>/dev/null || true)
-            if printf '%s' "$image" | grep -qi 'azuracast' && printf '%s' "$ports" | grep -Eq '(^|[[:space:]])80/tcp|(^|[[:space:]])443/tcp'; then
-              AZ_CONTAINER="$id"
-              break
-            fi
-          done
-
-          if [ -z "$AZ_CONTAINER" ]; then
-            echo "Could not identify the running AzuraCast web container."
-            docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Ports}}'
-            exit 1
-          fi
-
-          echo "AzuraCast container: $(docker inspect -f '{{.Name}}' "$AZ_CONTAINER")"
-
-          networks=$(docker inspect -f '{{range $name, $_ := .NetworkSettings.Networks}}{{$name}} {{end}}' "$AZ_CONTAINER")
-          AZ_NET=$(printf '%s\n' "$networks" | tr ' ' '\n' | grep -E 'azuracast|default' | head -n1 || true)
-          if [ -z "$AZ_NET" ]; then
-            AZ_NET=$(printf '%s\n' "$networks" | awk '{print $1}')
-          fi
-          test -n "$AZ_NET"
-          echo "AzuraCast network: $AZ_NET"
-
-          if ! docker inspect -f '{{json .NetworkSettings.Networks}}' h2opr-api | grep -q "\"$AZ_NET\""; then
-            docker network connect "$AZ_NET" h2opr-api
-          fi
-
-          docker exec "$AZ_CONTAINER" mkdir -p /etc/nginx/azuracast.conf.d
-          docker cp "$HOME/h2opr/azuracast-h2opr.conf" "$AZ_CONTAINER:/etc/nginx/azuracast.conf.d/h2opr.conf"
-
-          docker exec "$AZ_CONTAINER" nginx -t
-          docker exec "$AZ_CONTAINER" nginx -s reload
-
-          echo "Testing H2O directly on shared Docker network..."
-          docker run --rm --network "$AZ_NET" curlimages/curl:8.11.1 \
-            --fail --silent --show-error http://h2opr-api:8080/api/v1/health
-          echo
-
-          echo "Testing routing through existing AzuraCast NGINX..."
-          curl --fail --silent --show-error -H 'Host: api.h20pr.com' \
-            http://127.0.0.1/api/v1/health
-          echo
-          REMOTE
-
-      - name: Report external HTTP status
-        run: |
-          set -euo pipefail
-          if getent ahostsv4 api.h20pr.com >/dev/null 2>&1; then
-            echo "api.h20pr.com resolves; checking HTTP routing"
-            curl --fail --silent --show-error --max-time 15 \
-              http://api.h20pr.com/api/v1/health || {
-                echo "External HTTP check is not healthy yet. DNS/proxy propagation may still be pending."
-                exit 1
-              }
-            echo
-          else
-            echo "api.h20pr.com does not resolve yet. Add its A record before public cutover."
-          fi
+          ssh -i ~/.ssh/h2opr_ovh -p "$PORT" "$OVH_USER@$OVH_HOST" \
+            'for i in $(seq 1 12); do curl --fail --silent --show-error http://127.0.0.1:18080/api/v1/health && exit 0; sleep 5; done; docker logs --tail 100 h2opr-api; exit 1'
