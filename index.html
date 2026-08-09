@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#083b4c">
-  <title>H2O PR — Encuentra agua y ayuda ahora</title>
-  <meta name="description" content="Encuentra oasis, asistencia de cisternas, teléfonos de Manejo de Emergencias, racionamiento y datos operacionales en Puerto Rico.">
+  <meta name="theme-color" content="#073b49">
+  <title>H2O PR — Agua y ayuda ahora</title>
+  <meta name="description" content="Encuentra agua, entrega privada, teléfonos de emergencia, racionamiento y datos reales de agua en Puerto Rico.">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./aaa-reservoirs.css">
   <link rel="stylesheet" href="./prepa.css">
@@ -15,140 +15,180 @@
 
   <header class="topbar">
     <div class="shell topbar-row">
-      <a class="brand" href="./"><span class="brand-mark">H₂O</span><span><strong>H2O PR</strong><small>Agua y ayuda ahora</small></span></a>
+      <a class="brand" href="./" aria-label="H2O PR inicio">
+        <span class="brand-mark">H₂O</span>
+        <span><strong>H2O PR</strong><small>Agua y ayuda ahora</small></span>
+      </a>
       <button id="large-text" class="top-action" type="button">A+ Texto grande</button>
     </div>
   </header>
 
   <div class="emergency-bar">
-    <div class="shell"><strong>Emergencia médica o peligro inmediato</strong><a href="tel:911">Llamar 911</a></div>
+    <div class="shell emergency-row">
+      <span><strong>Emergencia médica o peligro inmediato</strong></span>
+      <a href="tel:911">Llamar 911</a>
+    </div>
   </div>
 
   <main id="main" class="shell">
-    <section class="operator-card" aria-labelledby="main-title">
-      <p class="eyebrow">H2O PR · ASISTENTE DE EMERGENCIA</p>
-      <h1 id="main-title">¿Dónde estás y qué necesitas?</h1>
-      <p class="lead">Elige tu pueblo o toca el micrófono. Te diremos primero el racionamiento programado, dónde buscar agua y a quién llamar.</p>
+    <section class="hero-card" aria-labelledby="hero-title">
+      <p class="eyebrow">H2O PR · RESPUESTA RÁPIDA</p>
+      <h1 id="hero-title">¿Qué necesitas ahora?</h1>
+      <p class="lead">Escoge tu pueblo. Primero te mostramos dónde conseguir agua y a quién llamar. Los datos técnicos vienen después.</p>
 
-      <div class="primary-controls">
-        <div>
-          <label for="municipality">Pueblo</label>
-          <select id="municipality"><option>Arecibo</option></select>
-        </div>
-        <button id="voice" class="voice-main" type="button" aria-describedby="voice-status"><span class="mic">●</span><span><strong>Hablar con H2O PR</strong><small>“Necesito agua en Carolina”</small></span></button>
+      <label class="town-label" for="municipality">Tu pueblo</label>
+      <select id="municipality"><option>Arecibo</option></select>
+
+      <div class="action-grid" aria-label="Acciones principales">
+        <button class="action-card primary" data-jump="water" type="button">
+          <span class="action-icon">01</span>
+          <span><strong>Necesito agua ahora</strong><small>Oasis, distribución y entrega privada</small></span>
+        </button>
+        <button class="action-card" data-jump="service" type="button">
+          <span class="action-icon">02</span>
+          <span><strong>¿Tengo servicio hoy?</strong><small>Racionamiento por sector cuando aplica</small></span>
+        </button>
+        <button class="action-card" data-jump="help" type="button">
+          <span class="action-icon">03</span>
+          <span><strong>Necesito que me lleven agua</strong><small>OMME, cisternas y asistencia local</small></span>
+        </button>
+        <a class="action-card" href="tel:7876202482">
+          <span class="action-icon">04</span>
+          <span><strong>Llamar AAA</strong><small>787-620-2482</small></span>
+        </a>
       </div>
-      <p id="voice-status" class="voice-status" aria-live="polite">Puedes hablar o usar los botones. La voz funciona en navegadores compatibles.</p>
+    </section>
 
-      <div id="rationing-card" class="rationing-card hidden"></div>
+    <section id="town-summary" class="town-summary" aria-live="polite"></section>
 
+    <section id="water" class="section" aria-labelledby="water-title">
+      <div class="section-kicker">PASO 1 · CONSEGUIR AGUA</div>
+      <div class="section-head compact">
+        <div>
+          <h2 id="water-title">Opciones de agua en <span data-town>Arecibo</span></h2>
+          <p>No te dejamos con un “no hay datos”. Si no tenemos un oasis reciente, mostramos entrega privada y teléfonos de ayuda.</p>
+        </div>
+        <span id="water-count" class="badge">Verificando</span>
+      </div>
+
+      <div id="mobile-water" class="urgent-option hidden"></div>
+
+      <div class="subsection-head">
+        <div><span class="step-pill">A</span><div><h3>Agua pública / oasis</h3><p>Siempre llama antes de salir si la confirmación no es reciente.</p></div></div>
+      </div>
+      <div id="water-list" class="resource-list"></div>
+      <div id="water-empty" class="empty hidden">
+        <h3>No tenemos un oasis fijo recientemente confirmado para este pueblo.</h3>
+        <p>Eso no significa que no haya distribución. Primero llama a la oficina local y pregunta: <strong>“¿Dónde están distribuyendo agua hoy?”</strong></p>
+        <a id="water-empty-call" class="btn primary wide" href="#">Llamar ahora</a>
+      </div>
+
+      <div id="private-water" class="private-water-block">
+        <div class="subsection-head">
+          <div><span class="step-pill commercial">B</span><div><h3>Entrega privada de agua potable</h3><p>Opción comercial. Confirma disponibilidad, precio, cantidad mínima y que el agua sea potable antes de ordenar.</p></div></div>
+        </div>
+        <div id="private-water-list" class="supplier-list"></div>
+        <div id="private-water-empty" class="empty subtle hidden"><p>No tenemos un suplidor privado verificado para mostrar en este pueblo todavía.</p></div>
+      </div>
+
+      <div class="no-money-note">
+        <strong>¿No puedes pagar una entrega privada?</strong>
+        <p>Usa la asistencia municipal/OMME abajo. Durante una emergencia, algunos municipios y agencias movilizan camiones cisterna para personas con necesidad.</p>
+        <button class="btn outline wide" data-jump="help" type="button">Ver ayuda pública</button>
+      </div>
+    </section>
+
+    <section id="service" class="section shade" aria-labelledby="service-title">
+      <div class="section-kicker">PASO 2 · SABER QUÉ ESTÁ PASANDO</div>
+      <h2 id="service-title">Servicio y racionamiento</h2>
+      <p class="section-copy">Cuando hay un calendario publicado, buscamos tu barrio o urbanización. Nunca tratamos un calendario como garantía de presión real en tu casa.</p>
+      <div id="rationing-card" class="rationing-card"></div>
       <div id="sector-box" class="sector-box hidden">
         <label for="sector">Barrio, urbanización o sector</label>
         <div class="sector-row">
-          <input id="sector" type="text" autocomplete="off" placeholder="Ej. Condado, Barrazas, Saint Just…">
+          <input id="sector" type="text" autocomplete="off" placeholder="Ej. Condado, Barrazas, Saint Just">
           <button id="check-sector" class="btn primary" type="button">Ver mi zona</button>
         </div>
         <div id="sector-result" class="sector-result" aria-live="polite"></div>
       </div>
-
-      <div class="quick-actions">
-        <button data-jump="water" class="quick water" type="button"><strong>Necesito agua</strong><span>Oasis y distribución</span></button>
-        <button data-jump="help" class="quick" type="button"><strong>Necesito que me lleven agua</strong><span>OMME / camiones cisterna</span></button>
-        <a class="quick" href="tel:7876202482"><strong>Llamar AAA</strong><span>787-620-2482</span></a>
-      </div>
     </section>
 
-    <section id="water" class="section" aria-labelledby="water-title">
-      <div class="section-head">
-        <div><p class="eyebrow">AGUA DISPONIBLE / PUBLICADA</p><h2 id="water-title">Dónde buscar agua en <span data-town>Arecibo</span></h2></div>
-        <span id="water-count" class="badge">Verificando</span>
-      </div>
-      <div id="mobile-water" class="mobile-water hidden"></div>
-      <div id="water-list" class="resource-list"></div>
-      <div id="water-empty" class="empty hidden">
-        <h3>No tenemos un oasis confirmado publicado para este pueblo.</h3>
-        <p>No te vamos a mandar a un lugar inventado. Usa el botón de abajo para llamar a la oficina que cubre tu pueblo y preguntar: <strong>“¿Dónde están distribuyendo agua hoy?”</strong></p>
-        <a id="water-empty-call" class="btn primary" href="#">Llamar ahora</a>
-      </div>
-    </section>
-
-    <section id="help" class="section shade" aria-labelledby="help-title">
-      <div class="section-head"><div><p class="eyebrow">LLAMAR AHORA</p><h2 id="help-title">Ayuda para <span data-town>Arecibo</span></h2></div></div>
+    <section id="help" class="section" aria-labelledby="help-title">
+      <div class="section-kicker">PASO 3 · HABLAR CON ALGUIEN</div>
+      <div class="section-head compact"><div><h2 id="help-title">Ayuda para <span data-town>Arecibo</span></h2><p>Teléfonos grandes, directos y con fuente cuando la tenemos.</p></div></div>
       <div id="help-list" class="help-grid"></div>
     </section>
 
-    <section id="aaa-reservoir-dashboard" class="section aaa-dashboard" aria-labelledby="aaa-reservoir-title">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">EMBALSES DE AGUA POTABLE · USGS + AAA</p>
-          <div class="aaa-heading-row"><h2 id="aaa-reservoir-title">Lecturas reales, en nuestro propio dashboard</h2><span id="aaa-reservoir-state" class="aaa-source-state">CARGANDO</span></div>
-          <p class="aaa-intro">H2O PR toma lecturas de estaciones USGS operadas en cooperación con AAA y dibuja nuestras propias tarjetas y tendencias. La lectura es elevación del embalse en metros; no inventamos un “% lleno” cuando la fuente no lo reporta.</p>
-        </div>
+    <section class="section safety" aria-labelledby="health-title">
+      <div>
+        <div class="section-kicker">CUANDO REGRESE EL AGUA</div>
+        <h2 id="health-title">Antes de beberla</h2>
+        <p id="health-text">Cargando recomendación oficial…</p>
       </div>
-      <div id="aaa-reservoir-grid" class="aaa-reservoir-grid"><div class="live-empty">Cargando Carraízo, La Plata, Cidra, Toa Vaca, Fajardo y Río Blanco…</div></div>
-      <div class="aaa-explain"><strong>Cómo leerlo:</strong> la flecha de 24 horas se calcula únicamente con mediciones reales de USGS. Una bajada o subida del nivel no confirma por sí sola si tu casa tiene agua; para eso usamos el plan de racionamiento, avisos y recursos locales arriba.</div>
-      <p id="aaa-reservoir-updated" class="aaa-updated"></p>
     </section>
 
-    <section id="prepa-dashboard" class="section live-data" aria-labelledby="prepa-title">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">CONTEXTO OPERACIONAL · DIRECTO DE PREPA</p>
-          <h2 id="prepa-title">Sistema eléctrico e hidroeléctrico</h2>
-          <p class="live-intro">H2O PR convierte los archivos públicos de PREPA en números, tarjetas y tendencias fáciles de leer. No incrustamos su gráfica y no inventamos porcentajes cuando la fuente no los reporta.</p>
-        </div>
-      </div>
-
-      <div id="prepa-feed-state" class="feed-state-row" aria-live="polite">
-        <div class="feed-state"><span></span><strong>PREPA</strong><b>CARGANDO</b></div>
-      </div>
-      <div id="prepa-notice" class="live-warning hidden" role="status"></div>
-      <div id="prepa-kpis" class="live-kpis"><div class="live-empty">Cargando datos públicos de PREPA…</div></div>
-
-      <div class="live-grid">
-        <article class="live-panel">
-          <h3>Lecturas de embalses hidroeléctricos PREPA</h3>
-          <p class="panel-note">Mostramos la lectura y el cambio exactamente como llegan del archivo público. No convertimos la elevación en “% lleno” usando capacidades estimadas.</p>
-          <div id="prepa-levels" class="level-grid"></div>
-        </article>
-        <article class="live-panel">
-          <h3>Generación por fuente</h3>
-          <p class="panel-note">Participación relativa de la generación que PREPA reporta en este momento.</p>
-          <div id="prepa-fuels"></div>
-        </article>
-      </div>
-
-      <article class="live-panel trend-panel">
-        <h3>Tendencia de generación reportada</h3>
-        <p class="panel-note">La línea se dibuja con los puntos reales de <code>dataGraph.js</code>; H2O PR no rellena huecos con ondas o valores simulados.</p>
-        <div id="prepa-trend"></div>
-      </article>
-
-      <p class="prepa-source-note"><strong>Importante:</strong> los embalses hidroeléctricos de PREPA son contexto operacional y no equivalen por sí solos al sistema de agua potable de AAA. Fuentes: <a href="https://operationdata.prepa.pr.gov/dataSource.js" target="_blank" rel="noopener">generación</a>, <a href="https://operationdata.prepa.pr.gov/dataLevels.js" target="_blank" rel="noopener">niveles</a> y <a href="https://operationdata.prepa.pr.gov/dataGraph.js" target="_blank" rel="noopener">histórico</a>.</p>
-      <p id="prepa-updated" class="live-updated"></p>
+    <section class="section resilience" aria-labelledby="resilience-title">
+      <div class="section-kicker">PARA LA PRÓXIMA INTERRUPCIÓN</div>
+      <h2 id="resilience-title">Opciones para almacenar agua en casa</h2>
+      <p>Estas compañías venden/instalan cisternas o sistemas de agua. No son oasis ni entrega inmediata de agua.</p>
+      <div id="storage-list" class="supplier-list"></div>
     </section>
 
-    <section class="section health" aria-labelledby="health-title">
-      <div><p class="eyebrow">CUANDO REGRESE EL AGUA</p><h2 id="health-title">Haz esto antes de beberla</h2><p id="health-text">Cargando recomendación oficial…</p></div>
-      <button id="read-health" class="btn outline" type="button">Escuchar</button>
+    <section class="section weather-section" aria-labelledby="weather-title">
+      <div class="section-kicker">CLIMA OFICIAL</div>
+      <h2 id="weather-title">Pronóstico para <span data-town>Arecibo</span></h2>
+      <div id="weather">Cargando pronóstico oficial…</div>
     </section>
 
-    <section class="section secondary-info">
-      <details>
-        <summary>Clima y alertas oficiales</summary>
-        <div id="weather">Selecciona tu pueblo o usa tu ubicación para ver el pronóstico.</div>
+    <section id="data" class="section data-section" aria-labelledby="data-title">
+      <div class="section-kicker">DATOS Y CONTEXTO</div>
+      <h2 id="data-title">Qué está pasando con el sistema</h2>
+      <p>Estos datos ayudan a entender la situación, pero no reemplazan la información de agua disponible y ayuda local de arriba.</p>
+
+      <details class="data-details">
+        <summary>Ver embalses de agua potable</summary>
+        <section id="aaa-reservoir-dashboard" class="aaa-dashboard" aria-labelledby="aaa-reservoir-title">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">USGS + AAA</p>
+              <div class="aaa-heading-row"><h3 id="aaa-reservoir-title">Embalses que abastecen sistemas de AAA</h3><span id="aaa-reservoir-state" class="aaa-source-state">CARGANDO</span></div>
+              <p class="aaa-intro">Lecturas reales de estaciones USGS. Mostramos elevación y tendencia sin inventar porcentajes.</p>
+            </div>
+          </div>
+          <div id="aaa-reservoir-grid" class="aaa-reservoir-grid"><div class="live-empty">Cargando lecturas…</div></div>
+          <div class="aaa-explain"><strong>Importante:</strong> el nivel de un embalse no confirma si tu residencia tiene agua.</div>
+          <p id="aaa-reservoir-updated" class="aaa-updated"></p>
+        </section>
+      </details>
+
+      <details class="data-details">
+        <summary>Ver sistema eléctrico e hidroeléctrico</summary>
+        <section id="prepa-dashboard" class="live-data" aria-labelledby="prepa-title">
+          <div class="section-head"><div><p class="eyebrow">PREPA</p><h3 id="prepa-title">Sistema eléctrico e hidroeléctrico</h3><p class="live-intro">Datos públicos de PREPA renderizados por H2O PR.</p></div></div>
+          <div id="prepa-feed-state" class="feed-state-row" aria-live="polite"><div class="feed-state"><span></span><strong>PREPA</strong><b>CARGANDO</b></div></div>
+          <div id="prepa-notice" class="live-warning hidden" role="status"></div>
+          <div id="prepa-kpis" class="live-kpis"><div class="live-empty">Cargando datos…</div></div>
+          <div class="live-grid">
+            <article class="live-panel"><h3>Embalses hidroeléctricos PREPA</h3><div id="prepa-levels" class="level-grid"></div></article>
+            <article class="live-panel"><h3>Generación por fuente</h3><div id="prepa-fuels"></div></article>
+          </div>
+          <article class="live-panel trend-panel"><h3>Tendencia reportada</h3><div id="prepa-trend"></div></article>
+          <p id="prepa-updated" class="live-updated"></p>
+        </section>
       </details>
     </section>
 
     <section class="trust">
-      <strong>Regla de H2O PR:</strong> si no sabemos que un oasis sigue activo, mostramos la fecha y te pedimos que llames antes de salir. Si una fuente de datos falla, mostramos el último dato con aviso de antigüedad o dejamos el dato vacío. Nunca mostramos números inventados.
+      <strong>Regla de H2O PR:</strong> mostramos quién publicó la información y cuándo. Si no sabemos que un punto sigue activo, pedimos confirmación antes de salir. Los proveedores privados están marcados como comerciales.
       <span id="data-time"></span>
     </section>
   </main>
 
   <nav class="bottom-nav" aria-label="Acciones rápidas">
     <button data-jump="water" type="button">Agua</button>
-    <button data-jump="help" type="button">Llamar</button>
-    <button id="bottom-voice" type="button">Voz</button>
+    <button data-jump="service" type="button">Servicio</button>
+    <button data-jump="help" type="button">Ayuda</button>
+    <button data-jump="data" type="button">Datos</button>
   </nav>
 
   <script src="./script.js" defer></script>
