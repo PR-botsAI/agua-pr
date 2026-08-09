@@ -49,7 +49,7 @@ jobs:
           ssh -i ~/.ssh/h2opr_ovh -p "$PORT" "$OVH_USER@$OVH_HOST" \
             'docker --version && docker compose version && mkdir -p ~/h2opr && docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}"'
 
-      - name: Copy H2O production configuration
+      - name: Copy H2O configuration
         env:
           OVH_HOST: ${{ secrets.OVH_HOST }}
           OVH_USER: ${{ secrets.OVH_USER }}
@@ -57,9 +57,7 @@ jobs:
         run: |
           set -euo pipefail
           PORT="${OVH_PORT:-22}"
-          scp -i ~/.ssh/h2opr_ovh -P "$PORT" \
-            deploy/ovh/compose.yaml \
-            "$OVH_USER@$OVH_HOST:~/h2opr/"
+          scp -i ~/.ssh/h2opr_ovh -P "$PORT" deploy/ovh/compose.yaml "$OVH_USER@$OVH_HOST:~/h2opr/"
 
       - name: Deploy isolated H2O API container
         env:
@@ -79,7 +77,7 @@ jobs:
           ssh -i ~/.ssh/h2opr_ovh -p "$PORT" "$OVH_USER@$OVH_HOST" \
             "cd ~/h2opr && H2OPR_IMAGE_TAG='${IMAGE_TAG:-v2-edge}' docker compose pull && H2OPR_IMAGE_TAG='${IMAGE_TAG:-v2-edge}' docker compose up -d --remove-orphans && docker compose ps"
 
-      - name: Verify API on VPS localhost
+      - name: Verify API on VPS
         env:
           OVH_HOST: ${{ secrets.OVH_HOST }}
           OVH_USER: ${{ secrets.OVH_USER }}
@@ -89,3 +87,19 @@ jobs:
           PORT="${OVH_PORT:-22}"
           ssh -i ~/.ssh/h2opr_ovh -p "$PORT" "$OVH_USER@$OVH_HOST" \
             'for i in $(seq 1 12); do curl --fail --silent --show-error http://127.0.0.1:18080/api/v1/health && exit 0; sleep 5; done; docker logs --tail 100 h2opr-api; exit 1'
+
+      - name: Verify public staging endpoint
+        env:
+          OVH_HOST: ${{ secrets.OVH_HOST }}
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 12); do
+            if curl --fail --silent --show-error --max-time 10 "http://${OVH_HOST}:18080/api/v1/health"; then
+              echo
+              echo "Public H2O staging API is healthy"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Public staging endpoint did not become healthy"
+          exit 1
