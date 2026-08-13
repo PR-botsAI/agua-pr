@@ -1,58 +1,58 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-13T18:30:05.385Z",
+  "updatedAt": "2026-08-13T19:34:35.926Z",
   "note": "H2O PR preserves only values reported by PREPA. No mock values, guessed capacities, synthetic trends or invented percentages are added.",
   "generation": {
     "status": "live",
     "sourceUrl": "https://operationdata.prepa.pr.gov/dataSource.js",
-    "fetchedAt": "2026-08-13T18:30:05.128Z",
-    "lastSuccessAt": "2026-08-13T18:30:05.128Z",
-    "observedAtRaw": "8/13/2026 2:28:26 PM",
+    "fetchedAt": "2026-08-13T19:34:35.465Z",
+    "lastSuccessAt": "2026-08-13T19:34:35.465Z",
+    "observedAtRaw": "8/13/2026 3:32:25 PM",
     "metrics": [
       {
         "index": "0",
         "description": "Total de Generación",
-        "value": 2176
+        "value": 2423
       },
       {
         "index": "1",
         "description": "PREPA",
-        "value": 64
+        "value": 70
       },
       {
         "index": "2",
         "description": "PPOA",
-        "value": 36
+        "value": 30
       },
       {
         "index": "3",
         "description": "Fossil",
-        "value": 95
+        "value": 96
       },
       {
         "index": "4",
         "description": "Renewable",
-        "value": 5
+        "value": 4
       },
       {
         "index": "5",
         "description": "Reserva en Rotación",
-        "value": 544
+        "value": 476
       },
       {
         "index": "6",
         "description": "Reserva Operacional",
-        "value": 1210
+        "value": 951
       },
       {
         "index": "7",
         "description": "Capacidad Disponible",
-        "value": 3397
+        "value": 3388
       },
       {
         "index": "8",
         "description": "Próxima Hora MW",
-        "value": 2358
+        "value": 2561
       },
       {
         "index": "9",
@@ -73,23 +73,23 @@
     "byFuel": [
       {
         "fuel": "Bunker",
-        "value": 35
+        "value": 33
       },
       {
         "fuel": "Diesel",
-        "value": 0
+        "value": 3
       },
       {
         "fuel": "LNG",
-        "value": 48
+        "value": 49
       },
       {
         "fuel": "Coal",
-        "value": 12
+        "value": 10
       },
       {
         "fuel": "Renew",
-        "value": 5
+        "value": 4
       }
     ],
     "sites": [
@@ -271,12 +271,12 @@
         "index": "6",
         "type": "COGEN",
         "name": "AES",
-        "siteTotalMw": 248,
+        "siteTotalMw": 249,
         "units": [
           {
             "index": "0",
             "name": "Unit 1",
-            "mw": 247,
+            "mw": 249,
             "mvar": null,
             "cost": 6.48
           },
@@ -293,28 +293,28 @@
         "index": "7",
         "type": "COGEN",
         "name": "Ecoelectrica",
-        "siteTotalMw": 412.43,
+        "siteTotalMw": 375,
         "units": [
           {
             "index": "0",
             "name": "Gas 1",
-            "mw": 137.09,
+            "mw": 123.79,
             "mvar": null,
-            "cost": 6.94
+            "cost": 7.06
           },
           {
             "index": "1",
             "name": "Gas 2",
-            "mw": 137.46,
+            "mw": 123.79,
             "mvar": null,
-            "cost": 6.94
+            "cost": 7.06
           },
           {
             "index": "2",
             "name": "STG",
-            "mw": 137.96,
+            "mw": 126.73,
             "mvar": null,
-            "cost": 6.94
+            "cost": 7.06
           }
         ]
       },
@@ -322,12 +322,12 @@
         "index": "8",
         "type": "Turbina de Gas",
         "name": "Estaciones GT",
-        "siteTotalMw": 0.71,
+        "siteTotalMw": 170.59,
         "units": [
           {
             "index": "0",
             "name": "Palo Seco",
-            "mw": 0,
+            "mw": 50.36,
             "mvar": null,
             "cost": 0
           },
@@ -383,7 +383,7 @@
           {
             "index": "8",
             "name": "FEMA GT SJ",
-            "mw": 0,
+            "mw": 119.55,
             "mvar": null,
             "cost": 16
           }
@@ -458,35 +458,35 @@
         "index": "11",
         "type": "Ciclo Combinado",
         "name": "San Juan",
-        "siteTotalMw": 282.21,
+        "siteTotalMw": 325.17,
         "units": [
           {
             "index": "0",
             "name": "CTG 5",
-            "mw": 119.3,
+            "mw": 139.4,
             "mvar": null,
-            "cost": 8.02
+            "cost": 7.88
           },
           {
             "index": "1",
             "name": "STG 5",
-            "mw": 42.82,
+            "mw": 45.77,
             "mvar": null,
-            "cost": 8.02
+            "cost": 7.88
           },
           {
             "index": "2",
             "name": "CTG 6",
-            "mw": 119.9,
+            "mw": 140,
             "mvar": null,
-            "cost": 18.25
+            "cost": 31.27
           },
           {
             "index": "3",
             "name": "STG 6",
             "mw": 0,
             "mvar": null,
-            "cost": 18.25
+            "cost": 31.27
           }
         ]
       },
@@ -494,14 +494,14 @@
         "index": "12",
         "type": "Ciclo Combinado",
         "name": "Aguirre Stag 1",
-        "siteTotalMw": 0.57,
+        "siteTotalMw": 30.85,
         "units": [
           {
             "index": "0",
             "name": "Gas 1",
-            "mw": 0.09,
+            "mw": 30.38,
             "mvar": null,
-            "cost": 0
+            "cost": 36.25
           },
           {
             "index": "1",
@@ -606,7 +606,7 @@
           {
             "index": "3",
             "name": "Unit 10",
-            "mw": -0.07,
+            "mw": 0,
             "mvar": null,
             "cost": 0
           }
@@ -616,7 +616,7 @@
         "index": "15",
         "type": "Vapor",
         "name": "Palo Seco",
-        "siteTotalMw": 204.99,
+        "siteTotalMw": 205.21,
         "units": [
           {
             "index": "0",
@@ -635,16 +635,16 @@
           {
             "index": "2",
             "name": "Unit 3",
-            "mw": 85.12,
+            "mw": 84.89,
             "mvar": null,
             "cost": 21.06
           },
           {
             "index": "3",
             "name": "Unit 4",
-            "mw": 119.75,
+            "mw": 120.32,
             "mvar": null,
-            "cost": 19.07
+            "cost": 19.05
           }
         ]
       },
@@ -652,7 +652,7 @@
         "index": "16",
         "type": "Vapor",
         "name": "Aguirre",
-        "siteTotalMw": 228.54,
+        "siteTotalMw": 248.33,
         "units": [
           {
             "index": "0",
@@ -664,9 +664,9 @@
           {
             "index": "1",
             "name": "Unit 2",
-            "mw": 233.14,
+            "mw": 248.33,
             "mvar": null,
-            "cost": 19.5
+            "cost": 19.16
           }
         ]
       },
@@ -674,7 +674,7 @@
         "index": "17",
         "type": "Vapor",
         "name": "Costa Sur",
-        "siteTotalMw": 589.84,
+        "siteTotalMw": 638.16,
         "units": [
           {
             "index": "0",
@@ -686,23 +686,23 @@
           {
             "index": "1",
             "name": "Unit 4",
-            "mw": -0.06,
+            "mw": 0.06,
             "mvar": null,
             "cost": 0
           },
           {
             "index": "2",
             "name": "Unit 5",
-            "mw": 309.14,
+            "mw": 330.7,
             "mvar": null,
-            "cost": 14.23
+            "cost": 14.08
           },
           {
             "index": "3",
             "name": "Unit 6",
-            "mw": 277.96,
+            "mw": 307.4,
             "mvar": null,
-            "cost": 14.04
+            "cost": 13.78
           }
         ]
       },
@@ -710,7 +710,7 @@
         "index": "18",
         "type": "Renovable",
         "name": "Wind",
-        "siteTotalMw": 21.8,
+        "siteTotalMw": 23.1,
         "units": [
           {
             "index": "0",
@@ -722,7 +722,7 @@
           {
             "index": "1",
             "name": "Punta Lima",
-            "mw": 20.73,
+            "mw": 23,
             "mvar": null,
             "cost": 14.7
           }
@@ -732,47 +732,47 @@
         "index": "19",
         "type": "Renovable",
         "name": "Solar",
-        "siteTotalMw": 78.73,
+        "siteTotalMw": 75.81,
         "units": [
           {
             "index": "0",
             "name": "San Fermin",
-            "mw": 2.64,
+            "mw": 2.4,
             "mvar": null,
             "cost": 18.32
           },
           {
             "index": "1",
             "name": "Ilumina",
-            "mw": 10.52,
+            "mw": 9.01,
             "mvar": null,
             "cost": 21.43
           },
           {
             "index": "2",
             "name": "Horizon",
-            "mw": 9.1,
+            "mw": 7.51,
             "mvar": null,
             "cost": 19.6
           },
           {
             "index": "3",
             "name": "Coto Laurel",
-            "mw": 6.59,
+            "mw": 4.66,
             "mvar": null,
             "cost": 19.1
           },
           {
             "index": "4",
             "name": "Oriana",
-            "mw": 36.39,
+            "mw": 27.24,
             "mvar": null,
             "cost": 19.6
           },
           {
             "index": "5",
             "name": "Fonroche",
-            "mw": 13.31,
+            "mw": 21.72,
             "mvar": null,
             "cost": 17
           }
@@ -804,7 +804,7 @@
         "index": "21",
         "type": "Turbina de Gas",
         "name": "Palo Seco",
-        "siteTotalMw": 0,
+        "siteTotalMw": 50.36,
         "units": [
           {
             "index": "0",
@@ -823,7 +823,7 @@
           {
             "index": "2",
             "name": "CT Block 3",
-            "mw": 0,
+            "mw": 0.06,
             "mvar": null,
             "cost": 0
           },
@@ -851,7 +851,7 @@
           {
             "index": "6",
             "name": "GT4",
-            "mw": -0.05,
+            "mw": -0.06,
             "mvar": null,
             "cost": 0
           },
@@ -920,9 +920,9 @@
   "levels": {
     "status": "live",
     "sourceUrl": "https://operationdata.prepa.pr.gov/dataLevels.js",
-    "fetchedAt": "2026-08-13T18:30:05.152Z",
-    "lastSuccessAt": "2026-08-13T18:30:05.152Z",
-    "observedAtRaw": "8/13/2026 2:28:26 PM",
+    "fetchedAt": "2026-08-13T19:34:35.502Z",
+    "lastSuccessAt": "2026-08-13T19:34:35.502Z",
+    "observedAtRaw": "8/13/2026 3:32:25 PM",
     "reservoirs": [
       {
         "id": "carite",
@@ -933,8 +933,8 @@
       },
       {
         "id": "patillas",
-        "reading": 63.72,
-        "readingRaw": "63.72",
+        "reading": 63.73,
+        "readingRaw": "63.73",
         "difference": 0.01,
         "differenceRaw": "+0.01"
       },
@@ -954,8 +954,8 @@
       },
       {
         "id": "guayabal",
-        "reading": 102.37,
-        "readingRaw": "102.37",
+        "reading": 102.38,
+        "readingRaw": "102.38",
         "difference": 0.11,
         "differenceRaw": "+0.11"
       },
@@ -975,15 +975,15 @@
       },
       {
         "id": "lucchetti",
-        "reading": 170.79,
-        "readingRaw": "170.79",
+        "reading": 170.78,
+        "readingRaw": "170.78",
         "difference": -0.06,
         "differenceRaw": "-0.06"
       },
       {
         "id": "loco",
-        "reading": 69.92,
-        "readingRaw": "69.92",
+        "reading": 69.97,
+        "readingRaw": "69.97",
         "difference": -0.08,
         "differenceRaw": "-0.08"
       },
@@ -1003,8 +1003,8 @@
       },
       {
         "id": "guajataca",
-        "reading": 195.98,
-        "readingRaw": "195.98",
+        "reading": 195.97,
+        "readingRaw": "195.97",
         "difference": 0.02,
         "differenceRaw": "+0.02"
       }
@@ -1013,1454 +1013,1454 @@
   "history": {
     "status": "live",
     "sourceUrl": "https://operationdata.prepa.pr.gov/dataGraph.js",
-    "fetchedAt": "2026-08-13T18:30:05.153Z",
-    "lastSuccessAt": "2026-08-13T18:30:05.153Z",
-    "observedAtRaw": "84Hour14:28FrequencyGenerationHour14:33FrequencyGenerationHour14:38FrequencyGenerationHour14:43FrequencyGenerationHour14:48FrequencyGenerationHour14:53FrequencyGenerationHour14:58FrequencyGenerationHour15:03FrequencyGenerationHour15:08FrequencyGenerationHour15:13FrequencyGenerationHour15:18FrequencyGenerationHour15:23FrequencyGenerationHour15:28FrequencyGenerationHour15:33FrequencyGenerationHour15:38FrequencyGenerationHour15:43FrequencyGenerationHour15:48FrequencyGenerationHour15:53FrequencyGenerationHour15:58FrequencyGenerationHour16:03FrequencyGenerationHour16:08FrequencyGenerationHour16:13FrequencyGenerationHour16:18FrequencyGenerationHour16:23FrequencyGenerationHour16:28FrequencyGenerationHour16:33FrequencyGenerationHour16:38FrequencyGenerationHour16:43FrequencyGenerationHour16:48FrequencyGenerationHour16:53FrequencyGenerationHour16:58FrequencyGenerationHour17:03FrequencyGenerationHour17:08FrequencyGenerationHour17:13FrequencyGenerationHour17:18FrequencyGenerationHour17:23FrequencyGenerationHour17:28FrequencyGenerationHour17:33FrequencyGenerationHour17:38FrequencyGenerationHour17:43FrequencyGenerationHour17:48FrequencyGenerationHour17:53FrequencyGenerationHour17:58FrequencyGenerationHour18:03FrequencyGenerationHour18:08FrequencyGenerationHour18:13FrequencyGenerationHour18:18FrequencyGenerationHour18:23FrequencyGenerationHour18:28FrequencyGenerationHour18:33FrequencyGenerationHour18:38FrequencyGenerationHour18:43FrequencyGenerationHour18:48FrequencyGenerationHour18:53FrequencyGenerationHour18:58FrequencyGenerationHour19:03FrequencyGenerationHour19:08FrequencyGenerationHour19:13FrequencyGenerationHour19:18FrequencyGenerationHour19:23FrequencyGenerationHour19:28FrequencyGenerationHour19:33FrequencyGenerationHour19:38FrequencyGenerationHour19:43FrequencyGenerationHour19:48FrequencyGenerationHour19:53FrequencyGenerationHour19:58FrequencyGenerationHour20:03FrequencyGenerationHour20:08FrequencyGenerationHour20:13FrequencyGenerationHour20:18FrequencyGenerationHour20:23FrequencyGenerationHour20:28FrequencyGenerationHour20:33FrequencyGenerationHour20:38FrequencyGenerationHour20:43FrequencyGenerationHour20:48FrequencyGenerationHour20:53FrequencyGenerationHour20:58FrequencyGenerationHour21:03FrequencyGenerationHour21:08FrequencyGenerationHour21:13FrequencyGenerationHour21:18FrequencyGenerationHour21:23FrequencyGenerationHour21:28FrequencyGenerationHour21:33FrequencyGenerationHour21:38FrequencyGenerationHour21:43FrequencyGenerationHour21:48FrequencyGenerationHour21:53FrequencyGenerationHour21:58FrequencyGenerationHour22:03FrequencyGenerationHour22:08FrequencyGenerationHour22:13FrequencyGenerationHour22:18FrequencyGenerationHour22:23FrequencyGenerationHour22:28FrequencyGenerationHour22:33FrequencyGenerationHour22:38FrequencyGenerationHour22:43FrequencyGenerationHour22:48FrequencyGenerationHour22:53FrequencyGenerationHour22:58FrequencyGenerationHour23:03FrequencyGenerationHour23:08FrequencyGenerationHour23:13FrequencyGenerationHour23:18FrequencyGenerationHour23:23FrequencyGenerationHour23:28FrequencyGenerationHour23:33FrequencyGenerationHour23:38FrequencyGenerationHour23:43FrequencyGenerationHour23:48FrequencyGenerationHour23:53FrequencyGenerationHour23:58FrequencyGenerationHour00:03FrequencyGenerationHour00:08FrequencyGenerationHour00:13FrequencyGenerationHour00:18FrequencyGenerationHour00:23FrequencyGenerationHour00:28FrequencyGenerationHour00:33FrequencyGenerationHour00:38FrequencyGenerationHour00:43FrequencyGenerationHour00:48FrequencyGenerationHour00:53FrequencyGenerationHour00:58FrequencyGenerationHour01:03FrequencyGenerationHour01:08FrequencyGenerationHour01:13FrequencyGenerationHour01:18FrequencyGenerationHour01:23FrequencyGenerationHour01:28FrequencyGenerationHour01:33FrequencyGenerationHour01:38FrequencyGenerationHour01:43FrequencyGenerationHour01:48FrequencyGenerationHour01:53FrequencyGenerationHour01:58FrequencyGenerationHour02:03FrequencyGenerationHour02:08FrequencyGenerationHour02:13FrequencyGenerationHour02:18FrequencyGenerationHour02:23FrequencyGenerationHour02:28FrequencyGenerationHour02:33FrequencyGenerationHour02:38FrequencyGenerationHour02:43FrequencyGenerationHour02:48FrequencyGenerationHour02:53FrequencyGenerationHour02:58FrequencyGenerationHour03:03FrequencyGenerationHour03:08FrequencyGenerationHour03:13FrequencyGenerationHour03:18FrequencyGenerationHour03:23FrequencyGenerationHour03:28FrequencyGenerationHour03:33FrequencyGenerationHour03:38FrequencyGenerationHour03:43FrequencyGenerationHour03:48FrequencyGenerationHour03:53FrequencyGenerationHour03:58FrequencyGenerationHour04:03FrequencyGenerationHour04:08FrequencyGenerationHour04:13FrequencyGenerationHour04:18FrequencyGenerationHour04:23FrequencyGenerationHour04:28FrequencyGenerationHour04:33FrequencyGenerationHour04:38FrequencyGenerationHour04:43FrequencyGenerationHour04:48FrequencyGenerationHour04:53FrequencyGenerationHour04:58FrequencyGenerationHour05:03FrequencyGenerationHour05:08FrequencyGenerationHour05:13FrequencyGenerationHour05:18FrequencyGenerationHour05:23FrequencyGenerationHour05:28FrequencyGenerationHour05:33FrequencyGenerationHour05:38FrequencyGenerationHour05:43FrequencyGenerationHour05:48FrequencyGenerationHour05:53FrequencyGenerationHour05:58FrequencyGenerationHour06:03FrequencyGenerationHour06:08FrequencyGenerationHour06:13FrequencyGenerationHour06:18FrequencyGenerationHour06:23FrequencyGenerationHour06:28FrequencyGenerationHour06:33FrequencyGenerationHour06:38FrequencyGenerationHour06:43FrequencyGenerationHour06:48FrequencyGenerationHour06:53FrequencyGenerationHour06:58FrequencyGenerationHour07:03FrequencyGenerationHour07:08FrequencyGenerationHour07:13FrequencyGenerationHour07:18FrequencyGenerationHour07:23FrequencyGenerationHour07:28FrequencyGenerationHour07:33FrequencyGenerationHour07:38FrequencyGenerationHour07:43FrequencyGenerationHour07:48FrequencyGenerationHour07:53FrequencyGenerationHour07:58FrequencyGenerationHour08:03FrequencyGenerationHour08:08FrequencyGenerationHour08:13FrequencyGenerationHour08:18FrequencyGenerationHour08:23FrequencyGenerationHour08:28FrequencyGenerationHour08:33FrequencyGenerationHour08:38FrequencyGenerationHour08:43FrequencyGenerationHour08:48FrequencyGenerationHour08:53FrequencyGenerationHour08:58FrequencyGenerationHour09:03FrequencyGenerationHour09:08FrequencyGenerationHour09:13FrequencyGenerationHour09:18FrequencyGenerationHour09:23FrequencyGenerationHour09:28FrequencyGenerationHour09:33FrequencyGenerationHour09:38FrequencyGenerationHour09:43FrequencyGenerationHour09:48FrequencyGenerationHour09:53FrequencyGenerationHour09:58FrequencyGenerationHour10:03FrequencyGenerationHour10:08FrequencyGenerationHour10:13FrequencyGenerationHour10:18FrequencyGenerationHour10:23FrequencyGenerationHour10:28FrequencyGenerationHour10:33FrequencyGenerationHour10:38FrequencyGenerationHour10:43FrequencyGenerationHour10:48FrequencyGenerationHour10:53FrequencyGenerationHour10:58FrequencyGenerationHour11:03FrequencyGenerationHour11:08FrequencyGenerationHour11:13FrequencyGenerationHour11:18FrequencyGenerationHour11:23FrequencyGenerationHour11:28FrequencyGenerationHour11:33FrequencyGenerationHour11:38FrequencyGenerationHour11:43FrequencyGenerationHour11:48FrequencyGenerationHour11:53FrequencyGenerationHour11:58FrequencyGenerationHour12:03FrequencyGenerationHour12:08FrequencyGenerationHour12:13FrequencyGenerationHour12:18FrequencyGenerationHour12:23FrequencyGenerationHour12:28FrequencyGenerationHour12:33FrequencyGenerationHour12:38FrequencyGenerationHour12:43FrequencyGenerationHour12:48FrequencyGenerationHour12:53FrequencyGenerationHour12:58FrequencyGenerationHour13:03FrequencyGenerationHour13:08FrequencyGenerationHour13:13FrequencyGenerationHour13:18FrequencyGenerationHour13:23FrequencyGenerationHour13:28FrequencyGenerationHour13:33FrequencyGenerationHour13:38FrequencyGenerationHour13:43FrequencyGenerationHour13:48FrequencyGenerationHour13:53FrequencyGenerationHour13:58FrequencyGenerationHour14:03FrequencyGenerationHour14:08FrequencyGenerationHour14:13FrequencyGenerationHour14:18FrequencyGenerationHour14:23FrequencyGenerationHour14:28FrequencyGeneration",
+    "fetchedAt": "2026-08-13T19:34:35.503Z",
+    "lastSuccessAt": "2026-08-13T19:34:35.503Z",
+    "observedAtRaw": "84Hour15:32FrequencyGenerationHour15:37FrequencyGenerationHour15:42FrequencyGenerationHour15:47FrequencyGenerationHour15:52FrequencyGenerationHour15:57FrequencyGenerationHour16:02FrequencyGenerationHour16:07FrequencyGenerationHour16:12FrequencyGenerationHour16:17FrequencyGenerationHour16:22FrequencyGenerationHour16:27FrequencyGenerationHour16:32FrequencyGenerationHour16:37FrequencyGenerationHour16:42FrequencyGenerationHour16:47FrequencyGenerationHour16:52FrequencyGenerationHour16:57FrequencyGenerationHour17:02FrequencyGenerationHour17:07FrequencyGenerationHour17:12FrequencyGenerationHour17:17FrequencyGenerationHour17:22FrequencyGenerationHour17:27FrequencyGenerationHour17:32FrequencyGenerationHour17:37FrequencyGenerationHour17:42FrequencyGenerationHour17:47FrequencyGenerationHour17:52FrequencyGenerationHour17:57FrequencyGenerationHour18:02FrequencyGenerationHour18:07FrequencyGenerationHour18:12FrequencyGenerationHour18:17FrequencyGenerationHour18:22FrequencyGenerationHour18:27FrequencyGenerationHour18:32FrequencyGenerationHour18:37FrequencyGenerationHour18:42FrequencyGenerationHour18:47FrequencyGenerationHour18:52FrequencyGenerationHour18:57FrequencyGenerationHour19:02FrequencyGenerationHour19:07FrequencyGenerationHour19:12FrequencyGenerationHour19:17FrequencyGenerationHour19:22FrequencyGenerationHour19:27FrequencyGenerationHour19:32FrequencyGenerationHour19:37FrequencyGenerationHour19:42FrequencyGenerationHour19:47FrequencyGenerationHour19:52FrequencyGenerationHour19:57FrequencyGenerationHour20:02FrequencyGenerationHour20:07FrequencyGenerationHour20:12FrequencyGenerationHour20:17FrequencyGenerationHour20:22FrequencyGenerationHour20:27FrequencyGenerationHour20:32FrequencyGenerationHour20:37FrequencyGenerationHour20:42FrequencyGenerationHour20:47FrequencyGenerationHour20:52FrequencyGenerationHour20:57FrequencyGenerationHour21:02FrequencyGenerationHour21:07FrequencyGenerationHour21:12FrequencyGenerationHour21:17FrequencyGenerationHour21:22FrequencyGenerationHour21:27FrequencyGenerationHour21:32FrequencyGenerationHour21:37FrequencyGenerationHour21:42FrequencyGenerationHour21:47FrequencyGenerationHour21:52FrequencyGenerationHour21:57FrequencyGenerationHour22:02FrequencyGenerationHour22:07FrequencyGenerationHour22:12FrequencyGenerationHour22:17FrequencyGenerationHour22:22FrequencyGenerationHour22:27FrequencyGenerationHour22:32FrequencyGenerationHour22:37FrequencyGenerationHour22:42FrequencyGenerationHour22:47FrequencyGenerationHour22:52FrequencyGenerationHour22:57FrequencyGenerationHour23:02FrequencyGenerationHour23:07FrequencyGenerationHour23:12FrequencyGenerationHour23:17FrequencyGenerationHour23:22FrequencyGenerationHour23:27FrequencyGenerationHour23:32FrequencyGenerationHour23:37FrequencyGenerationHour23:42FrequencyGenerationHour23:47FrequencyGenerationHour23:52FrequencyGenerationHour23:57FrequencyGenerationHour00:02FrequencyGenerationHour00:07FrequencyGenerationHour00:12FrequencyGenerationHour00:17FrequencyGenerationHour00:22FrequencyGenerationHour00:27FrequencyGenerationHour00:32FrequencyGenerationHour00:37FrequencyGenerationHour00:42FrequencyGenerationHour00:47FrequencyGenerationHour00:52FrequencyGenerationHour00:57FrequencyGenerationHour01:02FrequencyGenerationHour01:07FrequencyGenerationHour01:12FrequencyGenerationHour01:17FrequencyGenerationHour01:22FrequencyGenerationHour01:27FrequencyGenerationHour01:32FrequencyGenerationHour01:37FrequencyGenerationHour01:42FrequencyGenerationHour01:47FrequencyGenerationHour01:52FrequencyGenerationHour01:57FrequencyGenerationHour02:02FrequencyGenerationHour02:07FrequencyGenerationHour02:12FrequencyGenerationHour02:17FrequencyGenerationHour02:22FrequencyGenerationHour02:27FrequencyGenerationHour02:32FrequencyGenerationHour02:37FrequencyGenerationHour02:42FrequencyGenerationHour02:47FrequencyGenerationHour02:52FrequencyGenerationHour02:57FrequencyGenerationHour03:02FrequencyGenerationHour03:07FrequencyGenerationHour03:12FrequencyGenerationHour03:17FrequencyGenerationHour03:22FrequencyGenerationHour03:27FrequencyGenerationHour03:32FrequencyGenerationHour03:37FrequencyGenerationHour03:42FrequencyGenerationHour03:47FrequencyGenerationHour03:52FrequencyGenerationHour03:57FrequencyGenerationHour04:02FrequencyGenerationHour04:07FrequencyGenerationHour04:12FrequencyGenerationHour04:17FrequencyGenerationHour04:22FrequencyGenerationHour04:27FrequencyGenerationHour04:32FrequencyGenerationHour04:37FrequencyGenerationHour04:42FrequencyGenerationHour04:47FrequencyGenerationHour04:52FrequencyGenerationHour04:57FrequencyGenerationHour05:02FrequencyGenerationHour05:07FrequencyGenerationHour05:12FrequencyGenerationHour05:17FrequencyGenerationHour05:22FrequencyGenerationHour05:27FrequencyGenerationHour05:32FrequencyGenerationHour05:37FrequencyGenerationHour05:42FrequencyGenerationHour05:47FrequencyGenerationHour05:52FrequencyGenerationHour05:57FrequencyGenerationHour06:02FrequencyGenerationHour06:07FrequencyGenerationHour06:12FrequencyGenerationHour06:17FrequencyGenerationHour06:22FrequencyGenerationHour06:27FrequencyGenerationHour06:32FrequencyGenerationHour06:37FrequencyGenerationHour06:42FrequencyGenerationHour06:47FrequencyGenerationHour06:52FrequencyGenerationHour06:57FrequencyGenerationHour07:02FrequencyGenerationHour07:07FrequencyGenerationHour07:12FrequencyGenerationHour07:17FrequencyGenerationHour07:22FrequencyGenerationHour07:27FrequencyGenerationHour07:32FrequencyGenerationHour07:37FrequencyGenerationHour07:42FrequencyGenerationHour07:47FrequencyGenerationHour07:52FrequencyGenerationHour07:57FrequencyGenerationHour08:02FrequencyGenerationHour08:07FrequencyGenerationHour08:12FrequencyGenerationHour08:17FrequencyGenerationHour08:22FrequencyGenerationHour08:27FrequencyGenerationHour08:32FrequencyGenerationHour08:37FrequencyGenerationHour08:42FrequencyGenerationHour08:47FrequencyGenerationHour08:52FrequencyGenerationHour08:57FrequencyGenerationHour09:02FrequencyGenerationHour09:07FrequencyGenerationHour09:12FrequencyGenerationHour09:17FrequencyGenerationHour09:22FrequencyGenerationHour09:27FrequencyGenerationHour09:32FrequencyGenerationHour09:37FrequencyGenerationHour09:42FrequencyGenerationHour09:47FrequencyGenerationHour09:52FrequencyGenerationHour09:57FrequencyGenerationHour10:02FrequencyGenerationHour10:07FrequencyGenerationHour10:12FrequencyGenerationHour10:17FrequencyGenerationHour10:22FrequencyGenerationHour10:27FrequencyGenerationHour10:32FrequencyGenerationHour10:37FrequencyGenerationHour10:42FrequencyGenerationHour10:47FrequencyGenerationHour10:52FrequencyGenerationHour10:57FrequencyGenerationHour11:02FrequencyGenerationHour11:07FrequencyGenerationHour11:12FrequencyGenerationHour11:17FrequencyGenerationHour11:22FrequencyGenerationHour11:27FrequencyGenerationHour11:32FrequencyGenerationHour11:37FrequencyGenerationHour11:42FrequencyGenerationHour11:47FrequencyGenerationHour11:52FrequencyGenerationHour11:57FrequencyGenerationHour12:02FrequencyGenerationHour12:07FrequencyGenerationHour12:12FrequencyGenerationHour12:17FrequencyGenerationHour12:22FrequencyGenerationHour12:27FrequencyGenerationHour12:32FrequencyGenerationHour12:37FrequencyGenerationHour12:42FrequencyGenerationHour12:47FrequencyGenerationHour12:52FrequencyGenerationHour12:57FrequencyGenerationHour13:02FrequencyGenerationHour13:07FrequencyGenerationHour13:12FrequencyGenerationHour13:17FrequencyGenerationHour13:22FrequencyGenerationHour13:27FrequencyGenerationHour13:32FrequencyGenerationHour13:37FrequencyGenerationHour13:42FrequencyGenerationHour13:47FrequencyGenerationHour13:52FrequencyGenerationHour13:57FrequencyGenerationHour14:02FrequencyGenerationHour14:07FrequencyGenerationHour14:12FrequencyGenerationHour14:17FrequencyGenerationHour14:22FrequencyGenerationHour14:27FrequencyGenerationHour14:32FrequencyGenerationHour14:37FrequencyGenerationHour14:42FrequencyGenerationHour14:47FrequencyGenerationHour14:52FrequencyGenerationHour14:57FrequencyGenerationHour15:02FrequencyGenerationHour15:07FrequencyGenerationHour15:12FrequencyGenerationHour15:17FrequencyGenerationHour15:22FrequencyGenerationHour15:27FrequencyGenerationHour15:32FrequencyGeneration",
     "points": [
       {
-        "hour": "14:28",
+        "hour": "15:32",
+        "frequencyHz": 60,
+        "generationMw": 2353.1
+      },
+      {
+        "hour": "15:37",
+        "frequencyHz": 60,
+        "generationMw": 2360.2
+      },
+      {
+        "hour": "15:42",
         "frequencyHz": 59.9,
-        "generationMw": 2386.7
+        "generationMw": 2377.4
       },
       {
-        "hour": "14:33",
-        "frequencyHz": 60,
-        "generationMw": 2361.4
-      },
-      {
-        "hour": "14:38",
-        "frequencyHz": 60,
-        "generationMw": 2331.5
-      },
-      {
-        "hour": "14:43",
-        "frequencyHz": 60.1,
-        "generationMw": 2320.4
-      },
-      {
-        "hour": "14:48",
-        "frequencyHz": 60.1,
-        "generationMw": 2331.6
-      },
-      {
-        "hour": "14:53",
-        "frequencyHz": 60,
-        "generationMw": 2326.5
-      },
-      {
-        "hour": "14:58",
-        "frequencyHz": 60,
-        "generationMw": 2318.1
-      },
-      {
-        "hour": "15:03",
-        "frequencyHz": 60,
-        "generationMw": 2316.1
-      },
-      {
-        "hour": "15:08",
-        "frequencyHz": 60,
-        "generationMw": 2309
-      },
-      {
-        "hour": "15:13",
-        "frequencyHz": 60,
-        "generationMw": 2300.5
-      },
-      {
-        "hour": "15:18",
+        "hour": "15:47",
         "frequencyHz": 59.9,
-        "generationMw": 2318.3
+        "generationMw": 2397.5
       },
       {
-        "hour": "15:23",
-        "frequencyHz": 59.9,
-        "generationMw": 2322.4
-      },
-      {
-        "hour": "15:28",
-        "frequencyHz": 59.9,
-        "generationMw": 2339.7
-      },
-      {
-        "hour": "15:33",
+        "hour": "15:52",
         "frequencyHz": 60,
-        "generationMw": 2348.8
+        "generationMw": 2403.4
       },
       {
-        "hour": "15:38",
+        "hour": "15:57",
+        "frequencyHz": 59.9,
+        "generationMw": 2420
+      },
+      {
+        "hour": "16:02",
+        "frequencyHz": 59.9,
+        "generationMw": 2426.6
+      },
+      {
+        "hour": "16:07",
+        "frequencyHz": 59.9,
+        "generationMw": 2428.5
+      },
+      {
+        "hour": "16:12",
+        "frequencyHz": 59.9,
+        "generationMw": 2436.3
+      },
+      {
+        "hour": "16:17",
+        "frequencyHz": 59.9,
+        "generationMw": 2446.4
+      },
+      {
+        "hour": "16:22",
         "frequencyHz": 60,
-        "generationMw": 2365.2
+        "generationMw": 2460.9
       },
       {
-        "hour": "15:43",
+        "hour": "16:27",
         "frequencyHz": 59.9,
-        "generationMw": 2378.6
-      },
-      {
-        "hour": "15:48",
-        "frequencyHz": 59.9,
-        "generationMw": 2399.3
-      },
-      {
-        "hour": "15:53",
-        "frequencyHz": 59.9,
-        "generationMw": 2408.1
-      },
-      {
-        "hour": "15:58",
-        "frequencyHz": 59.9,
-        "generationMw": 2426
-      },
-      {
-        "hour": "16:03",
-        "frequencyHz": 59.9,
-        "generationMw": 2427.7
-      },
-      {
-        "hour": "16:08",
-        "frequencyHz": 59.9,
-        "generationMw": 2433.7
-      },
-      {
-        "hour": "16:13",
-        "frequencyHz": 59.9,
-        "generationMw": 2436.5
-      },
-      {
-        "hour": "16:18",
-        "frequencyHz": 59.9,
-        "generationMw": 2450.5
-      },
-      {
-        "hour": "16:23",
-        "frequencyHz": 60,
-        "generationMw": 2455.7
-      },
-      {
-        "hour": "16:28",
-        "frequencyHz": 59.9,
-        "generationMw": 2464.7
-      },
-      {
-        "hour": "16:33",
-        "frequencyHz": 60,
-        "generationMw": 2466.5
-      },
-      {
-        "hour": "16:38",
-        "frequencyHz": 60,
-        "generationMw": 2454.6
-      },
-      {
-        "hour": "16:43",
-        "frequencyHz": 60,
-        "generationMw": 2456.7
-      },
-      {
-        "hour": "16:48",
-        "frequencyHz": 60,
-        "generationMw": 2454.7
-      },
-      {
-        "hour": "16:53",
-        "frequencyHz": 60,
         "generationMw": 2461.3
       },
       {
-        "hour": "16:58",
+        "hour": "16:32",
         "frequencyHz": 60,
-        "generationMw": 2459
+        "generationMw": 2468.9
       },
       {
-        "hour": "17:03",
+        "hour": "16:37",
         "frequencyHz": 60,
-        "generationMw": 2464.9
+        "generationMw": 2447.7
       },
       {
-        "hour": "17:08",
+        "hour": "16:42",
         "frequencyHz": 60,
-        "generationMw": 2466
+        "generationMw": 2452.5
       },
       {
-        "hour": "17:13",
+        "hour": "16:47",
         "frequencyHz": 60,
-        "generationMw": 2473.8
+        "generationMw": 2452.9
       },
       {
-        "hour": "17:18",
+        "hour": "16:52",
         "frequencyHz": 60,
-        "generationMw": 2468.7
+        "generationMw": 2459.8
       },
       {
-        "hour": "17:23",
+        "hour": "16:57",
         "frequencyHz": 60,
-        "generationMw": 2469.8
+        "generationMw": 2459.9
       },
       {
-        "hour": "17:28",
+        "hour": "17:02",
         "frequencyHz": 60,
-        "generationMw": 2490.1
+        "generationMw": 2460.8
       },
       {
-        "hour": "17:33",
+        "hour": "17:07",
         "frequencyHz": 60,
-        "generationMw": 2501
+        "generationMw": 2465.3
       },
       {
-        "hour": "17:38",
+        "hour": "17:12",
         "frequencyHz": 60,
-        "generationMw": 2540.5
+        "generationMw": 2468.5
       },
       {
-        "hour": "17:43",
+        "hour": "17:17",
         "frequencyHz": 60,
-        "generationMw": 2552.1
+        "generationMw": 2461.2
       },
       {
-        "hour": "17:48",
+        "hour": "17:22",
         "frequencyHz": 60,
-        "generationMw": 2555.7
+        "generationMw": 2471.3
       },
       {
-        "hour": "17:53",
+        "hour": "17:27",
+        "frequencyHz": 60,
+        "generationMw": 2482.5
+      },
+      {
+        "hour": "17:32",
+        "frequencyHz": 60,
+        "generationMw": 2503.1
+      },
+      {
+        "hour": "17:37",
+        "frequencyHz": 60,
+        "generationMw": 2531.2
+      },
+      {
+        "hour": "17:42",
+        "frequencyHz": 60,
+        "generationMw": 2544.3
+      },
+      {
+        "hour": "17:47",
+        "frequencyHz": 60,
+        "generationMw": 2556.8
+      },
+      {
+        "hour": "17:52",
         "frequencyHz": 59.9,
-        "generationMw": 2572.7
+        "generationMw": 2566.1
       },
       {
-        "hour": "17:58",
+        "hour": "17:57",
+        "frequencyHz": 60,
+        "generationMw": 2582
+      },
+      {
+        "hour": "18:02",
         "frequencyHz": 59.9,
-        "generationMw": 2577.6
+        "generationMw": 2579.3
       },
       {
-        "hour": "18:03",
+        "hour": "18:07",
+        "frequencyHz": 60,
+        "generationMw": 2593.5
+      },
+      {
+        "hour": "18:12",
         "frequencyHz": 59.9,
-        "generationMw": 2577.9
+        "generationMw": 2602.6
       },
       {
-        "hour": "18:08",
-        "frequencyHz": 60,
-        "generationMw": 2596.7
-      },
-      {
-        "hour": "18:13",
+        "hour": "18:17",
         "frequencyHz": 59.9,
-        "generationMw": 2607
+        "generationMw": 2623.4
       },
       {
-        "hour": "18:18",
+        "hour": "18:22",
         "frequencyHz": 59.9,
-        "generationMw": 2621
+        "generationMw": 2634.5
       },
       {
-        "hour": "18:23",
-        "frequencyHz": 60,
-        "generationMw": 2639.7
-      },
-      {
-        "hour": "18:28",
-        "frequencyHz": 60,
-        "generationMw": 2652.9
-      },
-      {
-        "hour": "18:33",
-        "frequencyHz": 60,
-        "generationMw": 2671
-      },
-      {
-        "hour": "18:38",
-        "frequencyHz": 60,
-        "generationMw": 2682.3
-      },
-      {
-        "hour": "18:43",
-        "frequencyHz": 60,
-        "generationMw": 2701.7
-      },
-      {
-        "hour": "18:48",
-        "frequencyHz": 60,
-        "generationMw": 2711
-      },
-      {
-        "hour": "18:53",
-        "frequencyHz": 60,
-        "generationMw": 2729.6
-      },
-      {
-        "hour": "18:58",
-        "frequencyHz": 60,
-        "generationMw": 2750.5
-      },
-      {
-        "hour": "19:03",
+        "hour": "18:27",
         "frequencyHz": 59.9,
-        "generationMw": 2768.2
+        "generationMw": 2651.1
       },
       {
-        "hour": "19:08",
+        "hour": "18:32",
+        "frequencyHz": 60,
+        "generationMw": 2673.8
+      },
+      {
+        "hour": "18:37",
+        "frequencyHz": 60,
+        "generationMw": 2681.2
+      },
+      {
+        "hour": "18:42",
+        "frequencyHz": 60,
+        "generationMw": 2693
+      },
+      {
+        "hour": "18:47",
+        "frequencyHz": 60,
+        "generationMw": 2714.3
+      },
+      {
+        "hour": "18:52",
+        "frequencyHz": 60,
+        "generationMw": 2721.1
+      },
+      {
+        "hour": "18:57",
+        "frequencyHz": 60,
+        "generationMw": 2747
+      },
+      {
+        "hour": "19:02",
         "frequencyHz": 59.9,
-        "generationMw": 2795.2
+        "generationMw": 2760.1
       },
       {
-        "hour": "19:13",
+        "hour": "19:07",
+        "frequencyHz": 59.9,
+        "generationMw": 2795.1
+      },
+      {
+        "hour": "19:12",
+        "frequencyHz": 59.9,
+        "generationMw": 2808.9
+      },
+      {
+        "hour": "19:17",
         "frequencyHz": 60,
-        "generationMw": 2814.1
+        "generationMw": 2821.6
       },
       {
-        "hour": "19:18",
+        "hour": "19:22",
         "frequencyHz": 60,
-        "generationMw": 2825.8
+        "generationMw": 2837.7
       },
       {
-        "hour": "19:23",
+        "hour": "19:27",
         "frequencyHz": 60,
-        "generationMw": 2837.8
+        "generationMw": 2839.7
       },
       {
-        "hour": "19:28",
+        "hour": "19:32",
         "frequencyHz": 60,
-        "generationMw": 2842.9
+        "generationMw": 2848.5
       },
       {
-        "hour": "19:33",
+        "hour": "19:37",
         "frequencyHz": 60,
-        "generationMw": 2849
+        "generationMw": 2854.8
       },
       {
-        "hour": "19:38",
+        "hour": "19:42",
         "frequencyHz": 60,
-        "generationMw": 2859.5
+        "generationMw": 2864
       },
       {
-        "hour": "19:43",
+        "hour": "19:47",
         "frequencyHz": 60,
-        "generationMw": 2862.7
+        "generationMw": 2874.1
       },
       {
-        "hour": "19:48",
+        "hour": "19:52",
         "frequencyHz": 60,
-        "generationMw": 2870.4
+        "generationMw": 2877.5
       },
       {
-        "hour": "19:53",
-        "frequencyHz": 60,
-        "generationMw": 2878.2
-      },
-      {
-        "hour": "19:58",
+        "hour": "19:57",
         "frequencyHz": 60,
         "generationMw": 2878
       },
       {
-        "hour": "20:03",
+        "hour": "20:02",
         "frequencyHz": 60,
-        "generationMw": 2880.8
+        "generationMw": 2875.5
       },
       {
-        "hour": "20:08",
+        "hour": "20:07",
         "frequencyHz": 60,
-        "generationMw": 2879.2
+        "generationMw": 2877.4
       },
       {
-        "hour": "20:13",
+        "hour": "20:12",
         "frequencyHz": 60,
-        "generationMw": 2877
+        "generationMw": 2880.5
       },
       {
-        "hour": "20:18",
+        "hour": "20:17",
         "frequencyHz": 60,
-        "generationMw": 2879.7
+        "generationMw": 2879.4
       },
       {
-        "hour": "20:23",
+        "hour": "20:22",
+        "frequencyHz": 60,
+        "generationMw": 2884.5
+      },
+      {
+        "hour": "20:27",
+        "frequencyHz": 60,
+        "generationMw": 2881.2
+      },
+      {
+        "hour": "20:32",
         "frequencyHz": 60,
         "generationMw": 2880.3
       },
       {
-        "hour": "20:28",
+        "hour": "20:37",
         "frequencyHz": 60,
-        "generationMw": 2883.2
+        "generationMw": 2877.5
       },
       {
-        "hour": "20:33",
-        "frequencyHz": 60,
-        "generationMw": 2884.9
-      },
-      {
-        "hour": "20:38",
-        "frequencyHz": 60,
+        "hour": "20:42",
+        "frequencyHz": 59.9,
         "generationMw": 2878.5
       },
       {
-        "hour": "20:43",
-        "frequencyHz": 59.9,
-        "generationMw": 2878.6
-      },
-      {
-        "hour": "20:48",
+        "hour": "20:47",
         "frequencyHz": 60,
-        "generationMw": 2877.7
+        "generationMw": 2876.2
       },
       {
-        "hour": "20:53",
+        "hour": "20:52",
         "frequencyHz": 60,
-        "generationMw": 2879.9
+        "generationMw": 2881.7
       },
       {
-        "hour": "20:58",
+        "hour": "20:57",
         "frequencyHz": 60,
-        "generationMw": 2872.6
+        "generationMw": 2872.5
       },
       {
-        "hour": "21:03",
+        "hour": "21:02",
         "frequencyHz": 60,
-        "generationMw": 2863.3
+        "generationMw": 2865.3
       },
       {
-        "hour": "21:08",
+        "hour": "21:07",
         "frequencyHz": 60,
-        "generationMw": 2861.1
+        "generationMw": 2860.3
       },
       {
-        "hour": "21:13",
+        "hour": "21:12",
         "frequencyHz": 60,
-        "generationMw": 2848.6
+        "generationMw": 2858.2
       },
       {
-        "hour": "21:18",
+        "hour": "21:17",
         "frequencyHz": 60,
-        "generationMw": 2850.4
+        "generationMw": 2845.8
       },
       {
-        "hour": "21:23",
+        "hour": "21:22",
         "frequencyHz": 60,
-        "generationMw": 2847.5
+        "generationMw": 2852.4
       },
       {
-        "hour": "21:28",
+        "hour": "21:27",
         "frequencyHz": 60,
-        "generationMw": 2844.1
+        "generationMw": 2845.2
       },
       {
-        "hour": "21:33",
+        "hour": "21:32",
         "frequencyHz": 60,
-        "generationMw": 2836.2
+        "generationMw": 2841
       },
       {
-        "hour": "21:38",
+        "hour": "21:37",
         "frequencyHz": 60,
-        "generationMw": 2833.7
+        "generationMw": 2835.9
       },
       {
-        "hour": "21:43",
+        "hour": "21:42",
         "frequencyHz": 60,
-        "generationMw": 2825.2
+        "generationMw": 2829.3
       },
       {
-        "hour": "21:48",
+        "hour": "21:47",
         "frequencyHz": 60,
-        "generationMw": 2816.4
+        "generationMw": 2819.7
       },
       {
-        "hour": "21:53",
+        "hour": "21:52",
         "frequencyHz": 60,
-        "generationMw": 2823.4
+        "generationMw": 2826.9
       },
       {
-        "hour": "21:58",
+        "hour": "21:57",
         "frequencyHz": 60,
-        "generationMw": 2801.4
+        "generationMw": 2799.5
       },
       {
-        "hour": "22:03",
+        "hour": "22:02",
         "frequencyHz": 60,
-        "generationMw": 2781.6
+        "generationMw": 2785.7
       },
       {
-        "hour": "22:08",
+        "hour": "22:07",
         "frequencyHz": 60,
-        "generationMw": 2775.3
+        "generationMw": 2779.3
       },
       {
-        "hour": "22:13",
+        "hour": "22:12",
         "frequencyHz": 60,
-        "generationMw": 2774.5
+        "generationMw": 2773.8
       },
       {
-        "hour": "22:18",
+        "hour": "22:17",
         "frequencyHz": 60,
-        "generationMw": 2760.3
+        "generationMw": 2761.6
       },
       {
-        "hour": "22:23",
+        "hour": "22:22",
         "frequencyHz": 60,
         "generationMw": 2752.4
       },
       {
-        "hour": "22:28",
+        "hour": "22:27",
         "frequencyHz": 60,
-        "generationMw": 2737.6
+        "generationMw": 2744.8
       },
       {
-        "hour": "22:33",
+        "hour": "22:32",
         "frequencyHz": 60,
-        "generationMw": 2731.3
+        "generationMw": 2730.3
       },
       {
-        "hour": "22:38",
+        "hour": "22:37",
         "frequencyHz": 60,
-        "generationMw": 2717.2
+        "generationMw": 2720.7
       },
       {
-        "hour": "22:43",
+        "hour": "22:42",
         "frequencyHz": 60,
-        "generationMw": 2713.4
+        "generationMw": 2712.2
       },
       {
-        "hour": "22:48",
+        "hour": "22:47",
         "frequencyHz": 60,
-        "generationMw": 2703.3
+        "generationMw": 2705.6
       },
       {
-        "hour": "22:53",
+        "hour": "22:52",
         "frequencyHz": 60,
-        "generationMw": 2692.6
+        "generationMw": 2693.8
       },
       {
-        "hour": "22:58",
+        "hour": "22:57",
         "frequencyHz": 60,
-        "generationMw": 2682
+        "generationMw": 2686.7
       },
       {
-        "hour": "23:03",
+        "hour": "23:02",
         "frequencyHz": 60,
-        "generationMw": 2667.6
+        "generationMw": 2670.8
       },
       {
-        "hour": "23:08",
+        "hour": "23:07",
         "frequencyHz": 60,
         "generationMw": 2658.6
       },
       {
-        "hour": "23:13",
+        "hour": "23:12",
         "frequencyHz": 60,
-        "generationMw": 2645.3
+        "generationMw": 2647
       },
       {
-        "hour": "23:18",
+        "hour": "23:17",
         "frequencyHz": 60,
-        "generationMw": 2631.1
+        "generationMw": 2630.9
       },
       {
-        "hour": "23:23",
+        "hour": "23:22",
         "frequencyHz": 60,
-        "generationMw": 2617.8
+        "generationMw": 2618.6
       },
       {
-        "hour": "23:28",
+        "hour": "23:27",
         "frequencyHz": 60,
-        "generationMw": 2611.4
+        "generationMw": 2610.2
       },
       {
-        "hour": "23:33",
+        "hour": "23:32",
         "frequencyHz": 60,
-        "generationMw": 2593.4
+        "generationMw": 2600.5
       },
       {
-        "hour": "23:38",
+        "hour": "23:37",
         "frequencyHz": 60,
-        "generationMw": 2584.9
+        "generationMw": 2591.8
       },
       {
-        "hour": "23:43",
+        "hour": "23:42",
         "frequencyHz": 60,
-        "generationMw": 2575.7
+        "generationMw": 2577.3
       },
       {
-        "hour": "23:48",
+        "hour": "23:47",
         "frequencyHz": 60,
-        "generationMw": 2565.3
+        "generationMw": 2567.6
       },
       {
-        "hour": "23:53",
+        "hour": "23:52",
         "frequencyHz": 60,
-        "generationMw": 2553.6
+        "generationMw": 2557.9
       },
       {
-        "hour": "23:58",
+        "hour": "23:57",
         "frequencyHz": 60,
-        "generationMw": 2542.3
+        "generationMw": 2547.4
       },
       {
-        "hour": "00:03",
+        "hour": "00:02",
         "frequencyHz": 60,
-        "generationMw": 2533.4
+        "generationMw": 2535.2
       },
       {
-        "hour": "00:08",
+        "hour": "00:07",
         "frequencyHz": 60,
-        "generationMw": 2515.6
+        "generationMw": 2516.9
       },
       {
-        "hour": "00:13",
+        "hour": "00:12",
         "frequencyHz": 60,
-        "generationMw": 2513
+        "generationMw": 2512.9
       },
       {
-        "hour": "00:18",
+        "hour": "00:17",
         "frequencyHz": 60,
-        "generationMw": 2500.1
+        "generationMw": 2501.7
       },
       {
-        "hour": "00:23",
+        "hour": "00:22",
         "frequencyHz": 60,
-        "generationMw": 2487.5
+        "generationMw": 2490.4
       },
       {
-        "hour": "00:28",
-        "frequencyHz": 60.1,
-        "generationMw": 2481.4
-      },
-      {
-        "hour": "00:33",
+        "hour": "00:27",
         "frequencyHz": 60,
-        "generationMw": 2472.1
+        "generationMw": 2482.5
       },
       {
-        "hour": "00:38",
+        "hour": "00:32",
         "frequencyHz": 60,
-        "generationMw": 2459.6
+        "generationMw": 2474.6
       },
       {
-        "hour": "00:43",
+        "hour": "00:37",
         "frequencyHz": 60,
-        "generationMw": 2452.7
+        "generationMw": 2461
       },
       {
-        "hour": "00:48",
+        "hour": "00:42",
         "frequencyHz": 60,
-        "generationMw": 2445.7
+        "generationMw": 2455.5
       },
       {
-        "hour": "00:53",
+        "hour": "00:47",
         "frequencyHz": 60,
-        "generationMw": 2434.8
+        "generationMw": 2444.3
       },
       {
-        "hour": "00:58",
+        "hour": "00:52",
         "frequencyHz": 60,
-        "generationMw": 2431.3
+        "generationMw": 2436.7
       },
       {
-        "hour": "01:03",
+        "hour": "00:57",
+        "frequencyHz": 60,
+        "generationMw": 2431.8
+      },
+      {
+        "hour": "01:02",
         "frequencyHz": 60,
         "generationMw": 2425
       },
       {
-        "hour": "01:08",
+        "hour": "01:07",
         "frequencyHz": 60,
-        "generationMw": 2415
+        "generationMw": 2417.5
       },
       {
-        "hour": "01:13",
+        "hour": "01:12",
         "frequencyHz": 60,
-        "generationMw": 2409.5
+        "generationMw": 2412.4
       },
       {
-        "hour": "01:18",
+        "hour": "01:17",
         "frequencyHz": 60,
-        "generationMw": 2405
+        "generationMw": 2404.1
       },
       {
-        "hour": "01:23",
+        "hour": "01:22",
         "frequencyHz": 60,
-        "generationMw": 2399
+        "generationMw": 2398.5
       },
       {
-        "hour": "01:28",
+        "hour": "01:27",
         "frequencyHz": 60,
-        "generationMw": 2392.6
+        "generationMw": 2396.3
       },
       {
-        "hour": "01:33",
+        "hour": "01:32",
         "frequencyHz": 60,
-        "generationMw": 2386.8
+        "generationMw": 2387.4
       },
       {
-        "hour": "01:38",
-        "frequencyHz": 60.1,
-        "generationMw": 2379.3
-      },
-      {
-        "hour": "01:43",
-        "frequencyHz": 60,
-        "generationMw": 2374
-      },
-      {
-        "hour": "01:48",
-        "frequencyHz": 60,
-        "generationMw": 2377.7
-      },
-      {
-        "hour": "01:53",
-        "frequencyHz": 60,
-        "generationMw": 2371.3
-      },
-      {
-        "hour": "01:58",
-        "frequencyHz": 60,
-        "generationMw": 2364.1
-      },
-      {
-        "hour": "02:03",
-        "frequencyHz": 60,
-        "generationMw": 2359.9
-      },
-      {
-        "hour": "02:08",
-        "frequencyHz": 60,
-        "generationMw": 2358.4
-      },
-      {
-        "hour": "02:13",
-        "frequencyHz": 60,
-        "generationMw": 2349.6
-      },
-      {
-        "hour": "02:18",
-        "frequencyHz": 60,
-        "generationMw": 2345.6
-      },
-      {
-        "hour": "02:23",
-        "frequencyHz": 60,
-        "generationMw": 2345.6
-      },
-      {
-        "hour": "02:28",
-        "frequencyHz": 60,
-        "generationMw": 2338.3
-      },
-      {
-        "hour": "02:33",
-        "frequencyHz": 60,
-        "generationMw": 2337.9
-      },
-      {
-        "hour": "02:38",
-        "frequencyHz": 60,
-        "generationMw": 2335.7
-      },
-      {
-        "hour": "02:43",
-        "frequencyHz": 60,
-        "generationMw": 2332.1
-      },
-      {
-        "hour": "02:48",
-        "frequencyHz": 60,
-        "generationMw": 2327.1
-      },
-      {
-        "hour": "02:53",
-        "frequencyHz": 60,
-        "generationMw": 2321.8
-      },
-      {
-        "hour": "02:58",
-        "frequencyHz": 60,
-        "generationMw": 2321.7
-      },
-      {
-        "hour": "03:03",
-        "frequencyHz": 60,
-        "generationMw": 2319.7
-      },
-      {
-        "hour": "03:08",
-        "frequencyHz": 60,
-        "generationMw": 2318.9
-      },
-      {
-        "hour": "03:13",
-        "frequencyHz": 60,
-        "generationMw": 2316.4
-      },
-      {
-        "hour": "03:18",
-        "frequencyHz": 60,
-        "generationMw": 2311.5
-      },
-      {
-        "hour": "03:23",
-        "frequencyHz": 60,
-        "generationMw": 2306.8
-      },
-      {
-        "hour": "03:28",
-        "frequencyHz": 60,
-        "generationMw": 2307.3
-      },
-      {
-        "hour": "03:33",
-        "frequencyHz": 60,
-        "generationMw": 2301.4
-      },
-      {
-        "hour": "03:38",
-        "frequencyHz": 60,
-        "generationMw": 2301.6
-      },
-      {
-        "hour": "03:43",
-        "frequencyHz": 60,
-        "generationMw": 2297.8
-      },
-      {
-        "hour": "03:48",
-        "frequencyHz": 60,
-        "generationMw": 2297.1
-      },
-      {
-        "hour": "03:53",
-        "frequencyHz": 60,
-        "generationMw": 2296.6
-      },
-      {
-        "hour": "03:58",
-        "frequencyHz": 60,
-        "generationMw": 2292.8
-      },
-      {
-        "hour": "04:03",
-        "frequencyHz": 60,
-        "generationMw": 2296.8
-      },
-      {
-        "hour": "04:08",
-        "frequencyHz": 60,
-        "generationMw": 2299
-      },
-      {
-        "hour": "04:13",
-        "frequencyHz": 60,
-        "generationMw": 2296.3
-      },
-      {
-        "hour": "04:18",
-        "frequencyHz": 60,
-        "generationMw": 2299.5
-      },
-      {
-        "hour": "04:23",
-        "frequencyHz": 60,
-        "generationMw": 2298.4
-      },
-      {
-        "hour": "04:28",
-        "frequencyHz": 60,
-        "generationMw": 2294.2
-      },
-      {
-        "hour": "04:33",
-        "frequencyHz": 60,
-        "generationMw": 2298.5
-      },
-      {
-        "hour": "04:38",
-        "frequencyHz": 60,
-        "generationMw": 2300.2
-      },
-      {
-        "hour": "04:43",
-        "frequencyHz": 60,
-        "generationMw": 2295.8
-      },
-      {
-        "hour": "04:48",
-        "frequencyHz": 60,
-        "generationMw": 2298.8
-      },
-      {
-        "hour": "04:53",
-        "frequencyHz": 60,
-        "generationMw": 2302.5
-      },
-      {
-        "hour": "04:58",
-        "frequencyHz": 60,
-        "generationMw": 2303.3
-      },
-      {
-        "hour": "05:03",
-        "frequencyHz": 59.9,
-        "generationMw": 2315.2
-      },
-      {
-        "hour": "05:08",
-        "frequencyHz": 60,
-        "generationMw": 2331.7
-      },
-      {
-        "hour": "05:13",
-        "frequencyHz": 60,
-        "generationMw": 2340.4
-      },
-      {
-        "hour": "05:18",
-        "frequencyHz": 60,
-        "generationMw": 2350.9
-      },
-      {
-        "hour": "05:23",
-        "frequencyHz": 60,
-        "generationMw": 2349.8
-      },
-      {
-        "hour": "05:28",
-        "frequencyHz": 60,
-        "generationMw": 2351
-      },
-      {
-        "hour": "05:33",
-        "frequencyHz": 60,
-        "generationMw": 2359.2
-      },
-      {
-        "hour": "05:38",
-        "frequencyHz": 60,
-        "generationMw": 2364.7
-      },
-      {
-        "hour": "05:43",
-        "frequencyHz": 60,
-        "generationMw": 2366.1
-      },
-      {
-        "hour": "05:48",
-        "frequencyHz": 60,
-        "generationMw": 2371.2
-      },
-      {
-        "hour": "05:53",
-        "frequencyHz": 60,
-        "generationMw": 2371.7
-      },
-      {
-        "hour": "05:58",
-        "frequencyHz": 60,
-        "generationMw": 2361.6
-      },
-      {
-        "hour": "06:03",
-        "frequencyHz": 60,
-        "generationMw": 2367.5
-      },
-      {
-        "hour": "06:08",
+        "hour": "01:37",
         "frequencyHz": 60,
         "generationMw": 2378.7
       },
       {
-        "hour": "06:13",
+        "hour": "01:42",
+        "frequencyHz": 60.1,
+        "generationMw": 2378.8
+      },
+      {
+        "hour": "01:47",
         "frequencyHz": 60,
-        "generationMw": 2375.9
+        "generationMw": 2378.3
       },
       {
-        "hour": "06:18",
+        "hour": "01:52",
         "frequencyHz": 60,
-        "generationMw": 2369.6
+        "generationMw": 2374.4
       },
       {
-        "hour": "06:23",
+        "hour": "01:57",
         "frequencyHz": 60,
-        "generationMw": 2366.8
+        "generationMw": 2364.1
       },
       {
-        "hour": "06:28",
+        "hour": "02:02",
         "frequencyHz": 60,
-        "generationMw": 2359.5
+        "generationMw": 2360.8
       },
       {
-        "hour": "06:33",
+        "hour": "02:07",
         "frequencyHz": 60,
-        "generationMw": 2354.2
+        "generationMw": 2359.2
       },
       {
-        "hour": "06:38",
+        "hour": "02:12",
         "frequencyHz": 60,
-        "generationMw": 2346.1
+        "generationMw": 2353.3
       },
       {
-        "hour": "06:43",
+        "hour": "02:17",
         "frequencyHz": 60,
-        "generationMw": 2337.9
+        "generationMw": 2348.7
       },
       {
-        "hour": "06:48",
+        "hour": "02:22",
         "frequencyHz": 60,
-        "generationMw": 2332.8
+        "generationMw": 2344.6
       },
       {
-        "hour": "06:53",
-        "frequencyHz": 59.9,
-        "generationMw": 2345.3
-      },
-      {
-        "hour": "06:58",
+        "hour": "02:27",
         "frequencyHz": 60,
-        "generationMw": 2329.9
+        "generationMw": 2341.3
       },
       {
-        "hour": "07:03",
+        "hour": "02:32",
         "frequencyHz": 60,
-        "generationMw": 2336.4
+        "generationMw": 2335.8
       },
       {
-        "hour": "07:08",
-        "frequencyHz": 59.9,
-        "generationMw": 2325.8
-      },
-      {
-        "hour": "07:13",
+        "hour": "02:37",
         "frequencyHz": 60,
-        "generationMw": 2329.4
+        "generationMw": 2335.6
       },
       {
-        "hour": "07:18",
+        "hour": "02:42",
         "frequencyHz": 60,
-        "generationMw": 2326.1
+        "generationMw": 2334.1
       },
       {
-        "hour": "07:23",
+        "hour": "02:47",
         "frequencyHz": 60,
-        "generationMw": 2318.8
+        "generationMw": 2327.8
       },
       {
-        "hour": "07:28",
+        "hour": "02:52",
         "frequencyHz": 60,
-        "generationMw": 2311.6
+        "generationMw": 2319.8
       },
       {
-        "hour": "07:33",
+        "hour": "02:57",
         "frequencyHz": 60,
-        "generationMw": 2305.9
+        "generationMw": 2321.6
       },
       {
-        "hour": "07:38",
+        "hour": "03:02",
         "frequencyHz": 60,
-        "generationMw": 2306.1
+        "generationMw": 2315.2
       },
       {
-        "hour": "07:43",
+        "hour": "03:07",
         "frequencyHz": 60,
-        "generationMw": 2295.1
+        "generationMw": 2318.4
       },
       {
-        "hour": "07:48",
+        "hour": "03:12",
         "frequencyHz": 60,
-        "generationMw": 2290.6
+        "generationMw": 2314.1
       },
       {
-        "hour": "07:53",
+        "hour": "03:17",
         "frequencyHz": 60,
-        "generationMw": 2286.6
+        "generationMw": 2313.8
       },
       {
-        "hour": "07:58",
-        "frequencyHz": 59.9,
-        "generationMw": 2289.4
+        "hour": "03:22",
+        "frequencyHz": 60,
+        "generationMw": 2307.6
       },
       {
-        "hour": "08:03",
+        "hour": "03:27",
+        "frequencyHz": 60,
+        "generationMw": 2307.4
+      },
+      {
+        "hour": "03:32",
         "frequencyHz": 60,
         "generationMw": 2303.2
       },
       {
-        "hour": "08:08",
+        "hour": "03:37",
+        "frequencyHz": 60,
+        "generationMw": 2301.3
+      },
+      {
+        "hour": "03:42",
+        "frequencyHz": 60,
+        "generationMw": 2301.2
+      },
+      {
+        "hour": "03:47",
+        "frequencyHz": 60,
+        "generationMw": 2297.3
+      },
+      {
+        "hour": "03:52",
+        "frequencyHz": 60,
+        "generationMw": 2292.8
+      },
+      {
+        "hour": "03:57",
+        "frequencyHz": 60,
+        "generationMw": 2295.5
+      },
+      {
+        "hour": "04:02",
+        "frequencyHz": 60,
+        "generationMw": 2292.8
+      },
+      {
+        "hour": "04:07",
+        "frequencyHz": 60,
+        "generationMw": 2299.4
+      },
+      {
+        "hour": "04:12",
+        "frequencyHz": 60,
+        "generationMw": 2298.3
+      },
+      {
+        "hour": "04:17",
+        "frequencyHz": 60,
+        "generationMw": 2297.1
+      },
+      {
+        "hour": "04:22",
+        "frequencyHz": 60,
+        "generationMw": 2295.2
+      },
+      {
+        "hour": "04:27",
+        "frequencyHz": 60,
+        "generationMw": 2295.3
+      },
+      {
+        "hour": "04:32",
+        "frequencyHz": 60,
+        "generationMw": 2295.2
+      },
+      {
+        "hour": "04:37",
+        "frequencyHz": 60,
+        "generationMw": 2297.3
+      },
+      {
+        "hour": "04:42",
+        "frequencyHz": 60,
+        "generationMw": 2294.5
+      },
+      {
+        "hour": "04:47",
+        "frequencyHz": 60,
+        "generationMw": 2300.4
+      },
+      {
+        "hour": "04:52",
+        "frequencyHz": 60,
+        "generationMw": 2300.2
+      },
+      {
+        "hour": "04:57",
+        "frequencyHz": 60,
+        "generationMw": 2303.1
+      },
+      {
+        "hour": "05:02",
         "frequencyHz": 59.9,
-        "generationMw": 2289.9
+        "generationMw": 2310.3
       },
       {
-        "hour": "08:13",
+        "hour": "05:07",
         "frequencyHz": 59.9,
-        "generationMw": 2289.5
+        "generationMw": 2328.1
       },
       {
-        "hour": "08:18",
+        "hour": "05:12",
+        "frequencyHz": 60,
+        "generationMw": 2338.9
+      },
+      {
+        "hour": "05:17",
+        "frequencyHz": 60,
+        "generationMw": 2349.3
+      },
+      {
+        "hour": "05:22",
+        "frequencyHz": 60,
+        "generationMw": 2351.9
+      },
+      {
+        "hour": "05:27",
+        "frequencyHz": 60,
+        "generationMw": 2350
+      },
+      {
+        "hour": "05:32",
+        "frequencyHz": 60,
+        "generationMw": 2358.4
+      },
+      {
+        "hour": "05:37",
+        "frequencyHz": 60,
+        "generationMw": 2362.2
+      },
+      {
+        "hour": "05:42",
+        "frequencyHz": 60,
+        "generationMw": 2368.9
+      },
+      {
+        "hour": "05:47",
+        "frequencyHz": 60,
+        "generationMw": 2369.2
+      },
+      {
+        "hour": "05:52",
+        "frequencyHz": 60,
+        "generationMw": 2365.4
+      },
+      {
+        "hour": "05:57",
+        "frequencyHz": 60,
+        "generationMw": 2361.6
+      },
+      {
+        "hour": "06:02",
+        "frequencyHz": 60,
+        "generationMw": 2366.2
+      },
+      {
+        "hour": "06:07",
+        "frequencyHz": 60,
+        "generationMw": 2373.6
+      },
+      {
+        "hour": "06:12",
+        "frequencyHz": 60,
+        "generationMw": 2373.5
+      },
+      {
+        "hour": "06:17",
+        "frequencyHz": 60,
+        "generationMw": 2374
+      },
+      {
+        "hour": "06:22",
+        "frequencyHz": 60,
+        "generationMw": 2372.8
+      },
+      {
+        "hour": "06:27",
+        "frequencyHz": 60,
+        "generationMw": 2368.2
+      },
+      {
+        "hour": "06:32",
+        "frequencyHz": 60,
+        "generationMw": 2353.5
+      },
+      {
+        "hour": "06:37",
+        "frequencyHz": 60,
+        "generationMw": 2356.9
+      },
+      {
+        "hour": "06:42",
+        "frequencyHz": 60,
+        "generationMw": 2341.5
+      },
+      {
+        "hour": "06:47",
+        "frequencyHz": 60,
+        "generationMw": 2334.9
+      },
+      {
+        "hour": "06:52",
+        "frequencyHz": 60,
+        "generationMw": 2341.1
+      },
+      {
+        "hour": "06:57",
+        "frequencyHz": 60,
+        "generationMw": 2331.7
+      },
+      {
+        "hour": "07:02",
+        "frequencyHz": 60,
+        "generationMw": 2330.5
+      },
+      {
+        "hour": "07:07",
+        "frequencyHz": 60,
+        "generationMw": 2328.5
+      },
+      {
+        "hour": "07:12",
+        "frequencyHz": 60,
+        "generationMw": 2328.8
+      },
+      {
+        "hour": "07:17",
+        "frequencyHz": 60,
+        "generationMw": 2325.1
+      },
+      {
+        "hour": "07:22",
+        "frequencyHz": 60,
+        "generationMw": 2317.1
+      },
+      {
+        "hour": "07:27",
+        "frequencyHz": 60,
+        "generationMw": 2314.8
+      },
+      {
+        "hour": "07:32",
+        "frequencyHz": 60,
+        "generationMw": 2306.8
+      },
+      {
+        "hour": "07:37",
+        "frequencyHz": 60,
+        "generationMw": 2302.6
+      },
+      {
+        "hour": "07:42",
+        "frequencyHz": 60,
+        "generationMw": 2302.8
+      },
+      {
+        "hour": "07:47",
+        "frequencyHz": 60,
+        "generationMw": 2297.7
+      },
+      {
+        "hour": "07:52",
+        "frequencyHz": 60,
+        "generationMw": 2290.7
+      },
+      {
+        "hour": "07:57",
+        "frequencyHz": 60.1,
+        "generationMw": 2289.6
+      },
+      {
+        "hour": "08:02",
+        "frequencyHz": 60,
+        "generationMw": 2289.2
+      },
+      {
+        "hour": "08:07",
         "frequencyHz": 59.9,
-        "generationMw": 2286.5
+        "generationMw": 2294.4
       },
       {
-        "hour": "08:23",
-        "frequencyHz": 60,
-        "generationMw": 2286.9
-      },
-      {
-        "hour": "08:28",
+        "hour": "08:12",
         "frequencyHz": 59.9,
-        "generationMw": 2274.4
+        "generationMw": 2291.2
       },
       {
-        "hour": "08:33",
-        "frequencyHz": 60,
-        "generationMw": 2259.2
-      },
-      {
-        "hour": "08:38",
-        "frequencyHz": 60,
-        "generationMw": 2253.5
-      },
-      {
-        "hour": "08:43",
-        "frequencyHz": 60,
-        "generationMw": 2245.1
-      },
-      {
-        "hour": "08:48",
-        "frequencyHz": 60,
-        "generationMw": 2238.9
-      },
-      {
-        "hour": "08:53",
-        "frequencyHz": 60,
-        "generationMw": 2232.7
-      },
-      {
-        "hour": "08:58",
-        "frequencyHz": 60,
-        "generationMw": 2226.4
-      },
-      {
-        "hour": "09:03",
+        "hour": "08:17",
         "frequencyHz": 59.9,
-        "generationMw": 2221.4
+        "generationMw": 2287.1
       },
       {
-        "hour": "09:08",
+        "hour": "08:22",
+        "frequencyHz": 60.1,
+        "generationMw": 2283.2
+      },
+      {
+        "hour": "08:27",
         "frequencyHz": 60,
-        "generationMw": 2209.6
+        "generationMw": 2268.4
       },
       {
-        "hour": "09:13",
+        "hour": "08:32",
         "frequencyHz": 60,
-        "generationMw": 2211.3
+        "generationMw": 2265.6
       },
       {
-        "hour": "09:18",
+        "hour": "08:37",
+        "frequencyHz": 60,
+        "generationMw": 2258.3
+      },
+      {
+        "hour": "08:42",
+        "frequencyHz": 60,
+        "generationMw": 2243.3
+      },
+      {
+        "hour": "08:47",
+        "frequencyHz": 60,
+        "generationMw": 2238.2
+      },
+      {
+        "hour": "08:52",
+        "frequencyHz": 60,
+        "generationMw": 2236.6
+      },
+      {
+        "hour": "08:57",
         "frequencyHz": 59.9,
-        "generationMw": 2196.8
+        "generationMw": 2223.4
       },
       {
-        "hour": "09:23",
+        "hour": "09:02",
         "frequencyHz": 60,
-        "generationMw": 2183.1
+        "generationMw": 2223.9
       },
       {
-        "hour": "09:28",
+        "hour": "09:07",
         "frequencyHz": 60,
-        "generationMw": 2167.9
+        "generationMw": 2213.9
       },
       {
-        "hour": "09:33",
+        "hour": "09:12",
         "frequencyHz": 60,
-        "generationMw": 2156.4
+        "generationMw": 2209.4
       },
       {
-        "hour": "09:38",
+        "hour": "09:17",
         "frequencyHz": 60,
-        "generationMw": 2141
+        "generationMw": 2203.1
       },
       {
-        "hour": "09:43",
+        "hour": "09:22",
+        "frequencyHz": 60,
+        "generationMw": 2189.9
+      },
+      {
+        "hour": "09:27",
+        "frequencyHz": 60,
+        "generationMw": 2170.6
+      },
+      {
+        "hour": "09:32",
+        "frequencyHz": 60,
+        "generationMw": 2162.6
+      },
+      {
+        "hour": "09:37",
+        "frequencyHz": 60,
+        "generationMw": 2158.9
+      },
+      {
+        "hour": "09:42",
         "frequencyHz": 59.9,
-        "generationMw": 2126.4
+        "generationMw": 2128.9
       },
       {
-        "hour": "09:48",
+        "hour": "09:47",
         "frequencyHz": 60,
-        "generationMw": 2112
+        "generationMw": 2112.6
       },
       {
-        "hour": "09:53",
+        "hour": "09:52",
         "frequencyHz": 60,
-        "generationMw": 2100.5
+        "generationMw": 2130.1
       },
       {
-        "hour": "09:58",
+        "hour": "09:57",
+        "frequencyHz": 60,
+        "generationMw": 2089.7
+      },
+      {
+        "hour": "10:02",
+        "frequencyHz": 60,
+        "generationMw": 2086
+      },
+      {
+        "hour": "10:07",
+        "frequencyHz": 60,
+        "generationMw": 2079.8
+      },
+      {
+        "hour": "10:12",
+        "frequencyHz": 60,
+        "generationMw": 2053.2
+      },
+      {
+        "hour": "10:17",
+        "frequencyHz": 60,
+        "generationMw": 2046.8
+      },
+      {
+        "hour": "10:22",
+        "frequencyHz": 60,
+        "generationMw": 2040.8
+      },
+      {
+        "hour": "10:27",
+        "frequencyHz": 60,
+        "generationMw": 2027.3
+      },
+      {
+        "hour": "10:32",
+        "frequencyHz": 60,
+        "generationMw": 2023.1
+      },
+      {
+        "hour": "10:37",
+        "frequencyHz": 60,
+        "generationMw": 2014.4
+      },
+      {
+        "hour": "10:42",
+        "frequencyHz": 60,
+        "generationMw": 2000.5
+      },
+      {
+        "hour": "10:47",
+        "frequencyHz": 60,
+        "generationMw": 1996.7
+      },
+      {
+        "hour": "10:52",
+        "frequencyHz": 60,
+        "generationMw": 1996.6
+      },
+      {
+        "hour": "10:57",
+        "frequencyHz": 60,
+        "generationMw": 1987.2
+      },
+      {
+        "hour": "11:02",
+        "frequencyHz": 60,
+        "generationMw": 1981.2
+      },
+      {
+        "hour": "11:07",
+        "frequencyHz": 60,
+        "generationMw": 1979.9
+      },
+      {
+        "hour": "11:12",
         "frequencyHz": 59.9,
-        "generationMw": 2103.6
+        "generationMw": 1975.9
       },
       {
-        "hour": "10:03",
+        "hour": "11:17",
+        "frequencyHz": 60,
+        "generationMw": 1976.9
+      },
+      {
+        "hour": "11:22",
+        "frequencyHz": 60,
+        "generationMw": 1979.1
+      },
+      {
+        "hour": "11:27",
+        "frequencyHz": 60,
+        "generationMw": 1970
+      },
+      {
+        "hour": "11:32",
+        "frequencyHz": 60,
+        "generationMw": 1972.8
+      },
+      {
+        "hour": "11:37",
         "frequencyHz": 59.9,
-        "generationMw": 2085.1
+        "generationMw": 1977.5
       },
       {
-        "hour": "10:08",
+        "hour": "11:42",
+        "frequencyHz": 59.9,
+        "generationMw": 1972.4
+      },
+      {
+        "hour": "11:47",
         "frequencyHz": 60,
-        "generationMw": 2065
+        "generationMw": 1974.4
       },
       {
-        "hour": "10:13",
+        "hour": "11:52",
+        "frequencyHz": 59.9,
+        "generationMw": 1976.6
+      },
+      {
+        "hour": "11:57",
+        "frequencyHz": 59.9,
+        "generationMw": 1978.2
+      },
+      {
+        "hour": "12:02",
+        "frequencyHz": 59.9,
+        "generationMw": 1992.8
+      },
+      {
+        "hour": "12:07",
         "frequencyHz": 60,
-        "generationMw": 2053.6
+        "generationMw": 1992.2
       },
       {
-        "hour": "10:18",
-        "frequencyHz": 60,
-        "generationMw": 2043.7
-      },
-      {
-        "hour": "10:23",
-        "frequencyHz": 60,
-        "generationMw": 2036
-      },
-      {
-        "hour": "10:28",
-        "frequencyHz": 60,
-        "generationMw": 2029
-      },
-      {
-        "hour": "10:33",
-        "frequencyHz": 60,
-        "generationMw": 2025.7
-      },
-      {
-        "hour": "10:38",
-        "frequencyHz": 60,
-        "generationMw": 2011
-      },
-      {
-        "hour": "10:43",
-        "frequencyHz": 60,
-        "generationMw": 1997.3
-      },
-      {
-        "hour": "10:48",
+        "hour": "12:12",
         "frequencyHz": 60,
         "generationMw": 1991.5
       },
       {
-        "hour": "10:53",
+        "hour": "12:17",
         "frequencyHz": 60,
-        "generationMw": 1991.7
+        "generationMw": 1992.7
       },
       {
-        "hour": "10:58",
+        "hour": "12:22",
         "frequencyHz": 60,
-        "generationMw": 1988
+        "generationMw": 1982.9
       },
       {
-        "hour": "11:03",
-        "frequencyHz": 60,
-        "generationMw": 1980.5
+        "hour": "12:27",
+        "frequencyHz": 60.1,
+        "generationMw": 1992.4
       },
       {
-        "hour": "11:08",
+        "hour": "12:32",
+        "frequencyHz": 60,
+        "generationMw": 2001.6
+      },
+      {
+        "hour": "12:37",
+        "frequencyHz": 60,
+        "generationMw": 2013
+      },
+      {
+        "hour": "12:42",
+        "frequencyHz": 60,
+        "generationMw": 2014.9
+      },
+      {
+        "hour": "12:47",
+        "frequencyHz": 60,
+        "generationMw": 2028.4
+      },
+      {
+        "hour": "12:52",
+        "frequencyHz": 60,
+        "generationMw": 2038.9
+      },
+      {
+        "hour": "12:57",
         "frequencyHz": 59.9,
-        "generationMw": 1979.1
+        "generationMw": 2040.9
       },
       {
-        "hour": "11:13",
+        "hour": "13:02",
+        "frequencyHz": 60,
+        "generationMw": 2075
+      },
+      {
+        "hour": "13:07",
         "frequencyHz": 59.9,
-        "generationMw": 1971.6
+        "generationMw": 2081.5
       },
       {
-        "hour": "11:18",
+        "hour": "13:12",
         "frequencyHz": 59.9,
-        "generationMw": 1978
+        "generationMw": 2085.4
       },
       {
-        "hour": "11:23",
+        "hour": "13:17",
         "frequencyHz": 60,
-        "generationMw": 1974.3
+        "generationMw": 2094.1
       },
       {
-        "hour": "11:28",
+        "hour": "13:22",
         "frequencyHz": 60,
-        "generationMw": 1970.1
+        "generationMw": 2095
       },
       {
-        "hour": "11:33",
+        "hour": "13:27",
         "frequencyHz": 60,
-        "generationMw": 1971.7
+        "generationMw": 2096.5
       },
       {
-        "hour": "11:38",
-        "frequencyHz": 59.9,
-        "generationMw": 1975.7
-      },
-      {
-        "hour": "11:43",
-        "frequencyHz": 60,
-        "generationMw": 1976.3
-      },
-      {
-        "hour": "11:48",
-        "frequencyHz": 60,
-        "generationMw": 1973.5
-      },
-      {
-        "hour": "11:53",
-        "frequencyHz": 60,
-        "generationMw": 1976.6
-      },
-      {
-        "hour": "11:58",
-        "frequencyHz": 60,
-        "generationMw": 1975.4
-      },
-      {
-        "hour": "12:03",
-        "frequencyHz": 59.9,
-        "generationMw": 1988
-      },
-      {
-        "hour": "12:08",
-        "frequencyHz": 60,
-        "generationMw": 1991.8
-      },
-      {
-        "hour": "12:13",
-        "frequencyHz": 59.9,
-        "generationMw": 1992.5
-      },
-      {
-        "hour": "12:18",
-        "frequencyHz": 60,
-        "generationMw": 1991.6
-      },
-      {
-        "hour": "12:23",
-        "frequencyHz": 60,
-        "generationMw": 1986.6
-      },
-      {
-        "hour": "12:28",
-        "frequencyHz": 60,
-        "generationMw": 1986.3
-      },
-      {
-        "hour": "12:33",
-        "frequencyHz": 60,
-        "generationMw": 2004.5
-      },
-      {
-        "hour": "12:38",
-        "frequencyHz": 60,
-        "generationMw": 2018.2
-      },
-      {
-        "hour": "12:43",
-        "frequencyHz": 60,
-        "generationMw": 2014
-      },
-      {
-        "hour": "12:48",
-        "frequencyHz": 59.9,
-        "generationMw": 2037.8
-      },
-      {
-        "hour": "12:53",
-        "frequencyHz": 59.9,
-        "generationMw": 2038.1
-      },
-      {
-        "hour": "12:58",
-        "frequencyHz": 60,
-        "generationMw": 2049.2
-      },
-      {
-        "hour": "13:03",
-        "frequencyHz": 60,
-        "generationMw": 2080.9
-      },
-      {
-        "hour": "13:08",
-        "frequencyHz": 60,
-        "generationMw": 2081.7
-      },
-      {
-        "hour": "13:13",
-        "frequencyHz": 59.9,
-        "generationMw": 2085.8
-      },
-      {
-        "hour": "13:18",
-        "frequencyHz": 59.9,
-        "generationMw": 2096.1
-      },
-      {
-        "hour": "13:23",
-        "frequencyHz": 60,
-        "generationMw": 2093.3
-      },
-      {
-        "hour": "13:28",
-        "frequencyHz": 60,
-        "generationMw": 2099.1
-      },
-      {
-        "hour": "13:33",
+        "hour": "13:32",
         "frequencyHz": 60,
         "generationMw": 2083.1
       },
       {
-        "hour": "13:38",
+        "hour": "13:37",
         "frequencyHz": 60,
-        "generationMw": 2091.5
+        "generationMw": 2093.2
       },
       {
-        "hour": "13:43",
+        "hour": "13:42",
         "frequencyHz": 60,
-        "generationMw": 2101.2
+        "generationMw": 2100.8
       },
       {
-        "hour": "13:48",
+        "hour": "13:47",
         "frequencyHz": 60,
-        "generationMw": 2117.3
+        "generationMw": 2110.7
       },
       {
-        "hour": "13:53",
+        "hour": "13:52",
         "frequencyHz": 60,
-        "generationMw": 2115.4
+        "generationMw": 2114
       },
       {
-        "hour": "13:58",
-        "frequencyHz": 60,
-        "generationMw": 2124.1
-      },
-      {
-        "hour": "14:03",
+        "hour": "13:57",
         "frequencyHz": 59.9,
-        "generationMw": 2130.3
+        "generationMw": 2119.7
       },
       {
-        "hour": "14:08",
+        "hour": "14:02",
         "frequencyHz": 60,
-        "generationMw": 2135.1
+        "generationMw": 2125.4
       },
       {
-        "hour": "14:13",
+        "hour": "14:07",
+        "frequencyHz": 60,
+        "generationMw": 2128.7
+      },
+      {
+        "hour": "14:12",
         "frequencyHz": 59.9,
-        "generationMw": 2142.5
+        "generationMw": 2133.7
       },
       {
-        "hour": "14:18",
-        "frequencyHz": 60,
-        "generationMw": 2160
+        "hour": "14:17",
+        "frequencyHz": 59.9,
+        "generationMw": 2156
       },
       {
-        "hour": "14:23",
+        "hour": "14:22",
         "frequencyHz": 60,
-        "generationMw": 2176.3
+        "generationMw": 2171.3
       },
       {
-        "hour": "14:28",
+        "hour": "14:27",
         "frequencyHz": 60,
-        "generationMw": 2175.8
+        "generationMw": 2175.3
+      },
+      {
+        "hour": "14:32",
+        "frequencyHz": 60,
+        "generationMw": 2180.2
+      },
+      {
+        "hour": "14:37",
+        "frequencyHz": 60,
+        "generationMw": 2199.5
+      },
+      {
+        "hour": "14:42",
+        "frequencyHz": 60,
+        "generationMw": 2205.9
+      },
+      {
+        "hour": "14:47",
+        "frequencyHz": 60,
+        "generationMw": 2207.5
+      },
+      {
+        "hour": "14:52",
+        "frequencyHz": 59.9,
+        "generationMw": 2227.9
+      },
+      {
+        "hour": "14:57",
+        "frequencyHz": 59.9,
+        "generationMw": 2278.9
+      },
+      {
+        "hour": "15:02",
+        "frequencyHz": 60,
+        "generationMw": 2316.9
+      },
+      {
+        "hour": "15:07",
+        "frequencyHz": 60.1,
+        "generationMw": 2329.4
+      },
+      {
+        "hour": "15:12",
+        "frequencyHz": 60,
+        "generationMw": 2332.4
+      },
+      {
+        "hour": "15:17",
+        "frequencyHz": 59.9,
+        "generationMw": 2353.1
+      },
+      {
+        "hour": "15:22",
+        "frequencyHz": 59.9,
+        "generationMw": 2394.8
+      },
+      {
+        "hour": "15:27",
+        "frequencyHz": 60,
+        "generationMw": 2407.3
+      },
+      {
+        "hour": "15:32",
+        "frequencyHz": 60,
+        "generationMw": 2423
       }
     ]
   }
