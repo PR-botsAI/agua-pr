@@ -1,63 +1,63 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-11T05:17:01.624Z",
+  "updatedAt": "2026-09-11T09:44:43.076Z",
   "note": "H2O PR preserves only values reported by PREPA. No mock values, guessed capacities, synthetic trends or invented percentages are added.",
   "generation": {
-    "status": "stale",
+    "status": "live",
     "sourceUrl": "https://operationdata.prepa.pr.gov/dataSource.js",
-    "fetchedAt": "2026-09-11T00:41:16.001Z",
-    "lastSuccessAt": "2026-09-11T00:41:16.001Z",
-    "observedAtRaw": "9/10/2026 8:40:23 PM",
+    "fetchedAt": "2026-09-11T09:44:42.885Z",
+    "lastSuccessAt": "2026-09-11T09:44:42.885Z",
+    "observedAtRaw": "9/11/2026 5:42:33 AM",
     "metrics": [
       {
         "index": "0",
         "description": "Total de Generación",
-        "value": 3092
+        "value": 2425
       },
       {
         "index": "1",
         "description": "PREPA",
-        "value": 70
+        "value": 64
       },
       {
         "index": "2",
         "description": "PPOA",
-        "value": 30
+        "value": 36
       },
       {
         "index": "3",
         "description": "Fossil",
-        "value": 99
+        "value": 100
       },
       {
         "index": "4",
         "description": "Renewable",
-        "value": 1
+        "value": 0
       },
       {
         "index": "5",
         "description": "Reserva en Rotación",
-        "value": 204
+        "value": 483
       },
       {
         "index": "6",
         "description": "Reserva Operacional",
-        "value": 215
+        "value": 878
       },
       {
         "index": "7",
         "description": "Capacidad Disponible",
-        "value": 3307
+        "value": 3297
       },
       {
         "index": "8",
         "description": "Próxima Hora MW",
-        "value": 2978
+        "value": 2310
       },
       {
         "index": "9",
         "description": "Máxima para Hoy",
-        "value": 3138
+        "value": 2680
       },
       {
         "index": "10",
@@ -73,23 +73,23 @@
     "byFuel": [
       {
         "fuel": "Bunker",
-        "value": 13
+        "value": 15
       },
       {
         "fuel": "Diesel",
-        "value": 18
+        "value": 8
       },
       {
         "fuel": "LNG",
-        "value": 54
+        "value": 58
       },
       {
         "fuel": "Coal",
-        "value": 14
+        "value": 19
       },
       {
         "fuel": "Renew",
-        "value": 1
+        "value": 0
       }
     ],
     "sites": [
@@ -97,7 +97,7 @@
         "index": "0",
         "type": "Hidroelectricas",
         "name": "Dos Bocas",
-        "siteTotalMw": 5.34,
+        "siteTotalMw": 0,
         "units": [
           {
             "index": "0",
@@ -109,7 +109,7 @@
           {
             "index": "1",
             "name": "Hidro 2",
-            "mw": 5.34,
+            "mw": 0,
             "mvar": null,
             "cost": 0
           },
@@ -271,12 +271,12 @@
         "index": "6",
         "type": "COGEN",
         "name": "AES",
-        "siteTotalMw": 449,
+        "siteTotalMw": 455,
         "units": [
           {
             "index": "0",
             "name": "Unit 1",
-            "mw": 209,
+            "mw": 215,
             "mvar": null,
             "cost": 6.48
           },
@@ -293,28 +293,28 @@
         "index": "7",
         "type": "COGEN",
         "name": "Ecoelectrica",
-        "siteTotalMw": 449,
+        "siteTotalMw": 423,
         "units": [
           {
             "index": "0",
             "name": "Gas 1",
-            "mw": 152.5,
+            "mw": 146.42,
             "mvar": null,
-            "cost": 6.77
+            "cost": 6.84
           },
           {
             "index": "1",
             "name": "Gas 2",
-            "mw": 152.31,
+            "mw": 146.42,
             "mvar": null,
-            "cost": 6.77
+            "cost": 6.84
           },
           {
             "index": "2",
             "name": "STG",
-            "mw": 145.14,
+            "mw": 130.78,
             "mvar": null,
-            "cost": 6.77
+            "cost": 6.84
           }
         ]
       },
@@ -322,12 +322,12 @@
         "index": "8",
         "type": "Turbina de Gas",
         "name": "Estaciones GT",
-        "siteTotalMw": 238.12,
+        "siteTotalMw": 193.83,
         "units": [
           {
             "index": "0",
             "name": "Palo Seco",
-            "mw": 42.49,
+            "mw": 42.6,
             "mvar": null,
             "cost": 0
           },
@@ -348,16 +348,16 @@
           {
             "index": "3",
             "name": "Jobos",
-            "mw": 18.76,
+            "mw": 0.02,
             "mvar": null,
-            "cost": 36.79
+            "cost": 0
           },
           {
             "index": "4",
             "name": "Daguao",
-            "mw": 29.09,
+            "mw": 0.9,
             "mvar": null,
-            "cost": 37.73
+            "cost": 0
           },
           {
             "index": "5",
@@ -383,7 +383,7 @@
           {
             "index": "8",
             "name": "FEMA GT SJ",
-            "mw": 147.62,
+            "mw": 150.01,
             "mvar": null,
             "cost": 16
           }
@@ -393,7 +393,7 @@
         "index": "9",
         "type": "Turbina de Gas",
         "name": "Mayaguez",
-        "siteTotalMw": 94.3,
+        "siteTotalMw": 0.1,
         "units": [
           {
             "index": "0",
@@ -405,23 +405,23 @@
           {
             "index": "1",
             "name": "Gas 2",
-            "mw": 23.3,
+            "mw": 0,
             "mvar": null,
-            "cost": 41.03
+            "cost": 0
           },
           {
             "index": "2",
             "name": "Gas 3",
-            "mw": 48,
+            "mw": 0.1,
             "mvar": null,
-            "cost": 33.63
+            "cost": 0
           },
           {
             "index": "3",
             "name": "Gas 4",
-            "mw": 23,
+            "mw": 0,
             "mvar": null,
-            "cost": 40.74
+            "cost": 0
           }
         ]
       },
@@ -429,7 +429,7 @@
         "index": "10",
         "type": "Turbina de Gas",
         "name": "Cambalache",
-        "siteTotalMw": 149.85,
+        "siteTotalMw": 1.08,
         "units": [
           {
             "index": "0",
@@ -441,16 +441,16 @@
           {
             "index": "1",
             "name": "Gas 2",
-            "mw": 75.74,
+            "mw": 0,
             "mvar": null,
-            "cost": 34.31
+            "cost": 0
           },
           {
             "index": "2",
             "name": "Gas 3",
-            "mw": 74.11,
+            "mw": 1.08,
             "mvar": null,
-            "cost": 34.46
+            "cost": 0
           }
         ]
       },
@@ -458,35 +458,35 @@
         "index": "11",
         "type": "Ciclo Combinado",
         "name": "San Juan",
-        "siteTotalMw": 361.6,
+        "siteTotalMw": 282.8,
         "units": [
           {
             "index": "0",
             "name": "CTG 5",
-            "mw": 154.5,
+            "mw": 119.3,
             "mvar": null,
-            "cost": 7.92
+            "cost": 8.11
           },
           {
             "index": "1",
             "name": "STG 5",
-            "mw": 49.9,
+            "mw": 43.7,
             "mvar": null,
-            "cost": 7.92
+            "cost": 8.11
           },
           {
             "index": "2",
             "name": "CTG 6",
-            "mw": 157.2,
+            "mw": 119.8,
             "mvar": null,
-            "cost": 31.85
+            "cost": 34.18
           },
           {
             "index": "3",
             "name": "STG 6",
             "mw": 0,
             "mvar": null,
-            "cost": 31.85
+            "cost": 34.18
           }
         ]
       },
@@ -494,21 +494,21 @@
         "index": "12",
         "type": "Ciclo Combinado",
         "name": "Aguirre Stag 1",
-        "siteTotalMw": 144.76,
+        "siteTotalMw": 97.7,
         "units": [
           {
             "index": "0",
             "name": "Gas 1",
-            "mw": 45.64,
+            "mw": 45.54,
             "mvar": null,
-            "cost": 36.2
+            "cost": 36.25
           },
           {
             "index": "1",
             "name": "Gas 2",
-            "mw": 49.04,
+            "mw": 2.27,
             "mvar": null,
-            "cost": 35.83
+            "cost": 68.83
           },
           {
             "index": "2",
@@ -520,9 +520,9 @@
           {
             "index": "3",
             "name": "Gas 4",
-            "mw": 50.08,
+            "mw": 49.89,
             "mvar": null,
-            "cost": 35.59
+            "cost": 35.61
           },
           {
             "index": "4",
@@ -537,7 +537,7 @@
         "index": "13",
         "type": "Ciclo Combinado",
         "name": "Aguirre Stag 2",
-        "siteTotalMw": 78.85,
+        "siteTotalMw": 48.28,
         "units": [
           {
             "index": "0",
@@ -549,9 +549,9 @@
           {
             "index": "1",
             "name": "Gas 2",
-            "mw": 48,
+            "mw": 48.28,
             "mvar": null,
-            "cost": 35.6
+            "cost": 35.83
           },
           {
             "index": "2",
@@ -563,9 +563,9 @@
           {
             "index": "3",
             "name": "Gas 4",
-            "mw": 30.85,
+            "mw": 0,
             "mvar": null,
-            "cost": 40.03
+            "cost": 0
           },
           {
             "index": "4",
@@ -616,7 +616,7 @@
         "index": "15",
         "type": "Vapor",
         "name": "Palo Seco",
-        "siteTotalMw": 130.39,
+        "siteTotalMw": 130.17,
         "units": [
           {
             "index": "0",
@@ -635,7 +635,7 @@
           {
             "index": "2",
             "name": "Unit 3",
-            "mw": 130.39,
+            "mw": 130.17,
             "mvar": null,
             "cost": 17.76
           },
@@ -652,7 +652,7 @@
         "index": "16",
         "type": "Vapor",
         "name": "Aguirre",
-        "siteTotalMw": 268.41,
+        "siteTotalMw": 228.54,
         "units": [
           {
             "index": "0",
@@ -664,9 +664,9 @@
           {
             "index": "1",
             "name": "Unit 2",
-            "mw": 268.41,
+            "mw": 228.54,
             "mvar": null,
-            "cost": 17.79
+            "cost": 18.51
           }
         ]
       },
@@ -674,7 +674,7 @@
         "index": "17",
         "type": "Vapor",
         "name": "Costa Sur",
-        "siteTotalMw": 707.36,
+        "siteTotalMw": 554.92,
         "units": [
           {
             "index": "0",
@@ -686,23 +686,23 @@
           {
             "index": "1",
             "name": "Unit 4",
-            "mw": 0,
+            "mw": 0.06,
             "mvar": null,
             "cost": 0
           },
           {
             "index": "2",
             "name": "Unit 5",
-            "mw": 370.5,
+            "mw": 277.2,
             "mvar": null,
-            "cost": 9.57
+            "cost": 10.09
           },
           {
             "index": "3",
             "name": "Unit 6",
-            "mw": 336.8,
+            "mw": 277.6,
             "mvar": null,
-            "cost": 9.38
+            "cost": 9.77
           }
         ]
       },
@@ -710,19 +710,19 @@
         "index": "18",
         "type": "Renovable",
         "name": "Wind",
-        "siteTotalMw": 22.2,
+        "siteTotalMw": 4.9,
         "units": [
           {
             "index": "0",
             "name": "Pattern",
-            "mw": 7.6,
+            "mw": 0.4,
             "mvar": null,
-            "cost": 16.29
+            "cost": 0
           },
           {
             "index": "1",
             "name": "Punta Lima",
-            "mw": 14.6,
+            "mw": 4.5,
             "mvar": null,
             "cost": 14.7
           }
@@ -732,7 +732,7 @@
         "index": "19",
         "type": "Renovable",
         "name": "Solar",
-        "siteTotalMw": 2.46,
+        "siteTotalMw": 2.45,
         "units": [
           {
             "index": "0",
@@ -744,7 +744,7 @@
           {
             "index": "1",
             "name": "Ilumina",
-            "mw": -0.03,
+            "mw": -0.04,
             "mvar": null,
             "cost": 0
           },
@@ -804,7 +804,7 @@
         "index": "21",
         "type": "Turbina de Gas",
         "name": "Palo Seco",
-        "siteTotalMw": 42.44,
+        "siteTotalMw": 42.73,
         "units": [
           {
             "index": "0",
@@ -823,7 +823,7 @@
           {
             "index": "2",
             "name": "CT Block 3",
-            "mw": -0.03,
+            "mw": 0,
             "mvar": null,
             "cost": 0
           },
@@ -858,14 +858,14 @@
           {
             "index": "7",
             "name": "GT5",
-            "mw": -0.03,
+            "mw": 0.03,
             "mvar": null,
             "cost": 0
           },
           {
             "index": "8",
             "name": "GT6",
-            "mw": -0.03,
+            "mw": 0,
             "mvar": null,
             "cost": 0
           }
@@ -915,105 +915,103 @@
           }
         ]
       }
-    ],
-    "lastAttemptAt": "2026-09-11T05:17:01.476Z",
-    "error": "500 Internal Server Error"
+    ]
   },
   "levels": {
     "status": "live",
     "sourceUrl": "https://operationdata.prepa.pr.gov/dataLevels.js",
-    "fetchedAt": "2026-09-11T05:17:01.521Z",
-    "lastSuccessAt": "2026-09-11T05:17:01.521Z",
-    "observedAtRaw": "9/11/2026 1:16:30 AM",
+    "fetchedAt": "2026-09-11T09:44:42.922Z",
+    "lastSuccessAt": "2026-09-11T09:44:42.922Z",
+    "observedAtRaw": "9/11/2026 5:42:33 AM",
     "reservoirs": [
       {
         "id": "carite",
         "reading": 542.24,
         "readingRaw": "542.24",
-        "difference": 0.15,
-        "differenceRaw": "+0.15"
+        "difference": 0.09,
+        "differenceRaw": "+0.09"
       },
       {
         "id": "patillas",
-        "reading": 66.03,
-        "readingRaw": "66.03",
-        "difference": 0.03,
-        "differenceRaw": "+0.03"
+        "reading": 65.98,
+        "readingRaw": "65.98",
+        "difference": 0.01,
+        "differenceRaw": "+0.01"
       },
       {
         "id": "guineo",
         "reading": 902.42,
         "readingRaw": "902.42",
-        "difference": 0.03,
-        "differenceRaw": "+0.03"
+        "difference": -0.01,
+        "differenceRaw": "-0.01"
       },
       {
         "id": "matrullas",
-        "reading": 734.63,
-        "readingRaw": "734.63",
-        "difference": 0.16,
-        "differenceRaw": "+0.16"
+        "reading": 734.64,
+        "readingRaw": "734.64",
+        "difference": 0.08,
+        "differenceRaw": "+0.08"
       },
       {
         "id": "guayabal",
-        "reading": 102.82,
-        "readingRaw": "102.82",
-        "difference": -0.02,
-        "differenceRaw": "-0.02"
+        "reading": 102.81,
+        "readingRaw": "102.81",
+        "difference": 0.01,
+        "differenceRaw": "+0.01"
       },
       {
         "id": "garzas",
         "reading": 736.05,
         "readingRaw": "736.05",
-        "difference": -0.02,
-        "differenceRaw": "-0.02"
+        "difference": 0.01,
+        "differenceRaw": "+0.01"
       },
       {
         "id": "guayo",
-        "reading": 442.65,
-        "readingRaw": "442.65",
-        "difference": 0.05,
-        "differenceRaw": "+0.05"
+        "reading": 442.64,
+        "readingRaw": "442.64",
+        "difference": 0.04,
+        "differenceRaw": "+0.04"
       },
       {
         "id": "lucchetti",
         "reading": 171.1,
         "readingRaw": "171.10",
-        "difference": -0.06,
-        "differenceRaw": "-0.06"
+        "difference": -0.1,
+        "differenceRaw": "-0.10"
       },
       {
         "id": "loco",
-        "reading": 69.55,
-        "readingRaw": "69.55",
-        "difference": -0.16,
-        "differenceRaw": "-0.16"
+        "reading": 69.47,
+        "readingRaw": "69.47",
+        "difference": 0.02,
+        "differenceRaw": "+0.02"
       },
       {
         "id": "dosbocas",
-        "reading": 89.79,
-        "readingRaw": "89.79",
-        "difference": 0.01,
-        "differenceRaw": "+0.01"
+        "reading": 89.8,
+        "readingRaw": "89.80",
+        "difference": -0.03,
+        "differenceRaw": "-0.03"
       },
       {
         "id": "caonillas",
-        "reading": 251.59,
-        "readingRaw": "251.59",
-        "difference": 0.06,
-        "differenceRaw": "+0.06"
+        "reading": 251.6,
+        "readingRaw": "251.60",
+        "difference": 0.07,
+        "differenceRaw": "+0.07"
       },
       {
         "id": "guajataca",
-        "reading": 196.25,
-        "readingRaw": "196.25",
-        "difference": 0.01,
-        "differenceRaw": "+0.01"
+        "reading": 196.24,
+        "readingRaw": "196.24",
+        "difference": -0.02,
+        "differenceRaw": "-0.02"
       }
     ]
   },
   "history": {
-    "status": "live",
+    "status": "stale",
     "sourceUrl": "https://operationdata.prepa.pr.gov/dataGraph.js",
     "fetchedAt": "2026-09-11T05:17:01.522Z",
     "lastSuccessAt": "2026-09-11T05:17:01.522Z",
@@ -2464,6 +2462,8 @@
         "frequencyHz": 60,
         "generationMw": 2543.9
       }
-    ]
+    ],
+    "lastAttemptAt": "2026-09-11T09:44:42.923Z",
+    "error": "500 Internal Server Error"
   }
 }
